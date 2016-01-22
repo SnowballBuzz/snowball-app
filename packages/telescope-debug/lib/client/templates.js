@@ -127,7 +127,7 @@ $(function () {
   $(document).keydown(function (e) {
     if (!allowKeydown) return;
 
-    if(e.keyCode === 192){
+    if(e.keyCode === 112){
       Telescope.debug.refresh();
       // $("body").addClass("show-highlighters");
     }
@@ -137,7 +137,7 @@ $(function () {
 
   $(document).keyup(function (e) {
     allowKeydown = true;
-    if(e.keyCode === 192){
+    if(e.keyCode === 112){
       // $("body").removeClass("show-highlighters");
       $(".template-highlighter").remove();
     }
