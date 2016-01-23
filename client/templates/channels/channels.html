@@ -2,9 +2,24 @@
     <div class="channels-view">
         <h1> Channels </h1>
         <ul class="channels-list">
-            <li> Channel1 </li>
-            <li> Channel2 </li>
-            <li> Channel3 </li>
+        {{#each channel in ChannelsToDisplay}}
+            <li class="channel-list-item {{GetClassForIsSubscribedTo channel._id}}">
+                <div class="left-side">
+                    <h2 class="name"> {{channel.name}} </h2>
+                    <p class="description"> {{channel.description}} </p>
+                </div>
+                
+                <div class="right-side">
+                    <button class="subscribe-button" channel-id="{{channel._id}}">
+                        {{#if IsSubscribedTo channel._id}}
+                            Subscribed
+                        {{else}}
+                            Subscribe
+                        {{/if}}
+                    </button>
+                </div>
+            </li>
+        {{/each}}
         </ul>
     </div>
 </template>

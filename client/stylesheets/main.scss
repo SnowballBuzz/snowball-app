@@ -14,8 +14,56 @@
             margin: auto;
             color: rgb(74, 68, 68);
         }
-        &:hover p{
+        &:hover p {
             color: white;
+        }
+    }
+}
+
+.nav-to-channel {
+}
+
+.channels-view {
+    h1 {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .channel-list-item {
+        background: white;
+        padding: 10px;
+
+        display: flex;
+        justify-content: space-between;
+
+        .left-side {
+            display: inline-flex;
+            flex-direction: column;
+            margin-right: 1em;
+
+            .name {
+                font-size: large;
+            }
+        }
+        .right-side {
+            display: inline-flex;
+            align-self: center;
+
+            .subscribe-button {
+                width: 7em;
+            }
+        }
+
+        &.subscribed {
+            .subscribe-button {
+                background-color: #666666;
+                color: #DDDDDD;
+                &:hover {
+                    cursor: default;
+                }
+            }
         }
     }
 }
