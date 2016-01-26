@@ -2,18 +2,18 @@ Posts._ensureIndex({"status": 1, "postedAt": 1});
 
 // Publish a list of posts
 
-Meteor.publish('postsList', function(terms) {
+// Meteor.publish('postsList', function(terms) {
 
-  terms.userId = this.userId; // add userId to terms
+//   terms.userId = this.userId; // add userId to terms
   
-  if(Users.can.viewById(this.userId)){
-    var parameters = Posts.parameters.get(terms),
-        posts = Posts.find(parameters.find, parameters.options);
+//   if(Users.can.viewById(this.userId)){
+//     var parameters = Posts.parameters.get(terms),
+//         posts = Posts.find(parameters.find, parameters.options);
 
-    return posts;
-  }
-  return [];
-});
+//     return posts;
+//   }
+//   return [];
+// });
 
 // Publish all the users that have posted the currently displayed list of posts
 // plus the commenters for each post

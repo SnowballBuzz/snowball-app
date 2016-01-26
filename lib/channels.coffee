@@ -44,3 +44,14 @@ Telescope.callbacks.add("postSubmit", (post) ->
         post.categories = [post.categories[0]]
     return post
 )
+
+
+
+Telescope.callbacks.add("postsParameters", (parameters, terms) ->
+    user = Meteor.users.find(terms.userId).fetch()[0]
+    if user?.subscribedChannelsIds? == true
+        parameters.find = {categories: {$in: user.subscribedChannelsIds}}
+    else #user no identified or not subscribed to anything
+        parameters.find = {categories: "only_public"}
+    return parameters
+)
