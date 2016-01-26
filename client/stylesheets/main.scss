@@ -52,7 +52,8 @@
             align-self: center;
 
             .subscribe-button {
-                width: 7em;
+                width: 7.8em;
+                height: 2.6em;
             }
         }
 
@@ -60,9 +61,6 @@
             .subscribe-button {
                 background-color: #666666;
                 color: #DDDDDD;
-                &:hover {
-                    cursor: default;
-                }
             }
         }
     }

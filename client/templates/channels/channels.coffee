@@ -15,8 +15,13 @@ Template.channels.helpers({
 })
 
 Template.channels.events({
-    'click button': (e) ->
+    'click .not-subscribed button': (e) ->
         channelId = $(e.target).attr("channel-id")
         if IsSubscribedTo(channelId) == false
             Meteor.call("subscribeToChannel", channelId)
+
+    'click .subscribed button': (e) ->
+        channelId = $(e.target).attr("channel-id")
+        if IsSubscribedTo(channelId) == true
+            Meteor.call("unsubscribeToChannel", channelId)
 })
