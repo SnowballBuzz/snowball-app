@@ -35,27 +35,27 @@ var createComment = function (slug, username, body, parentBody) {
 };
 
 var createDummyUsers = function () {
-  Accounts.createUser({
-    username: 'Bruce',
-    email: 'dummyuser1@telescopeapp.org',
-    profile: {
-      isDummy: true
-    }
-  });
-  Accounts.createUser({
-    username: 'Arnold',
-    email: 'dummyuser2@telescopeapp.org',
-    profile: {
-      isDummy: true
-    }
-  });
-  Accounts.createUser({
-    username: 'Julia',
-    email: 'dummyuser3@telescopeapp.org',
-    profile: {
-      isDummy: true
-    }
-  });
+  //Accounts.createUser({
+  //  username: 'Bruce',
+  //  email: 'dummyuser1@telescopeapp.org',
+  //  profile: {
+  //    isDummy: true
+  //  }
+  //});
+  //Accounts.createUser({
+  //  username: 'Arnold',
+  //  email: 'dummyuser2@telescopeapp.org',
+  //  profile: {
+  //    isDummy: true
+  //  }
+  //});
+  //Accounts.createUser({
+  //  username: 'Julia',
+  //  email: 'dummyuser3@telescopeapp.org',
+  //  profile: {
+  //    isDummy: true
+  //  }
+  //});
 };
 
 var createDummyPosts = function () {
