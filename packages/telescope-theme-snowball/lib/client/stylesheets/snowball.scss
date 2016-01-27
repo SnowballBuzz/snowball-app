@@ -1,0 +1,38 @@
+$small-break: 600px;
+@mixin small(){
+  @media screen and (max-width: $small-break) {
+    @content;
+  }
+}
+
+@include small{
+  //display: block;
+  ul.mobile-fixed-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background: #fff;
+    li {
+      flex: 1;
+      margin: 0;
+      a {
+        color: #888;
+        display: block;
+        padding: 7px 0;
+        transition: all .3s;
+        &:hover, &.active {
+          color: #ffffff;
+          background: #888;
+        }
+        i {
+          font-size: 24px;
+        }
+        .small-text {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
