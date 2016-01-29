@@ -1,0 +1,7 @@
+<template name="notifications">
+  {{#if isLoggedIn}}
+      <div class="notifications-wrapper">
+        {{> menuComponent menuName="notifications" menuLabel=menuLabel menuItems=menuItems menuType=list expandLevel=1}}
+      </div>
+  {{/if}}
+</template>

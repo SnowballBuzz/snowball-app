@@ -1,0 +1,13 @@
+<template name="sb_post_submit">
+    <div class="logoZoneLeft">
+        <a href="" class="cancelPost">Cancel</a>
+    </div>
+    <div class="logoZoneRight">
+        <a href="#" class="submitPost">Post</a>
+    </div>
+    <div class="form-page post-submit">
+        <div class="grid grid-module">
+          {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method" meteormethod="submitPost" fields=postFields buttonContent=false}}
+        </div>
+    </div>
+</template>

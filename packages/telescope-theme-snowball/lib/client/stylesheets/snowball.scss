@@ -1,37 +1,250 @@
+//variables
 $small-break: 600px;
-@mixin small(){
+$darkgrey: #333;
+$grey: #888;
+$lightgrey: #ddd;
+$white: #fff;
+
+//mixins
+@mixin small() {
   @media screen and (max-width: $small-break) {
     @content;
   }
 }
 
-@include small{
-  //display: block;
+//styles
+html {
+  body {
+    background: $white;
+  }
+  header {
+    color: $grey;
+    border-bottom: 1px solid $lightgrey;
+    box-shadow: none !important;
+    //remove mobile menu button
+    .mobile-menu-button {
+      display: none;
+    }
+  }
+}
+
+.search {
+  &.contentTop-module {
+    display: none;
+    text-align: right;
+    background: $grey;
+    width: 100vw;
+    margin-left: -10px;
+    margin-top: -10px;
+    padding: 10px 20px;
+  }
+  input.search-field {
+    border: 1px solid $lightgrey;
+    background-color: $white !important;
+  }
+}
+
+.notifications-wrapper {
+  padding: 10px;
+  li.menu-item {
+    border-bottom: 1px solid $lightgrey;
+    padding-bottom: 10px;
+  }
+}
+
+//for list-style menus
+.segmented-control {
+  min-width: 150px;
+  padding: 0;
+  border: 1px solid $grey;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  &:before {
+    content: "";
+    //display: block;
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    width: 1px;
+    background: $grey;
+    top: 0px;
+  }
+  ul.menu-items {
+    display: flex;
+    font-size: initial;
+    li.menu-item {
+      flex: 1;
+      margin: 0;
+      &.item-active {
+        a {
+          color: $white;
+        }
+        background: $grey;
+      }
+      .menu-item-label-wrapper {
+        width: 100%;
+        height: 100%;
+        //border: none !important;
+        a {
+          display: block;
+          width: 100%;
+          height: 30px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+  .menu-item-label-description, .menu-label-wrapper, .menu-item-label-text:after {
+    display: none !important;
+  }
+}
+
+//zones in header
+.logoZoneLeft,
+.logoZoneRight {
+  display: none;
+  position: fixed;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  top: 0;
+  z-index: 100;
+  a {
+    color: $grey;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: initial;
+  }
+  @include small {
+    display: block;
+  }
+}
+
+.logoZoneLeft {
+  left: 0;
+}
+
+.logoZoneRight {
+  right: 0;
+}
+
+//mobile menu
+@include small {
   ul.mobile-fixed-menu {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     display: flex;
-    background: #fff;
+    background: $white;
     li {
       flex: 1;
       margin: 0;
+      position: relative;
+      &:hover, &.selected {
+        a {
+          color: $white;
+          background: $grey;
+          .badge {
+            color: $grey;
+            background: $white;
+          }
+        }
+      }
       a {
-        color: #888;
+        color: $grey;
         display: block;
         padding: 7px 0;
         transition: all .3s;
-        &:hover, &.active {
-          color: #ffffff;
-          background: #888;
-        }
         i {
           font-size: 24px;
+          position: relative;
+          .badge {
+            position: absolute;
+            top: 3px;
+            left: -8px;
+            color: $white;
+            height: 12px;
+            width: 12px;
+            border-radius: 12px;
+            font-size: 10px;
+            line-height: 12px;
+          }
         }
         .small-text {
           font-size: 10px;
         }
+      }
+    }
+  }
+}
+
+.main-navbar {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  .nav-item {
+    flex: 1;
+    display: flex;
+    background-color: $lightgrey;
+    &:hover {
+      background-color: $darkgrey;
+    }
+    p {
+      margin: auto;
+      color: $darkgrey;
+    }
+    &:hover p {
+      color: white;
+    }
+  }
+}
+
+.nav-to-channel {
+}
+
+.channels-view {
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .channel-list-item {
+    background: white;
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+
+    .left-side {
+      display: inline-flex;
+      flex-direction: column;
+      margin-right: 1em;
+
+      .name {
+        font-size: large;
+      }
+    }
+    .right-side {
+      display: inline-flex;
+      align-self: center;
+
+      .subscribe-button {
+        width: 7.8em;
+        height: 2.6em;
+      }
+    }
+
+    &.subscribed {
+      .subscribe-button {
+        background-color: $grey;
+        color: $lightgrey;
       }
     }
   }

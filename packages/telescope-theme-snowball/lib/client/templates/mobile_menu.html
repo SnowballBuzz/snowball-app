@@ -1,0 +1,34 @@
+<template name="mobile_menu">
+    <ul class="mobile-fixed-menu mobile-only">
+        <li class="mobile-menu-feed {{selected 'postsDefault'}}">
+            <a href="{{pathFor 'postsDefault'}}">
+                <i class="fa fa-inbox"></i><br>
+                <span class="small-text">Feed</span>
+            </a>
+        </li>
+        <li class="mobile-menu-channels {{selected 'Channels'}}">
+            <a href="{{pathFor 'Channels'}}">
+                <i class="fa fa-tags"></i><br>
+                <span class="small-text">Channels</span>
+            </a>
+        </li>
+        <li class="mobile-menu-post {{selected 'postSubmit'}}t">
+            <a href="{{pathFor 'postSubmit'}}">
+                <i class="fa fa-edit"></i><br>
+                <span class="small-text">Post</span>
+            </a>
+        </li>
+        <li class="mobile-menu-notifications {{selected 'Notifications'}}">
+            <a href="{{pathFor 'Notifications'}}">
+                <i class="fa fa-bell-o"><span class="notification-count badge">{{notificationCount}}</span></i><br>
+                <span class="small-text">Notifications</span>
+            </a>
+        </li>
+        <li class="mobile-menu-profile {{selected 'userProfile'}}">
+            <a href="{{pathFor 'userProfile' _idOrSlug=currentUser._id}}">
+                <i class="fa fa-user"></i><br>
+                <span class="small-text">Profile</span>
+            </a>
+        </li>
+    </ul>
+</template>

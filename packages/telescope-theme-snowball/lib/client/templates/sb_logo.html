@@ -1,0 +1,16 @@
+<template name="sb_logo">
+    <div class="logo header-module">
+      <!--{{> modules zone="logoZoneLeft"}}-->
+      {{#if routeIs 'postsDefault'}}
+          <div class="segmented-control">
+            {{> menuComponent menuName="view" menuLabel=menuLabel menuItems=menuItems menuType="list"}}</div>
+      {{else}}
+        {{#if customTitle}}
+            <h1 class="logo-text"><a>{{customTitle}}</a></h1>
+        {{else}}
+            <h1 class="logo-text"><a href="/">{{getSetting "title" "Telescope"}}</a></h1>
+        {{/if}}
+      {{/if}}
+      <!--{{> modules zone="logoZoneRight"}}-->
+    </div>
+</template>

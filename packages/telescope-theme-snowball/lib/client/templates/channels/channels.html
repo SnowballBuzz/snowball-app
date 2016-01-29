@@ -1,6 +1,11 @@
 <template name="channels">
+    <div class="logoZoneLeft">
+        <a href="{{pathFor 'adminCategories'}}" class="addChannel"><i class="fa fa-plus-circle"></i></a>
+    </div>
+    <div class="logoZoneRight">
+        <a href="#" class="showChannelSearch"><i class="fa fa-search"></i></a>
+    </div>
     <div class="channels-view">
-        <h1> Channels </h1>
         <ul class="channels-list">
         {{#each channel in ChannelsToDisplay}}
             <li class="channel-list-item {{GetClassForIsSubscribedTo channel._id}}">
@@ -8,7 +13,7 @@
                     <h2 class="name"> {{channel.name}} </h2>
                     <p class="description"> {{channel.description}} </p>
                 </div>
-                
+
                 <div class="right-side">
                     <button class="subscribe-button" channel-id="{{channel._id}}">
                         {{#if IsSubscribedTo channel._id}}
