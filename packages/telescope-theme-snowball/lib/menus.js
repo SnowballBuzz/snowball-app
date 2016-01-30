@@ -1,11 +1,4 @@
-Telescope.modules.removeAll("primaryNav");
-
 Telescope.modules.add("primaryNav", [
-  {
-    template: 'navToChannels',
-    order: 1
-  }, {
-    template: 'search',
-    order: 2
-  }
+  {template: 'navToChannels', order: 2},
+  {template: 'nav_to_feed', order: 1}
 ]);

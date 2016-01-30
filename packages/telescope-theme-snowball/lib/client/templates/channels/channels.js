@@ -46,5 +46,8 @@ Template.channels.events({
   },
   'click .showChannelSearch': function(){
     $('.search.contentTop-module').slideToggle(200);
+  },
+  'click .addChannel': function(){
+
   }
 });

@@ -1,4 +1,8 @@
 //variables
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans);
+
+$bodyfont: Open Sans, sans serif;
+$headerfont: Montserrat, sans serif;
 $small-break: 600px;
 $darkgrey: #333;
 $grey: #888;
@@ -16,6 +20,12 @@ $white: #fff;
 html {
   body {
     background: $white;
+    font-family: $bodyfont;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $headerfont;
+    font-weight: lighter;
+    text-transform: uppercase;
   }
   header {
     color: $grey;
@@ -49,6 +59,23 @@ html {
   li.menu-item {
     border-bottom: 1px solid $lightgrey;
     padding-bottom: 10px;
+  }
+}
+
+//post styles
+.post-vote {
+  order: initial !important;
+  .vote-actions {
+    border: none;
+  }
+}
+span.post-comment{
+  float: right;
+  font-size: 16px;
+  color: #888;
+  margin-left: 20px;
+  i{
+    margin-right: 5px;
   }
 }
 

@@ -15,11 +15,17 @@ var getMenuItems = function () {
   return viewableItems;
 };
 
-Template.logo.onCreated(function () {
+Template.layout.onCreated(function () {
   Tracker.autorun(function () {
-    //FlowRouter.watchPathChange();
+    FlowRouter.watchPathChange();
     var currentContext = FlowRouter.current();
-    console.log(currentContext);
+    //console.log(currentContext);
+    //keep track of history
+    Tracker.nonreactive(function () {
+      var history = Session.get('pathHistory') || [];
+      history.push(currentContext.path);
+      Session.set('pathHistory', history);
+    });
     switch (currentContext.route.path) {
       case '/channels':
         Session.set('customTitle', 'Channels');
@@ -33,6 +39,9 @@ Template.logo.onCreated(function () {
       case "/users/:_idOrSlug":
         Session.set('customTitle', 'Profile');
         break;
+      case "/posts/:_id/:slug?":
+            Session.set('customTitle', "What If...");
+            break;
       default:
         Session.set('customTitle', null);
     }
@@ -58,7 +67,7 @@ Template.logo.helpers({
       return Session.get('customTitle');
     }
   },
-  zoneLeft: function(){
+  zoneLeft: function () {
     //var route = FlowRouter.current().route.path;
     switch (route) {
       case '/channels':
@@ -73,7 +82,7 @@ Template.logo.helpers({
         return false;
     }
   },
-  zoneRight: function(){
+  zoneRight: function () {
     //var route = FlowRouter.current().route.path;
     switch (route) {
       case '/':
