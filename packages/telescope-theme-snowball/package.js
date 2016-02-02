@@ -15,8 +15,10 @@ Package.onUse(function (api) {
   api.use([
     'telescope:core',
     'telescope:notifications',
+    'telescope:tags',
     'aldeed:simple-schema',
-    'aldeed:autoform'
+    'aldeed:autoform',
+    'easy:search'
   ], ['client', 'server']);
 
   api.addAssets([
@@ -30,7 +32,6 @@ Package.onUse(function (api) {
     'lib/shared_methods/method_subscribe_to_channel.js',
     'lib/shared_methods/update_share_count.js',
     'lib/channels.js',
-    'lib/menus.js',
     'lib/snowball_config.js',
     'lib/modules.js',
     'lib/client/routes.js',
@@ -51,19 +52,24 @@ Package.onUse(function (api) {
     //templates
     ////layout
     'lib/client/templates/sb_layout.html',
+    'lib/client/templates/sb_header.html',
     ////mobile menu
     'lib/client/templates/mobile_menu.html',
     'lib/client/templates/mobile_menu.js',
     ////channels
     'lib/client/templates/channels/channels.html',
-    'lib/client/templates/channels/sb_categories_admin.html',
     'lib/client/templates/channels/channels.js',
+    'lib/client/templates/channels/sb_categories_admin.html',
+    'lib/client/templates/channels/sb_categories_admin.js',
+    'lib/channelsSearchIndex.js',
     ////main navbar
     'lib/client/templates/main_navbar/nav_to_channels.html',
     'lib/client/templates/main_navbar/nav_to_feed.html',
     ////notifications
     'lib/client/templates/notifications.html',
     'lib/client/templates/notifications.js',
+    'lib/client/templates/sb_notifications_menu.html',
+    'lib/client/templates/sb_notifications_menu.js',
     ////logo template with title override
     'lib/client/templates/sb_logo.html',
     'lib/client/templates/sb_logo.js',
@@ -76,6 +82,7 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/sb_post_content.html',
     'lib/client/templates/posts/post_tweet.html',
     'lib/client/templates/posts/post_tweet.js',
+    'lib/client/templates/posts/sb_submit_button.html',
 
     //froala wysiwyg
     'lib/client/froala/froala_form.html',

@@ -1,6 +1,4 @@
-var IsSubscribedTo;
-
-IsSubscribedTo = function(channelId) {
+var IsSubscribedTo = function (channelId) {
   if ((Meteor.user().subscribedChannelsIds != null) === false) {
     return false;
   } else {
@@ -8,46 +6,60 @@ IsSubscribedTo = function(channelId) {
   }
 };
 
-Template.channels.onCreated(function(){
+Template.channels.onCreated(function () {
   Telescope.modules.add("titleArea", {
     template: "title",
     order: 10
   });
+  Session.setDefault('searchQuery', '');
 });
 
 Template.channels.helpers({
-  ChannelsToDisplay: function() {
+  ChannelsToDisplay: function () {
     return Categories.find().fetch();
   },
   IsSubscribedTo: IsSubscribedTo,
-  GetClassForIsSubscribedTo: function(channelId) {
+  GetClassForIsSubscribedTo: function (channelId) {
     if (IsSubscribedTo(channelId)) {
       return "subscribed";
     } else {
       return "not-subscribed";
     }
+  },
+  channels: function () {
+    //todo: will need to limit this eventually
+    return ChannelsIndex.search(Session.get('searchQuery'), {}).fetch().sort(function(a,b){
+      if(IsSubscribedTo(a._id) && IsSubscribedTo(b._id)){
+        return 0;
+      } else if(!IsSubscribedTo(a._id) && IsSubscribedTo(b._id)){
+        return 1;
+      } else if(IsSubscribedTo(a._id) && !IsSubscribedTo(b._id)){
+        return -1;
+      }
+    });
   }
 });
 
 Template.channels.events({
-  'click .not-subscribed button': function(e) {
+  'click .not-subscribed button': function (e) {
     var channelId;
     channelId = $(e.target).attr("channel-id");
     if (IsSubscribedTo(channelId) === false) {
       return Meteor.call("subscribeToChannel", channelId);
     }
   },
-  'click .subscribed button': function(e) {
+  'click .subscribed button': function (e) {
     var channelId;
     channelId = $(e.target).attr("channel-id");
     if (IsSubscribedTo(channelId) === true) {
       return Meteor.call("unsubscribeToChannel", channelId);
     }
   },
-  'click .showChannelSearch': function(){
-    $('.search.contentTop-module').slideToggle(200);
+  'click .showChannelSearch': function () {
+    $('.channels-header').slideToggle(200);
+    $('#search').focus();
   },
-  'click .addChannel': function(){
-
-  }
+  'keyup #search_channels': _.debounce(function (e, t) {
+    Session.set('searchQuery', e.target.value);
+  }, 200)
 });

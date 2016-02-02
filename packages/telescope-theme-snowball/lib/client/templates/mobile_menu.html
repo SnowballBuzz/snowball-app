@@ -2,31 +2,31 @@
     <ul class="mobile-fixed-menu mobile-only">
         <li class="mobile-menu-feed {{selected 'postsDefault'}}">
             <a href="{{pathFor 'postsDefault'}}">
-                <i class="fa fa-inbox"></i><br>
+                <i class="fa fa-inbox primary"></i><br>
                 <span class="small-text">Feed</span>
             </a>
         </li>
         <li class="mobile-menu-channels {{selected 'Channels'}}">
             <a href="{{pathFor 'Channels'}}">
-                <i class="fa fa-tags"></i><br>
+                <i class="fa fa-tags primary"></i><br>
                 <span class="small-text">Channels</span>
             </a>
         </li>
         <li class="mobile-menu-post {{selected 'postSubmit'}}">
             <a href="{{pathFor 'postSubmit'}}">
-                <i class="fa fa-edit"></i><br>
+                <i class="fa fa-edit primary"></i><br>
                 <span class="small-text">Post</span>
             </a>
         </li>
         <li class="mobile-menu-notifications {{selected 'Notifications'}}">
             <a href="{{pathFor 'Notifications'}}">
-                <i class="fa fa-bell-o">{{#if notificationCount}}<span class="notification-count badge">{{notificationCount}}</span>{{/if}}</i><br>
+                <i class="fa fa-bell-o primary">{{#if notificationCount}}<span class="notification-count badge">{{notificationCount}}</span>{{/if}}</i><br>
                 <span class="small-text">Notifications</span>
             </a>
         </li>
         <li class="mobile-menu-profile {{selected 'userProfile'}}">
             <a href="{{pathFor 'userProfile' _idOrSlug=currentUser._id}}">
-                <i class="fa fa-user"></i><br>
+                <i class="fa fa-user primary"></i><br>
                 <span class="small-text">Profile</span>
             </a>
         </li>

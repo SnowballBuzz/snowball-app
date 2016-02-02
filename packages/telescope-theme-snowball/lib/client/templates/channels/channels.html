@@ -6,25 +6,35 @@
         <a href="#" class="showChannelSearch"><i class="fa fa-search"></i></a>
     </div>
     <div class="channels-view">
+        <div class="channels-header clearfix">
+            <a href="{{pathFor 'AddChannels'}}" class="btn btn-secondary addChannel desktop-only pull-left">
+                <i class="fa fa-plus-circle"></i>
+                &nbsp;&nbsp;Add Channel
+            </a>
+            <div class="search {{searchQueryEmpty}} {{moduleClass}} pull-right">
+                <input id="search_channels" type="search" class="search-field" placeholder="{{_ 'search'}}"
+                       value="{{searchQuery}}">
+            </div>
+        </div>
         <ul class="channels-list">
-        {{#each channel in ChannelsToDisplay}}
-            <li class="channel-list-item {{GetClassForIsSubscribedTo channel._id}}">
-                <div class="left-side">
-                    <h2 class="name"> {{channel.name}} </h2>
-                    <p class="description"> {{channel.description}} </p>
-                </div>
+          {{#each channels}}
+              <li class="channel-list-item {{GetClassForIsSubscribedTo _id}}">
+                  <div class="left-side">
+                      <h2 class="name"> {{name}} </h2>
+                      <p class="description"> {{description}} </p>
+                  </div>
 
-                <div class="right-side">
-                    <button class="subscribe-button" channel-id="{{channel._id}}">
-                        {{#if IsSubscribedTo channel._id}}
+                  <div class="right-side">
+                      <button class="subscribe-button" channel-id="{{_id}}">
+                        {{#if IsSubscribedTo _id}}
                             Unsubscribe
                         {{else}}
                             Subscribe
                         {{/if}}
-                    </button>
-                </div>
-            </li>
-        {{/each}}
+                      </button>
+                  </div>
+              </li>
+          {{/each}}
         </ul>
     </div>
 </template>

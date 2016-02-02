@@ -6,15 +6,15 @@
 }
 
 @font-face {
-  font-family: Open Sans;
-  src: url('/packages/telescope-theme-snowball/fonts/OpenSans-Light.ttf');
-  font-weight: lighter;
+  font-family: Montserrat;
+  src: url('/packages/telescope-theme-snowball/fonts/Montserrat-Bold.ttf');
+  font-weight: bolder;
 }
 
 @font-face {
-  font-family: Montserrat;
-  src: url('/packages/telescope-theme-snowball/fonts/Montserrat-Bold.ttf');
-  font-weight: bold;
+  font-family: Open Sans;
+  src: url('/packages/telescope-theme-snowball/fonts/OpenSans-Light.ttf');
+  font-weight: lighter;
 }
 
 $bodyfont: Open Sans, sans serif;
@@ -32,6 +32,11 @@ $white: #fff;
   }
 }
 
+.btn-secondary {
+  border: 1px solid $grey;
+  color: $grey;
+}
+
 //styles
 html {
   body {
@@ -47,9 +52,31 @@ html {
     color: $grey;
     border-bottom: 1px solid $lightgrey;
     box-shadow: none !important;
-    //remove mobile menu button
-    .mobile-menu-button {
-      display: none;
+    display: block !important;
+    a {
+      line-height: 48px;
+    }
+    .content-wrapper {
+      @include small {
+        padding-top: 0;
+      }
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      .header-module {
+        order: initial !important;
+        flex-grow: 1;
+        .secondary-nav {
+          text-align: center;
+        }
+        &.logo {
+          //padding-top: 9px;
+        }
+        .primaryNav-module,
+        .secondaryNav-module {
+          display: inline-block;
+        }
+      }
     }
   }
 }
@@ -120,7 +147,7 @@ html {
           width: auto !important;
           border-top: 0;
           display: inline-block;
-          h4{
+          h4 {
             font-family: $bodyfont;
             font-size: 14px;
             color: $darkgrey;
@@ -134,7 +161,7 @@ html {
       a.tweet-post {
         padding: 2px 3px;
         display: block;
-        h4{
+        h4 {
           font-family: $bodyfont;
           font-size: 14px;
           color: $darkgrey;
@@ -148,8 +175,8 @@ html {
 }
 
 #submitPostForm {
-  @include small{
-    button[type="submit"]{
+  @include small {
+    button[type="submit"] {
       display: none;
     }
   }
@@ -173,11 +200,15 @@ html {
   }
 }
 
+.post-rank {
+  display: none;
+}
+
 .list {
   .post {
     display: block;
     .post-body {
-      padding:10px 0;
+      padding: 10px 0;
       margin: 0;
       box-shadow: none;
       display: block;
@@ -185,8 +216,8 @@ html {
       font-weight: lighter;
       font-size: 14px;
       color: $darkgrey;
-      ul{
-        li{
+      ul {
+        li {
           margin: 0;
         }
       }
@@ -202,6 +233,7 @@ html {
   border-radius: 5px;
   overflow: hidden;
   position: relative;
+  margin-top: 8px;
   &:before {
     content: "";
     //display: block;
@@ -273,6 +305,24 @@ html {
   right: 0;
 }
 
+//icon with badge
+i.primary {
+  font-size: 24px;
+  position: relative;
+  .badge {
+    position: absolute;
+    top: 3px;
+    left: -8px;
+    color: $white;
+    height: 12px;
+    width: 12px;
+    border-radius: 12px;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+  }
+}
+
 //mobile menu
 @include small {
   ul.mobile-fixed-menu {
@@ -302,21 +352,6 @@ html {
         display: block;
         padding: 7px 0;
         transition: all .3s;
-        i {
-          font-size: 24px;
-          position: relative;
-          .badge {
-            position: absolute;
-            top: 3px;
-            left: -8px;
-            color: $white;
-            height: 12px;
-            width: 12px;
-            border-radius: 12px;
-            font-size: 10px;
-            line-height: 12px;
-          }
-        }
         .small-text {
           font-size: 10px;
         }
@@ -350,15 +385,51 @@ html {
 .nav-to-channel {
 }
 
-.template-AddChannels{
-  @include small{
-    button[type="submit"]{
+.template-AddChannels {
+  @include small {
+    button[type="submit"] {
       display: none !important;
     }
   }
 }
 
 .channels-view {
+  .channels-header {
+    @include small{
+      display: none;
+      margin-top: -10px;
+      .search{
+        margin-top: 0;
+      }
+    }
+    padding: 10px 0;
+    position: relative;
+    &:before {
+      content: "";
+      display: block;
+      width: 200vw;
+      position: absolute;
+      top: 0;
+      left: -100vw;
+      right: 100vw;
+      height: 100%;
+      background: $grey;
+      z-index: -1;
+    }
+    .search {
+      margin-top: 8px;
+    }
+    .addChannel {
+      color: $white;
+      border-color: $white;
+    }
+  }
+  @include small {
+    .btn.addChannel {
+
+    }
+  }
+
   h1 {
     text-align: center;
     text-transform: uppercase;
@@ -368,10 +439,11 @@ html {
 
   .channel-list-item {
     background: white;
-    padding: 10px;
+    padding: 10px 0;
 
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid lightgrey;
 
     .left-side {
       display: inline-flex;
@@ -385,17 +457,21 @@ html {
     .right-side {
       display: inline-flex;
       align-self: center;
-
       .subscribe-button {
         width: 7.8em;
         height: 2.6em;
+        color: $darkgrey;
+        border: 1px solid $darkgrey;
+        background: $white;
+        transition: all .3s;
       }
     }
 
     &.subscribed {
       .subscribe-button {
+        border: none;
         background-color: $grey;
-        color: $lightgrey;
+        color: $white;
       }
     }
   }

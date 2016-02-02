@@ -42,6 +42,9 @@ Template.layout.onCreated(function () {
       case "/posts/:_id/:slug?":
             Session.set('customTitle', "What If...");
             break;
+      case "/channels/add":
+        Session.set('customTitle', "Add Channel");
+        break;
       default:
         Session.set('customTitle', null);
     }

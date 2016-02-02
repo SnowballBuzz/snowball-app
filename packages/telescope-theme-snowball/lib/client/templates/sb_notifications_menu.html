@@ -1,0 +1,7 @@
+<template name="sb_notifications_menu">
+  {{#if isLoggedIn}}
+      <div class="notifications-menu-wrapper {{moduleClass}}">
+        {{> menuComponent menuName="notifications" menuLabel=menuLabel2 menuItems=menuItems menuType=menuType expandLevel=0}}
+      </div>
+  {{/if}}
+</template>

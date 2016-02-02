@@ -1,19 +1,13 @@
 <template name="sb_header">
     <header class="header {{headerClass}}">
-
-        <a href="#menu" class="mobile-only mobile-menu-button button">
-          {{{icon "menu"}}}
-        </a>
-
-      {{> logo}}
-
-      {{#if hasPrimaryNav}}
-        {{> modules zone="primaryNav" zoneClass="nav primary-nav desktop-nav header-module desktop-only" moduleClass="header-submodule"}}
-      {{/if}}
-
-      {{#if hasSecondaryNav}}
-        {{> modules zone="secondaryNav" zoneClass="nav secondary-nav desktop-nav header-module desktop-only" moduleClass="header-submodule"}}
-      {{/if}}
-
+        <div class="content-wrapper">
+          {{#if hasPrimaryNav}}
+            {{> modules zone="primaryNav" zoneClass="desktop-only nav desktop-nav header-module primary-nav " moduleClass="header-submodule"}}
+          {{/if}}
+          {{> logo}}
+          {{#if hasSecondaryNav}}
+            {{> modules zone="secondaryNav" zoneClass="desktop-only nav desktop-nav secondary-nav " moduleClass="header-submodule"}}
+          {{/if}}
+        </div>
     </header>
 </template>

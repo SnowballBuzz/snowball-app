@@ -1,7 +1,9 @@
 //reset
 Telescope.modules.removeAll("primaryNav");
+Telescope.modules.removeAll("secondaryNav");
 Telescope.modules.removeAll("postHeading");
 Telescope.modules.removeAll("postMeta");
+Telescope.modules.removeAll("mobileNav");
 //Telescope.modules.removeAll('postComponents');
 
 
@@ -22,8 +24,12 @@ Telescope.modules.add("primaryNav", [
   {template: 'nav_to_feed', order: 1}
 ]);
 //right nav
+//maybe I'll just keep the appearing search menu
 Telescope.modules.add('secondaryNav', [
-  {template: 'search', order: 20}
+  {template: 'notifications_menu', order: 10},
+  {template: 'search', order: 15},
+  {template: 'submit_button', order: 20},
+  {template: 'user_menu', order: 30}
 ]);
 //hidden
 Telescope.modules.add('contentTop', {template: 'search', order: 20});
