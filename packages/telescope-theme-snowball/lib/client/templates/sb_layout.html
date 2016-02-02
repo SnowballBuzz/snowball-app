@@ -1,4 +1,5 @@
 <template name="sb_layout">
+    {{#if currentUser}}{{/if}}
   {{#if appIsReady}}
     {{> css}}
       <div class="outer-wrapper {{currentPage}} {{navLayout}}">

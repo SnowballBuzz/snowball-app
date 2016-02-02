@@ -5,11 +5,11 @@ var getNotifications = function () {
 Template.mobile_menu.helpers({
   notificationCount: function () {
     var notifications = getNotifications();
-    console.log(notifications);
+    //console.log(notifications);
     return notifications.length;
   },
-  selected: function(pathName){
-    return FlowRouter.getRouteName() === pathName? 'selected': '';
+  selected: function (pathName) {
+    return FlowRouter.getRouteName() === pathName ? 'selected' : '';
   }
 });
 

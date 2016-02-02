@@ -1,0 +1,15 @@
+<template name="sb_categories_admin">
+    <div class="logoZoneLeft">
+        <a href="" class="cancelChannel">Cancel</a>
+    </div>
+    <div class="logoZoneRight">
+        <a href="#" class="submitChannel">Add</a>
+    </div>
+    <div class="add-category">
+        <h3>Add new channel:</h3>
+      {{> quickForm collection="Categories" id="insertCategoryForm" type="insert" label-class="control-label" input-col-class="controls" template="bootstrap3-horizontal"}}
+    </div>
+    <div class="categories-list">
+      <!--{{> menuComponent menuName="categoriesAdmin" menuItems=menuItems menuType="list"}}-->
+    </div>
+</template>

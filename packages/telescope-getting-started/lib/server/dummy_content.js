@@ -35,27 +35,27 @@ var createComment = function (slug, username, body, parentBody) {
 };
 
 var createDummyUsers = function () {
-  //Accounts.createUser({
-  //  username: 'Bruce',
-  //  email: 'dummyuser1@telescopeapp.org',
-  //  profile: {
-  //    isDummy: true
-  //  }
-  //});
-  //Accounts.createUser({
-  //  username: 'Arnold',
-  //  email: 'dummyuser2@telescopeapp.org',
-  //  profile: {
-  //    isDummy: true
-  //  }
-  //});
-  //Accounts.createUser({
-  //  username: 'Julia',
-  //  email: 'dummyuser3@telescopeapp.org',
-  //  profile: {
-  //    isDummy: true
-  //  }
-  //});
+  Accounts.createUser({
+    username: 'Bruce',
+    email: 'dummyuser1@telescopeapp.org',
+    profile: {
+      isDummy: true
+    }
+  });
+  Accounts.createUser({
+    username: 'Arnold',
+    email: 'dummyuser2@telescopeapp.org',
+    profile: {
+      isDummy: true
+    }
+  });
+  Accounts.createUser({
+    username: 'Julia',
+    email: 'dummyuser3@telescopeapp.org',
+    profile: {
+      isDummy: true
+    }
+  });
 };
 
 var createDummyPosts = function () {
@@ -109,9 +109,9 @@ Meteor.methods({
 Meteor.startup(function () {
   // insert dummy content only if createDummyContent hasn't happened and there aren't any posts in the db
   if (!Events.findOne({name: 'createDummyContent'}) && !Posts.find().count()) {
-    createDummyUsers();
-    createDummyPosts();
-    createDummyComments();
+    //createDummyUsers();
+    //createDummyPosts();
+    //createDummyComments();
     Events.log({name: 'createDummyContent', unique: true, important: true});
   }
 });

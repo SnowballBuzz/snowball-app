@@ -9,9 +9,12 @@
                 </h4>
             </a>
           {{#if enableDownvotes}}
-              <a class="vote-action downvote-link" href="#" title="{{_ "downvote_"}}">
-                {{{icon "downvote"}}}
-                  <span class="sr-only">{{_ "downvote_"}}</span>
+              <a class="vote-action downvote-link" href="#" title="{{_ "downvote"}}">
+                  <h4>
+                    {{{icon "downvote"}}}
+                      <span class="sr-only">{{_ "downvote_"}}</span>
+                      Downvote
+                  </h4>
               </a>
           {{/if}}
         </div>

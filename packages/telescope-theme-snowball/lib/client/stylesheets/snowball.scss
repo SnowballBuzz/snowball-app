@@ -1,12 +1,28 @@
 //variables
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans);
+@font-face {
+  font-family: Open Sans;
+  src: url('/packages/telescope-theme-snowball/fonts/OpenSans-Semibold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Open Sans;
+  src: url('/packages/telescope-theme-snowball/fonts/OpenSans-Light.ttf');
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url('/packages/telescope-theme-snowball/fonts/Montserrat-Bold.ttf');
+  font-weight: bold;
+}
 
 $bodyfont: Open Sans, sans serif;
 $headerfont: Montserrat, sans serif;
 $small-break: 600px;
-$darkgrey: #333;
-$grey: #888;
-$lightgrey: #ddd;
+$darkgrey: #404040;
+$grey: #707070;
+$lightgrey: #999;
 $white: #fff;
 
 //mixins
@@ -63,19 +79,118 @@ html {
 }
 
 //post styles
-.post-vote {
-  order: initial !important;
-  .vote-actions {
-    border: none;
+.post-content {
+  .post-heading {
+    position: relative;
+    .post-categories {
+    }
+    //comment count & time ago
+    .post-info {
+      position: absolute;
+      right: 0;
+      top: 0;
+      span.post-comments {
+        font-size: 16px;
+        color: $lightgrey;
+        margin-left: 20px;
+        i {
+          margin-right: 5px;
+        }
+      }
+    }
+    //title
+    .post-title {
+      font-weight: bold;
+      font-size: 120%;
+      display: block;
+      &:hover {
+        color: inherit !important;
+      }
+    }
+  }
+  //upvote, share, admin tools
+  .post-meta {
+    display: block;
+    .post-vote {
+      float: left;
+      order: initial !important;
+      .vote-actions {
+        border: none;
+        .vote-action {
+          width: auto !important;
+          border-top: 0;
+          display: inline-block;
+          h4{
+            font-family: $bodyfont;
+            font-size: 14px;
+            color: $darkgrey;
+          }
+        }
+      }
+    }
+    .post-share {
+      float: left;
+      display: block !important;
+      a.tweet-post {
+        padding: 2px 3px;
+        display: block;
+        h4{
+          font-family: $bodyfont;
+          font-size: 14px;
+          color: $darkgrey;
+        }
+      }
+    }
+    .post-admin {
+      float: right;
+    }
   }
 }
-span.post-comments{
-  float: right;
-  font-size: 16px;
-  color: #888;
-  margin-left: 20px;
-  i{
-    margin-right: 5px;
+
+#submitPostForm {
+  @include small{
+    button[type="submit"]{
+      display: none;
+    }
+  }
+  .fr-box {
+    //hide froala register notice temporarily
+    & > div:nth-child(4) {
+      display: none !important;
+    }
+    ul {
+      list-style-type: disc;
+    }
+    &.title-input {
+      font-size: 24px;
+    }
+    &.body-input {
+      font-size: 20px;
+    }
+    .fr-counter {
+      float: right;
+    }
+  }
+}
+
+.list {
+  .post {
+    display: block;
+    .post-body {
+      padding:10px 0;
+      margin: 0;
+      box-shadow: none;
+      display: block;
+      font-family: Open Sans;
+      font-weight: lighter;
+      font-size: 14px;
+      color: $darkgrey;
+      ul{
+        li{
+          margin: 0;
+        }
+      }
+    }
   }
 }
 
@@ -167,6 +282,7 @@ span.post-comments{
     right: 0;
     display: flex;
     background: $white;
+    z-index: 100;
     li {
       flex: 1;
       margin: 0;
@@ -232,6 +348,14 @@ span.post-comments{
 }
 
 .nav-to-channel {
+}
+
+.template-AddChannels{
+  @include small{
+    button[type="submit"]{
+      display: none !important;
+    }
+  }
 }
 
 .channels-view {

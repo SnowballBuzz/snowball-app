@@ -1,0 +1,10 @@
+<template name="sb_post_content">
+    <div class="post-content {{moduleClass}}">
+      {{> modules zone="postThumbnail" moduleData=this}}
+        <div class="post-info">
+          {{> modules zone="postHeading" zoneClass="post-heading" moduleData=this}}
+            <!--just added clearfix-->
+          {{> modules zone="postMeta" zoneClass="post-meta clearfix" moduleClass="post-meta-item" moduleData=this}}
+        </div>
+    </div>
+</template>

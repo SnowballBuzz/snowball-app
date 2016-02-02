@@ -20,7 +20,7 @@
         </li>
         <li class="mobile-menu-notifications {{selected 'Notifications'}}">
             <a href="{{pathFor 'Notifications'}}">
-                <i class="fa fa-bell-o"><span class="notification-count badge">{{notificationCount}}</span></i><br>
+                <i class="fa fa-bell-o">{{#if notificationCount}}<span class="notification-count badge">{{notificationCount}}</span>{{/if}}</i><br>
                 <span class="small-text">Notifications</span>
             </a>
         </li>

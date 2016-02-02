@@ -6,6 +6,14 @@ FlowRouter.route('/channels', {
     });
   }
 });
+FlowRouter.route('/channels/add', {
+  name: 'AddChannels',
+  action: function (params) {
+    return BlazeLayout.render("layout", {
+      main: "categories_admin"
+    });
+  }
+});
 
 
 FlowRouter.route('/notifications', {

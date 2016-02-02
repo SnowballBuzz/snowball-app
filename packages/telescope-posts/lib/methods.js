@@ -246,7 +246,7 @@ Meteor.methods({
   approvePost: function(postId){
 
     check(postId, String);
-    
+
     var post = Posts.findOne(postId);
     var now = new Date();
 
@@ -257,7 +257,7 @@ Meteor.methods({
       if (!post.postedAt) {
         set.postedAt = now;
       }
-      
+
       Posts.update(post._id, {$set: set});
 
       Telescope.callbacks.runAsync("postApproveAsync", post);
@@ -271,13 +271,13 @@ Meteor.methods({
 
     check(postId, String);
     var post = Posts.findOne(postId);
-    
+
     if(Users.is.admin(Meteor.user())){
 
       Posts.update(post._id, {$set: {status: Posts.config.STATUS_REJECTED}});
 
       Telescope.callbacks.runAsync("postRejectAsync", post);
-    
+
     }else{
       Messages.flash('You need to be an admin to do that.', "error");
     }
@@ -324,7 +324,7 @@ Meteor.methods({
   },
 
   checkForDuplicates: function (url) {
-    Posts.checkForSameUrl(url);  
+    Posts.checkForSameUrl(url);
   }
 
 });
