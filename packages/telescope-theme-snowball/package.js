@@ -16,8 +16,11 @@ Package.onUse(function (api) {
     'telescope:core',
     'telescope:notifications',
     'telescope:tags',
+    'telescope:users',
     'aldeed:simple-schema',
     'aldeed:autoform',
+    'comerc:autoform-selectize',
+    'jeremy:selectize',
     'easy:search'
   ], ['client', 'server']);
 
@@ -35,7 +38,8 @@ Package.onUse(function (api) {
     'lib/snowball_config.js',
     'lib/modules.js',
     'lib/client/routes.js',
-    'lib/fields.js'
+    'lib/fields.js',
+    'lib/permissions.js'
   ], ['client', 'server']);
 
   api.addFiles([
@@ -84,6 +88,10 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/post_tweet.js',
     'lib/client/templates/posts/sb_submit_button.html',
 
+    //user profile
+    'lib/client/templates/sb_user_posts.html',
+    'lib/client/templates/sb_user_posts.js',
+
     //froala wysiwyg
     'lib/client/froala/froala_form.html',
     'lib/client/froala/froala_form.js',
@@ -94,6 +102,10 @@ Package.onUse(function (api) {
     'lib/client/froala/plugins/char_counter.min.js',
     'lib/client/froala/plugins/url.min.js',
     'lib/client/froala/plugins/font_size.min.js',
+
+    //select2 library
+    'lib/client/select2.full.min.js',
+    'lib/client/select2.min.css',
   ], ['client']);
 
   //api.export([

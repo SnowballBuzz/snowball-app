@@ -14,6 +14,7 @@ Telescope.modules.remove('postComponents', 'post_share');
 Telescope.modules.remove('postComponents', 'post_avatars');
 Telescope.modules.remove('postComponents', 'post_discuss');
 Telescope.modules.remove('postComponents', 'post_actions');
+//Telescope.modules.remove('profileDisplay', 'user_posts');
 
 //add
 //title area for Session.set('customTitle', 'example'), controlled in logo.js

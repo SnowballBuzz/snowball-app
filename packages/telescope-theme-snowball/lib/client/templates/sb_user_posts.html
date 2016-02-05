@@ -1,0 +1,8 @@
+<template name="sb_user_posts">
+  {{#if isOwner this}}
+      <div class="user-profile-posts grid grid-module">
+          <h3>{{_ "submitted_posts"}}</h3>
+        {{> posts_list_controller arguments}}
+      </div>
+  {{/if}}
+</template>

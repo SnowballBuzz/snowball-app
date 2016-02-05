@@ -180,6 +180,10 @@ html {
       display: none;
     }
   }
+  //select categories
+  //.select2 {
+  //  width: 100% !important;
+  //}
   .fr-box {
     //hide froala register notice temporarily
     & > div:nth-child(4) {
@@ -395,10 +399,11 @@ i.primary {
 
 .channels-view {
   .channels-header {
-    @include small{
+    margin-top: -10px;
+    display: block;
+    @include small {
       display: none;
-      margin-top: -10px;
-      .search{
+      .search {
         margin-top: 0;
       }
     }

@@ -1,3 +1,32 @@
+//Channels
+Categories.removeField(['order', 'slug', 'image', 'parentId']);
+Posts.removeField(['categories', 'thumbnailUrl']);
+Posts.addField(
+  {
+    fieldName: 'categories',
+    fieldSchema: {
+      type: [String],
+      optional: false,
+      editableBy: ["member", "admin"],
+      autoform: {
+        afFieldInput: {
+          type: "selectize",
+          options: function () {
+            var categories = Categories.find().map(function (category) {
+              return {
+                value: category._id,
+                label: category.name
+              };
+            });
+            return categories;
+          }
+        }
+      }
+    }
+  }
+);
+
+
 //Posts.removeField();
 Posts.addField({
   fieldName: 'shares',
@@ -72,7 +101,7 @@ Posts.addField({
             if (keydownEvent.keyCode === 13) {
               e.preventDefault();
               //var newHtml = editor.html.get().replace(/p>/g, 'li>');
-              $(event.target).find('p').replaceWith(function(){
+              $(event.target).find('p').replaceWith(function () {
                 return '<li>' + $(this).contents() + '</li>';
               });
             }
