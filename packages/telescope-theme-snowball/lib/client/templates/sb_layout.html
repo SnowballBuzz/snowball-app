@@ -1,11 +1,11 @@
 <template name="sb_layout">
-    {{#if currentUser}}{{/if}}
   {{#if appIsReady}}
     {{> css}}
       <div class="outer-wrapper {{currentPage}} {{navLayout}}">
         {{> mobile_nav}}
           <div class="inner-wrapper template-{{pageName}}">
             {{> header}}
+            {{#if currentUser}}
             {{> Template.dynamic template=headerButtonLeft}}
             {{> Template.dynamic template=headerButtonRight}}
             {{> modules zone="hero"}}
@@ -20,6 +20,9 @@
                 {{/if}}
                 {{> modules zone="footer"}}
               </div>
+            {{else}}
+              {{> atForm}}
+            {{/if}}
               <div class="overlay hidden"></div>
           </div>
         {{{extraCode}}}

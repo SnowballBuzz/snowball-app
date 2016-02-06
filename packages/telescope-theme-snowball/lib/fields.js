@@ -8,6 +8,7 @@ Posts.addField(
       type: [String],
       optional: false,
       editableBy: ["member", "admin"],
+      label: 'Select a Channel',
       autoform: {
         afFieldInput: {
           type: "selectize",
@@ -48,6 +49,7 @@ Posts.addField({
     optional: true,
     //max: 120,
     editableBy: ["member", "admin"],
+    label: 'Idea',
     autoform: {
       afFieldInput: {
         type: 'froala',
@@ -55,7 +57,7 @@ Posts.addField({
           charCounterCount: true,
           charCounterMax: 120,
           heightMin: 100,
-          placeholderText: 'What if...',
+          placeholderText: 'Type your idea',
           editorClass: 'title-input'
         },
         methods: [
@@ -64,7 +66,7 @@ Posts.addField({
           },
           {
             method: 'fontSize.apply',
-            parameters: ['40']
+            parameters: ['30']
           }
         ]
       }
@@ -79,12 +81,13 @@ Posts.addField({
     optional: true,
     //max: 3000,
     editableBy: ["member", "admin"],
+    label: 'Radionale',
     autoform: {
       afFieldInput: {
         type: 'froala',
         froalaOptions: {
           charCounterCount: true,
-          heightMin: 300,
+          heightMin: 250,
           enter: 'ENTER_P',
           editorClass: 'body-input'
         },

@@ -1,0 +1,6 @@
+<template name="sb_user_profile">
+  {{#with user}}
+    {{#if isUser currentUser this}}It's me!{{/if}}
+    {{> modules zone="profileDisplay" moduleData=this}}
+  {{/with}}
+</template>

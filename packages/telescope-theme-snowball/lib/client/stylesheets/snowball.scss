@@ -228,6 +228,10 @@ html {
     }
   }
 }
+//remove redundant content
+.template-postPage .post-body:nth-child(2){
+  display: none;
+}
 
 //for list-style menus
 .segmented-control {
@@ -318,11 +322,12 @@ i.primary {
     top: 3px;
     left: -8px;
     color: $white;
-    height: 12px;
-    width: 12px;
+    height: 14px;
+    width: 14px;
     border-radius: 12px;
     font-size: 10px;
-    line-height: 12px;
+    font-weight: bold;
+    line-height: 14px;
     text-align: center;
   }
 }

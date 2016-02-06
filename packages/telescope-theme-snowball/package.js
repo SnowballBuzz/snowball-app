@@ -9,6 +9,7 @@ Package.onUse(function (api) {
   api.use([
     'fourseven:scss',
     'templating',
+    'kadira:flow-router',
     'arillo:flow-router-helpers',
     'random'
   ], ['client']);
@@ -21,13 +22,17 @@ Package.onUse(function (api) {
     'aldeed:autoform',
     'comerc:autoform-selectize',
     'jeremy:selectize',
-    'easy:search'
+    'easy:search',
+    'raix:push',
+    'kestanous:herald',
+    'matb33:collection-hooks'
   ], ['client', 'server']);
 
   api.addAssets([
     'fonts/Montserrat-Bold.ttf',
     'fonts/OpenSans-Light.ttf',
-    'fonts/OpenSans-Semibold.ttf'
+    'fonts/OpenSans-Semibold.ttf',
+    'images/Snowball200.png',
   ], ['client']);
 
   //functions & methods
@@ -39,8 +44,13 @@ Package.onUse(function (api) {
     'lib/modules.js',
     'lib/client/routes.js',
     'lib/fields.js',
-    'lib/permissions.js'
+    'lib/permissions.js',
+    //'lib/config.push.json'
   ], ['client', 'server']);
+  api.addFiles([
+    'lib/server/pushCourier.js',
+    'lib/server/pushMethods.js'
+  ], ['server']);
 
   api.addFiles([
     //styles
@@ -53,7 +63,12 @@ Package.onUse(function (api) {
     //copy override
     'i18n/en.i18n.json',
 
+    //utility
+    'lib/client/templates/templateHelpers.js',
+
     //templates
+    ////login
+    'lib/client/templates/login_form.html',
     ////layout
     'lib/client/templates/sb_layout.html',
     'lib/client/templates/sb_header.html',
@@ -87,8 +102,14 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/post_tweet.html',
     'lib/client/templates/posts/post_tweet.js',
     'lib/client/templates/posts/sb_submit_button.html',
+    'lib/client/templates/posts/sb_post_template.html',
+
+    //back button
+    'lib/client/templates/goBack.html',
+    'lib/client/templates/goBack.js',
 
     //user profile
+    'lib/client/templates/sb_user_profile.html',
     'lib/client/templates/sb_user_posts.html',
     'lib/client/templates/sb_user_posts.js',
 

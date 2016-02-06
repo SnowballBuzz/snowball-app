@@ -23,30 +23,36 @@ Template.layout.onCreated(function () {
     //keep track of history
     Tracker.nonreactive(function () {
       var history = Session.get('pathHistory') || [];
-      history.push(currentContext.path);
-      Session.set('pathHistory', history);
+      if (history[history.length - 1] !== currentContext.path) {
+        history.push(currentContext.path);
+        Session.set('pathHistory', history);
+      }
     });
-    switch (currentContext.route.path) {
-      case '/channels':
-        Session.set('customTitle', 'Channels');
-        break;
-      case '/notifications':
-        Session.set('customTitle', 'Notifications');
-        break;
-      case '/submit':
-        Session.set('customTitle', 'New Idea');
-        break;
-      case "/users/:_idOrSlug":
-        Session.set('customTitle', 'Profile');
-        break;
-      case "/posts/:_id/:slug?":
-            Session.set('customTitle', "What If...");
-            break;
-      case "/channels/add":
-        Session.set('customTitle', "Add Channel");
-        break;
-      default:
-        Session.set('customTitle', null);
+    if (Meteor.userId()) {
+      switch (currentContext.route.path) {
+        case '/channels':
+          Session.set('customTitle', 'Channels');
+          break;
+        case '/notifications':
+          Session.set('customTitle', 'Notifications');
+          break;
+        case '/submit':
+          Session.set('customTitle', 'New Idea');
+          break;
+        case "/users/:_idOrSlug":
+          Session.set('customTitle', 'Profile');
+          break;
+        //case "/posts/:_id/:slug?":
+        //  Session.set('customTitle', "Snowball");
+        //  break;
+        case "/channels/add":
+          Session.set('customTitle', "Add Channel");
+          break;
+        default:
+          Session.set('customTitle', null);
+      }
+    } else {
+      Session.set('customTitle', 'Snowball');
     }
   });
 });

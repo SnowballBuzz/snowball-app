@@ -8,4 +8,9 @@
     <div class="add-category">
       {{> quickForm collection="Categories" id="insertCategoryForm" type="insert" label-class="control-label" input-col-class="controls" template="bootstrap3-horizontal"}}
     </div>
+  {{#if isAdmin}}
+      <div class="categories-list">
+        {{> menuComponent menuName="categoriesAdmin" menuItems=menuItems menuType="list"}}
+      </div>
+  {{/if}}
 </template>
