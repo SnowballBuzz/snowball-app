@@ -4,39 +4,50 @@ Categories.addField({
   fieldName: 'isPrivate',
   fieldSchema: {
     label: 'Make this private',
-    defaultValue: false,
-    type: String,
+    defaultValue: 0,
+    type: Number,
     autoform: {
       type: "select-radio-inline",
       options: function () {
         return [
-          {label: "Public", value: false},
-          {label: "Private", value: true}
+          {label: "Public", value: 0},
+          {label: "Private", value: 1}
         ];
       }
     }
   }
 });
 Categories.addField({
-  //urls & domains
-  fieldName: 'allowedEntities',
+  fieldName: 'allowedDomains',
   fieldSchema: {
     type: String,
-    label: 'Allowed email addresses or company domains (separate with commas or space):',
-    optional: true,
+    label: 'Allowed website domains (one per line):',
+    defaultValue: '',
     autoform: {
-      //afFieldInput: {
-      type: "text",
-      //select2Options: {
-      placeholder: 'john@example.com, example.com, example.net, etc...',
-      //  multiple: true,
-      //  tags: true,
-      //  tokenSeparators: [',', ' ']
-      //},
-      //options: function () {
-      //  return [];
-      //}
-      //}
+      type: "textarea",
+      placeholder: 'example.com, example.net, etc...',
+      custom: function () {
+        if (this.isPrivate) {
+          return "required";
+        }
+      }
+    }
+  }
+});
+Categories.addField({
+  fieldName: 'allowedEmails',
+  fieldSchema: {
+    type: String,
+    label: 'Allowed email addresses (one per line):',
+    defaultValue: '',
+    autoform: {
+      type: "textarea",
+      placeholder: 'name@example.com, name@example.net, etc...',
+      custom: function () {
+        if (this.isPrivate) {
+          return "required";
+        }
+      }
     }
   }
 });
@@ -63,6 +74,7 @@ Posts.addField({
     autoform: {
       afFieldInput: {
         type: 'select2',
+        multiple: true,
         options: function () {
           var categories = Categories.find().map(function (category) {
             return {
@@ -155,6 +167,7 @@ Posts.addField({
               e.preventDefault();
               //var newHtml = editor.html.get().replace(/p>/g, 'li>');
               $(event.target).find('p').replaceWith(function () {
+                console.log(this);
                 return '<li>' + $(this).contents() + '</li>';
               });
             }

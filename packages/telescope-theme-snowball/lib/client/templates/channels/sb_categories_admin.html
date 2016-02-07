@@ -10,10 +10,11 @@
         {{> afQuickField name="name"}}
         {{> afQuickField name="description"}}
         {{> afQuickField name="isPrivate"}}
-        {{#if afFieldValueIs name="isPrivate" value='true'}}
-          {{> afQuickField name="allowedEntities"}}
+        {{#if afFieldValueIs name="isPrivate" value=1}}
+          {{> afQuickField name="allowedDomains"}}
+          {{> afQuickField name="allowedEmails"}}
         {{/if}}
-          <button type="submit" class="btn btn-primary">Add Category</button>
+          <button type="submit" class="btn btn-primary">Add Channel</button>
       {{/autoForm}}
     </div>
   {{#if isAdmin}}

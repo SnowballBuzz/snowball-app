@@ -201,7 +201,11 @@ html {
       }
     }
     ul {
-      list-style-type: disc;
+      list-style: circle inside none;
+      ul {
+        margin-left: 30px;
+        margin-top: 10px;
+      }
     }
     &.title-input {
       font-size: 22px;
@@ -241,9 +245,30 @@ html {
   }
 }
 
-//remove redundant content
-.template-postPage .post-body:nth-child(2) {
-  display: none;
+.template-postPage {
+  .single-post {
+    .post {
+      box-shadow: none;
+    }
+    .post-body {
+      //Only show the first
+      //todo: remove duplicate content; juggle between list and detail view
+      display: none;
+      &:first-child {
+        display: block;
+        padding: 20px 15px;
+      }
+      box-shadow: none;
+      ul {
+        li {
+          color: $grey;
+          ul {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
 }
 
 //for list-style menus
@@ -268,6 +293,7 @@ html {
   ul.menu-items {
     display: flex;
     font-size: initial;
+    margin-bottom: 0;
     li.menu-item {
       flex: 1;
       margin: 0;
@@ -337,6 +363,7 @@ i.primary {
     color: $white;
     height: 14px;
     width: 14px;
+    padding: 0;
     border-radius: 12px;
     font-size: 10px;
     font-weight: bold;
@@ -425,7 +452,6 @@ i.primary {
     }
   }
 }
-
 
 .channels-view {
   .channels-header {

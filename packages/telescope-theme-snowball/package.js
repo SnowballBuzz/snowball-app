@@ -11,7 +11,9 @@ Package.onUse(function (api) {
     'templating',
     'kadira:flow-router',
     'arillo:flow-router-helpers',
-    'random'
+    'random',
+    'less',
+    'peppelg:bootstrap-3-modal'
   ], ['client']);
   api.use([
     'telescope:core',
@@ -51,16 +53,30 @@ Package.onUse(function (api) {
     'lib/fields.js',
     'lib/server/permissions.js',
     'lib/shared_methods/canSubscribe.js',
+    'lib/channelsSearchIndex.js',
   ], ['client', 'server']);
   api.addFiles([
     'lib/server/pushCourier.js',
-    'lib/server/pushMethods.js'
+    'lib/server/pushMethods.js',
+    'lib/server/channelHooks.js',
+    'lib/server/addAndVerifyEmail.js',
+    'lib/server/verifyUnverifiedAccounts.js',
   ], ['server']);
 
   api.addFiles([
     //styles
     'lib/client/stylesheets/snowball.scss',
     'lib/client/colors.js',
+
+    //bootstrap
+    'lib/client/bootstrap/modal.js',
+    'lib/client/bootstrap/modals.less',
+    'lib/client/bootstrap/variables.less',
+    'lib/client/bootstrap/vendor-prefixes.less',
+    'lib/client/bootstrap/opacity.less',
+    'lib/client/bootstrap/buttons.less',
+    'lib/client/bootstrap/buttons-mixins.less',
+    'lib/client/bootstrap/tab-focus.less',
 
     //methods
     'lib/client/methods/methods.js',
@@ -85,7 +101,8 @@ Package.onUse(function (api) {
     'lib/client/templates/channels/channels.js',
     'lib/client/templates/channels/sb_categories_admin.html',
     'lib/client/templates/channels/sb_categories_admin.js',
-    'lib/channelsSearchIndex.js',
+    'lib/client/templates/channels/private_channel_modal.html',
+    'lib/client/templates/channels/private_channel_modal.js',
     ////main navbar
     'lib/client/templates/main_navbar/nav_to_channels.html',
     'lib/client/templates/main_navbar/nav_to_feed.html',

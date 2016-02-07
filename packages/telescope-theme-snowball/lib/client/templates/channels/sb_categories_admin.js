@@ -22,6 +22,6 @@ Template.categories_admin.events({
     console.log('submitting');
     e.preventDefault();
     goBack();
-    return true;
+    //return true;
   }
 });

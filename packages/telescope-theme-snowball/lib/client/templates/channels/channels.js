@@ -44,28 +44,9 @@ Template.channels.events({
   'click button.subscribe-button': function (e) {
     var channelId = $(e.target).attr("channel-id");
     var channel = Categories.findOne(channelId);
-    //If it's private and you're not the owner
-    if (channel.isPrivate) {
-      Meteor.call('canSubscribe', Meteor.user(), channel, function (err, res) {
-        if (res) {
-          //if it returns true, subscribe
-          console.log('subscribed');
-          //Messages.flash('Subscribed!', 'success');
-          subscribeUnsubscribe(channelId);
-        } else if (err) {
-          //if you get an error
-          throw err;
-        } else {
-          //if it returns false
-          console.log('not allowed');
-          //Messages.flash('Sorry, this is a private channel!', 'error');
-          alert('Sorry, this is a private channel!');
-        }
-      });
-      //if it's public or you own it
-    } else {
-      subscribeUnsubscribe(channelId);
-    }
+    console.log(channelId,channel);
+
+    //toggle subscribe
     var subscribeUnsubscribe = function (channelId) {
       if (IsSubscribedTo(channelId) === false) {
         return Meteor.call("subscribeToChannel", channelId);
@@ -73,6 +54,26 @@ Template.channels.events({
         return Meteor.call("unsubscribeToChannel", channelId);
       }
     };
+
+    //If it's private and you're not the owner, deny, otherwise subscribe
+    if (channel.isPrivate) {
+      Meteor.call('canSubscribe', Meteor.user(), channel, function (err, res) {
+        if (res) {
+          //if it returns true, subscribe
+          console.log('subscribed');
+          subscribeUnsubscribe(channelId);
+        } else if (err) {
+          //if you get an error
+          throw err;
+        } else {
+          //if it returns false
+          Modal.show('private_channel_modal', channel);
+        }
+      });
+      //if it's public or you own it subscribe
+    } else {
+      subscribeUnsubscribe(channelId);
+    }
   },
   'click .showChannelSearch': function () {
     $('.channels-header').slideToggle(200);

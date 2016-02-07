@@ -31,6 +31,7 @@ Template.layout.onCreated(function () {
       Session.set('searchQuery', '');
     });
     if (Meteor.userId()) {
+      console.log('logged in');
       switch (currentContext.route.path) {
         case '/channels':
           Session.set('customTitle', 'Channels');
