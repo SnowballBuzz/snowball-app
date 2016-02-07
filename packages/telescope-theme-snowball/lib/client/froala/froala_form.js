@@ -37,7 +37,7 @@ Template.atFroala.onRendered(function () {
   var methods = atts.methods;
   var events = atts.events; //for events
   //console.log('selector', selector);
-  console.log(atts);
+  //console.log(atts);
   $(selector).on('froalaEditor.initialized', function (e, editor) {
       //console.log('initialized', e, editor, methods);
       _.map(methods, function (method, i) {

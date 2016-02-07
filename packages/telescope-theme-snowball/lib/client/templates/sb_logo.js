@@ -27,6 +27,8 @@ Template.layout.onCreated(function () {
         history.push(currentContext.path);
         Session.set('pathHistory', history);
       }
+      //reset query
+      Session.set('searchQuery', '');
     });
     if (Meteor.userId()) {
       switch (currentContext.route.path) {

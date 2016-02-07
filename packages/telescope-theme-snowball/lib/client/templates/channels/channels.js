@@ -28,12 +28,12 @@ Template.channels.helpers({
   },
   channels: function () {
     //todo: will need to limit this eventually
-    return ChannelsIndex.search(Session.get('searchQuery'), {}).fetch().sort(function(a,b){
-      if(IsSubscribedTo(a._id) && IsSubscribedTo(b._id)){
+    return ChannelsIndex.search(Session.get('searchQuery'), {}).fetch().sort(function (a, b) {
+      if (IsSubscribedTo(a._id) && IsSubscribedTo(b._id)) {
         return 0;
-      } else if(!IsSubscribedTo(a._id) && IsSubscribedTo(b._id)){
+      } else if (!IsSubscribedTo(a._id) && IsSubscribedTo(b._id)) {
         return 1;
-      } else if(IsSubscribedTo(a._id) && !IsSubscribedTo(b._id)){
+      } else if (IsSubscribedTo(a._id) && !IsSubscribedTo(b._id)) {
         return -1;
       }
     });
@@ -41,23 +41,42 @@ Template.channels.helpers({
 });
 
 Template.channels.events({
-  'click .not-subscribed button': function (e) {
-    var channelId;
-    channelId = $(e.target).attr("channel-id");
-    if (IsSubscribedTo(channelId) === false) {
-      return Meteor.call("subscribeToChannel", channelId);
+  'click button.subscribe-button': function (e) {
+    var channelId = $(e.target).attr("channel-id");
+    var channel = Categories.findOne(channelId);
+    //If it's private and you're not the owner
+    if (channel.isPrivate) {
+      Meteor.call('canSubscribe', Meteor.user(), channel, function (err, res) {
+        if (res) {
+          //if it returns true, subscribe
+          console.log('subscribed');
+          //Messages.flash('Subscribed!', 'success');
+          subscribeUnsubscribe(channelId);
+        } else if (err) {
+          //if you get an error
+          throw err;
+        } else {
+          //if it returns false
+          console.log('not allowed');
+          //Messages.flash('Sorry, this is a private channel!', 'error');
+          alert('Sorry, this is a private channel!');
+        }
+      });
+      //if it's public or you own it
+    } else {
+      subscribeUnsubscribe(channelId);
     }
-  },
-  'click .subscribed button': function (e) {
-    var channelId;
-    channelId = $(e.target).attr("channel-id");
-    if (IsSubscribedTo(channelId) === true) {
-      return Meteor.call("unsubscribeToChannel", channelId);
-    }
+    var subscribeUnsubscribe = function (channelId) {
+      if (IsSubscribedTo(channelId) === false) {
+        return Meteor.call("subscribeToChannel", channelId);
+      } else if (IsSubscribedTo(channelId) === true) {
+        return Meteor.call("unsubscribeToChannel", channelId);
+      }
+    };
   },
   'click .showChannelSearch': function () {
     $('.channels-header').slideToggle(200);
-    $('#search').focus();
+    $('#search_channels').focus();
   },
   'keyup #search_channels': _.debounce(function (e, t) {
     Session.set('searchQuery', e.target.value);

@@ -8,7 +8,7 @@ Template.goBack.onRendered(function () {
 
 Template.goBack.helpers({
   text: function () {
-    console.log(this);
+    //console.log(this);
     if (!!this.text) {
       return this.text;
     } else {

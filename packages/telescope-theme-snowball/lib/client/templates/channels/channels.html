@@ -20,12 +20,15 @@
           {{#each channels}}
               <li class="channel-list-item {{GetClassForIsSubscribedTo _id}}">
                   <div class="left-side">
-                      <h2 class="name"> {{name}} </h2>
+                      <h2 class="name"><a href="{{pathFor 'postsDefault'}}?cat%5B0%5D={{name}}">{{name}}</a></h2>
                       <p class="description"> {{description}} </p>
                   </div>
 
                   <div class="right-side">
                       <button class="subscribe-button" channel-id="{{_id}}">
+                        {{#if isPrivate}}
+                            <i class="fa fa-lock"></i>
+                        {{/if}}
                         {{#if IsSubscribedTo _id}}
                             Unsubscribe
                         {{else}}

@@ -105,6 +105,14 @@ html {
   }
 }
 
+//in menu
+.notifications-menu {
+  .menu-item-label-wrapper {
+    border-bottom: 1px solid $lightgrey;
+    line-height: 1.2em;
+  }
+}
+
 //post styles
 .post-content {
   .post-heading {
@@ -186,14 +194,18 @@ html {
   //}
   .fr-box {
     //hide froala register notice temporarily
-    & > div:nth-child(4) {
+    & > div {
       display: none !important;
+      &.fr-wrapper, &.fr-counter {
+        display: block !important;
+      }
     }
     ul {
       list-style-type: disc;
     }
     &.title-input {
-      font-size: 24px;
+      font-size: 22px;
+      font-weight: normal;
     }
     &.body-input {
       font-size: 20px;
@@ -228,8 +240,9 @@ html {
     }
   }
 }
+
 //remove redundant content
-.template-postPage .post-body:nth-child(2){
+.template-postPage .post-body:nth-child(2) {
   display: none;
 }
 
@@ -400,7 +413,19 @@ i.primary {
       display: none !important;
     }
   }
+  //hide admin menu
+  ul.menu-items {
+    display: none;
+  }
+  .select2-container {
+    width: 100% !important;
+    //round the bottom
+    .select2-selection {
+      border-radius: 4px !important;
+    }
+  }
 }
+
 
 .channels-view {
   .channels-header {
@@ -482,6 +507,7 @@ i.primary {
         border: none;
         background-color: $grey;
         color: $white;
+        float: right;
       }
     }
   }

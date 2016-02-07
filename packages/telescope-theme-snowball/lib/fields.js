@@ -1,31 +1,81 @@
 //Channels
 Categories.removeField(['order', 'slug', 'image', 'parentId']);
+Categories.addField({
+  fieldName: 'isPrivate',
+  fieldSchema: {
+    label: 'Make this private',
+    defaultValue: false,
+    type: String,
+    autoform: {
+      type: "select-radio-inline",
+      options: function () {
+        return [
+          {label: "Public", value: false},
+          {label: "Private", value: true}
+        ];
+      }
+    }
+  }
+});
+Categories.addField({
+  //urls & domains
+  fieldName: 'allowedEntities',
+  fieldSchema: {
+    type: String,
+    label: 'Allowed email addresses or company domains (separate with commas or space):',
+    optional: true,
+    autoform: {
+      //afFieldInput: {
+      type: "text",
+      //select2Options: {
+      placeholder: 'john@example.com, example.com, example.net, etc...',
+      //  multiple: true,
+      //  tags: true,
+      //  tokenSeparators: [',', ' ']
+      //},
+      //options: function () {
+      //  return [];
+      //}
+      //}
+    }
+  }
+});
+Categories.addField({
+  //urls & domains
+  fieldName: 'userId',
+  fieldSchema: {
+    type: String,
+    autoValue: function () {
+      return Meteor.userId();
+    },
+  }
+});
+
+
 Posts.removeField(['categories', 'thumbnailUrl']);
-Posts.addField(
-  {
-    fieldName: 'categories',
-    fieldSchema: {
-      type: [String],
-      optional: false,
-      editableBy: ["member", "admin"],
-      label: 'Select a Channel',
-      autoform: {
-        afFieldInput: {
-          type: "selectize",
-          options: function () {
-            var categories = Categories.find().map(function (category) {
-              return {
-                value: category._id,
-                label: category.name
-              };
-            });
-            return categories;
-          }
+Posts.addField({
+  fieldName: 'categories',
+  fieldSchema: {
+    type: [String],
+    optional: false,
+    editableBy: ["member", "admin"],
+    label: 'Select a Channel',
+    autoform: {
+      afFieldInput: {
+        type: 'select2',
+        options: function () {
+          var categories = Categories.find().map(function (category) {
+            return {
+              value: category._id,
+              label: category.name
+            };
+          });
+          return categories;
         }
       }
     }
   }
-);
+});
 
 
 //Posts.removeField();

@@ -13,7 +13,7 @@ Template.categories_admin.events({
   'click .submitChannel': function(){
     console.log('clicked submit');
     $('#insertCategoryForm').submit();
-    goBack();
+    //goBack();
   },
   'click .cancelChannel': function(){
     goBack();

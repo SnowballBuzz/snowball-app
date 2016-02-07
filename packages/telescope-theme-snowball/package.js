@@ -22,11 +22,16 @@ Package.onUse(function (api) {
     'aldeed:autoform',
     'comerc:autoform-selectize',
     'jeremy:selectize',
+    'aldeed:autoform-select2',
+    'daviator:select2',
     'easy:search',
     'raix:push',
     'kestanous:herald',
     'matb33:collection-hooks'
   ], ['client', 'server']);
+  api.use([
+    //'promise'
+  ], ['server']);
 
   api.addAssets([
     'fonts/Montserrat-Bold.ttf',
@@ -44,8 +49,8 @@ Package.onUse(function (api) {
     'lib/modules.js',
     'lib/client/routes.js',
     'lib/fields.js',
-    'lib/permissions.js',
-    //'lib/config.push.json'
+    'lib/server/permissions.js',
+    'lib/shared_methods/canSubscribe.js',
   ], ['client', 'server']);
   api.addFiles([
     'lib/server/pushCourier.js',

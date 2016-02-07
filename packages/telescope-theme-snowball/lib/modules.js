@@ -14,6 +14,7 @@ Telescope.modules.remove('postComponents', 'post_share');
 Telescope.modules.remove('postComponents', 'post_avatars');
 Telescope.modules.remove('postComponents', 'post_discuss');
 Telescope.modules.remove('postComponents', 'post_actions');
+Telescope.modules.remove('profileEdit','afArrayField_bootstrap3-horizontal');
 //Telescope.modules.remove('profileDisplay', 'user_posts');
 
 //add
@@ -50,3 +51,6 @@ Telescope.modules.add('postComponents', [
 ]);
 //add mobile menu
 Telescope.modules.add('footer', {template: 'mobile_menu', order: 1});
+
+//back button for user profile edit
+Telescope.modules.add('profileEdit', {template: 'goBack', order: 1});

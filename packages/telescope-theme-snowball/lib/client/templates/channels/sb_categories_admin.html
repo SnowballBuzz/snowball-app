@@ -6,7 +6,15 @@
         <a href="#" class="submitChannel">Add</a>
     </div>
     <div class="add-category">
-      {{> quickForm collection="Categories" id="insertCategoryForm" type="insert" label-class="control-label" input-col-class="controls" template="bootstrap3-horizontal"}}
+      {{#autoForm collection="Categories" type="insert" id="insertCategoryForm" label-class="control-label" input-col-class="controls" template="bootstrap3-horizontal"}}
+        {{> afQuickField name="name"}}
+        {{> afQuickField name="description"}}
+        {{> afQuickField name="isPrivate"}}
+        {{#if afFieldValueIs name="isPrivate" value='true'}}
+          {{> afQuickField name="allowedEntities"}}
+        {{/if}}
+          <button type="submit" class="btn btn-primary">Add Category</button>
+      {{/autoForm}}
     </div>
   {{#if isAdmin}}
       <div class="categories-list">
