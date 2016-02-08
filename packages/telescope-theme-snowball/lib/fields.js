@@ -143,7 +143,7 @@ Posts.addField({
     optional: true,
     //max: 3000,
     editableBy: ["member", "admin"],
-    label: 'Radionale',
+    label: 'Rationale',
     autoform: {
       afFieldInput: {
         type: 'froala',
@@ -163,10 +163,21 @@ Posts.addField({
             editor.html.set('<ul><li><br></li></ul>');
           },
           keydown: function (e, editor, keydownEvent) {
-            if (keydownEvent.keyCode === 13) {
+            console.log('e', e, 'editor', editor, 'keydownEvent', keydownEvent, 'event', event);
+            //backspace
+            if (keydownEvent.keyCode === 8) {
+              console.log('backspace', keydownEvent.target.innerHTML);
+              if (keydownEvent.target.innerHTML === '<ul><li><br></li></ul>' || keydownEvent.target.innerHTML === '<p><br></p>') {
+                console.log('preventing');
+                keydownEvent.preventDefault();
+                e.preventDefault();
+                event.preventDefault();
+                return false;
+              }
+            } else if (keydownEvent.keyCode === 13) {
               e.preventDefault();
               //var newHtml = editor.html.get().replace(/p>/g, 'li>');
-              $(event.target).find('p').replaceWith(function () {
+              $(e.target).find('p').replaceWith(function () {
                 console.log(this);
                 return '<li>' + $(this).contents() + '</li>';
               });

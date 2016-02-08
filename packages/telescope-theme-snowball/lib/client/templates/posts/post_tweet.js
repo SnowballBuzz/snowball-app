@@ -31,7 +31,15 @@ Template.post_tweet.onRendered(function(){
 });
 
 Template.post_tweet.helpers({
-
+  encodedTitle: function () {
+    return encodeURIComponent(this.title);
+  },
+  sourceLink: function () {
+    return !!this.url ? this.url : Posts.getPageUrl(this);
+  },
+  viaTwitter: function () {
+    return !!Settings.get('twitterAccount') ? 'via='+Settings.get('twitterAccount') : '';
+  }
 });
 
 Template.post_tweet.events({
