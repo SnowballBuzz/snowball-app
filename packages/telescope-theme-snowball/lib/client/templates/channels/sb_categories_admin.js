@@ -10,6 +10,7 @@ Template.categories_admin.helpers({
 });
 
 Template.categories_admin.events({
+  //see channelsHooks.js
   'click .submitChannel': function(){
     console.log('clicked submit');
     $('#insertCategoryForm').submit();
@@ -22,6 +23,7 @@ Template.categories_admin.events({
     console.log('submitting');
     e.preventDefault();
     goBack();
+    //Meteor.call('subscribeToChannel', )
     //return true;
   }
 });

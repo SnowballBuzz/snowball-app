@@ -1,4 +1,5 @@
 <template name="sb_user_profile">
+  {{> goBack}}
   {{#with user}}
     {{save}}
     {{#if isUser currentUser this}}It's me!{{/if}}

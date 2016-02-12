@@ -5,7 +5,12 @@
                 <h4>
                   {{{icon "upvote"}}}
                     <span class="sr-only">{{_ "upvote_"}}</span>
-                    Upvote {{#if upvotes}}{{upvotes}}{{/if}}
+                    Upvote
+                  {{#if currentUser.hasUpvoted this}}
+                    {{#if upvotes}}
+                      {{upvotes}}
+                    {{/if}}
+                  {{/if}}
                 </h4>
             </a>
           {{#if enableDownvotes}}

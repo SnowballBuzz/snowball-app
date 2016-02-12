@@ -1,7 +1,10 @@
 Meteor.methods({
-  "subscribeToChannel": function (channelId) {
+  "subscribeToChannel": function (channelId, user) {
+    if (!user) {
+      var user = Meteor.user();
+    }
     var newSubscribedChannelsIds;
-    newSubscribedChannelsIds = Meteor.user().subscribedChannelsIds;
+    newSubscribedChannelsIds = user.subscribedChannelsIds;
     if ((newSubscribedChannelsIds != null) === false) {
       newSubscribedChannelsIds = [channelId];
     } else {
@@ -10,7 +13,7 @@ Meteor.methods({
       }
       newSubscribedChannelsIds.push(channelId);
     }
-    return Users.update(Meteor.userId(), {
+    return Users.update(user._id, {
       $set: {
         subscribedChannelsIds: newSubscribedChannelsIds
       }

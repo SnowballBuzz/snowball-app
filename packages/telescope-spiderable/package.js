@@ -9,6 +9,6 @@ Package.onUse(function (api) {
 
   api.versionsFrom("METEOR@1.0");
 
-  api.use(['telescope:core@0.25.6', 'ongoworks:spiderable']);
+  api.use(['telescope:core@0.25.6', 'ongoworks:spiderable', 'gadicohen:phantomjs']);
 
 });

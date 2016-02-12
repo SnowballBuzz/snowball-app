@@ -33,8 +33,9 @@ Telescope.modules.add('secondaryNav', [
   {template: 'submit_button', order: 20},
   {template: 'user_menu', order: 30}
 ]);
+Telescope.modules.add('postsListTop', [{template: 'search', order: 1, class: 'hidden', id: 'search2'}]);
 //hidden
-Telescope.modules.add('contentTop', {template: 'search', order: 20});
+//Telescope.modules.add('contentTop', {template: 'search', order: 20});
 //move post category before title
 Telescope.modules.add('postHeading', [
   {template: 'post_categories', order: 1},
@@ -48,9 +49,12 @@ Telescope.modules.add('postMeta', [
   //{template: 'post_admin', order: 15}
 ]);
 Telescope.modules.add('postComponents', [
+  {template: 'post_link_overlay', order: 1}
 ]);
 //add mobile menu
 Telescope.modules.add('footer', {template: 'mobile_menu', order: 1});
 
 //back button for user profile edit
+Telescope.modules.add('profileDisplay', {template: 'log_out', order: 1});
+
 Telescope.modules.add('profileEdit', {template: 'goBack', order: 1});

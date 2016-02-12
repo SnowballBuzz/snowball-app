@@ -1,0 +1,14 @@
+<template name="sb_main_posts_list">
+    <div class="main-posts-list">
+        <div class="logoZoneRight">
+            <a href="#" class="showPostsSearch"><i class="fa fa-search"></i></a>
+        </div>
+      {{> modules zone="postsListTop"}}
+      {{#if customTemplate}}
+        {{> Template.dynamic template=customTemplate data=arguments}}
+      {{else}}
+        {{> posts_list_controller arguments}}
+      {{/if}}
+      {{> modules zone="postsListBottom"}}
+    </div>
+</template>

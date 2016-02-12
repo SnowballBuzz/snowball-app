@@ -1,23 +1,21 @@
 {
-  "apn": {
-    "passphrase": "xxxxxxxxx",
-    "key": "apnProdKey.pem",
-    "cert": "apnProdCert.pem"
-  },
+  //  "apn": {
+  //    "passphrase": "snowb@llbuzzer$",
+  //    "key": "ios/apn-production/PushChatKey.pem",
+  //    "cert": "ios/apn-production/PushChatCert.pem"
+  //  },
   "apn-dev": {
-    "passphrase": "xxxxxxxxx",
-    "key": "apnDevKey.pem",
-    "cert": "apnDevCert.pem"
+    "passphrase": "snowb@llbuzzer$",
+    "key": "ios/PushNotificationsKey.pem",
+    "cert": "ios/PushNotificationsCert.pem"
   },
-  "gcm": {
-    "apiKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "projectNumber": xxxxxxxxxxxx
-  },
-  "production": true,
-  // "badge": true,
-  // "sound": true,
-  // "alert": true,
-  // "vibrate": true,
-  // "sendInterval": 15000,  Configurable interval between sending notifications
-  // "sendBatchSize": 1  Configurable number of notifications to send per batch
+  //  "gcm": {
+  //    "apiKey": "GET_THIS_FROM_GOOGLE_DEVELOPERS_CONSOLE",
+  //    "projectNumber": GET_THIS_FROM_GOOGLE_DEVELOPERS_CONSOLE
+  //  },
+  "production":false,
+  "badge": true,
+  "sound": true,
+  "alert": true,
+  "vibrate": true
 }

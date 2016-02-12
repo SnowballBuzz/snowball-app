@@ -13,13 +13,18 @@ Package.onUse(function (api) {
     'arillo:flow-router-helpers',
     'random',
     'less',
-    'peppelg:bootstrap-3-modal'
+    'peppelg:bootstrap-3-modal',
+    '255kb:cordova-keyboard@1.2.0',
+    'raix:iscroll'
+    //'moonco:hammer'
   ], ['client']);
   api.use([
     'telescope:core',
     'telescope:notifications',
     'telescope:tags',
     'telescope:users',
+    'telescope:search',
+    'matb33:collection-hooks',
     'aldeed:simple-schema',
     'aldeed:autoform',
     'comerc:autoform-selectize',
@@ -27,9 +32,10 @@ Package.onUse(function (api) {
     'aldeed:autoform-select2',
     'daviator:select2',
     'easy:search',
-    'raix:push',
+    'raix:push@3.0.2',
     'kestanous:herald',
-    'matb33:collection-hooks'
+    'matb33:collection-hooks',
+    'chriswessels:hammer@4.0.2',
   ], ['client', 'server']);
   api.use([
     //'promise'
@@ -37,33 +43,42 @@ Package.onUse(function (api) {
 
   api.addAssets([
     'fonts/Montserrat-Bold.ttf',
+    'fonts/OpenSans-Regular.ttf',
     'fonts/OpenSans-Light.ttf',
     'fonts/OpenSans-Semibold.ttf',
     'images/Snowball200.png',
+    //'ios/PushNotificationsCert.pem',
+    //'ios/PushNotificationsKey.pem',
   ], ['client']);
 
   //functions & methods
   api.addFiles([
     'lib/shared_methods/method_subscribe_to_channel.js',
     'lib/shared_methods/update_share_count.js',
+    'lib/shared_methods/channelHooks.js',
+    'lib/shared_methods/canSubscribe.js',
     'lib/channels.js',
     'lib/snowball_config.js',
     'lib/modules.js',
     'lib/client/routes.js',
     'lib/fields.js',
     'lib/server/permissions.js',
-    'lib/shared_methods/canSubscribe.js',
     'lib/channelsSearchIndex.js',
+    //'lib/config.push.json'
   ], ['client', 'server']);
   api.addFiles([
     'lib/server/pushCourier.js',
     'lib/server/pushMethods.js',
-    'lib/server/channelHooks.js',
     'lib/server/addAndVerifyEmail.js',
     'lib/server/verifyUnverifiedAccounts.js',
+    'lib/server/subscribePrivateOnVerify.js',
   ], ['server']);
 
   api.addFiles([
+
+    //config
+    'lib/client/mobile.js',
+
     //styles
     'lib/client/stylesheets/snowball.scss',
     'lib/client/colors.js',
@@ -88,6 +103,9 @@ Package.onUse(function (api) {
     'lib/client/templates/templateHelpers.js',
 
     //templates
+    ////search
+    'lib/client/templates/sb_search.html',
+    'lib/client/templates/sb_search.js',
     ////login
     'lib/client/templates/login_form.html',
     ////layout
@@ -103,14 +121,15 @@ Package.onUse(function (api) {
     'lib/client/templates/channels/sb_categories_admin.js',
     'lib/client/templates/channels/private_channel_modal.html',
     'lib/client/templates/channels/private_channel_modal.js',
+    'lib/client/templates/channels/subscribeOnCreate.js',
     ////main navbar
     'lib/client/templates/main_navbar/nav_to_channels.html',
     'lib/client/templates/main_navbar/nav_to_feed.html',
     ////notifications
-    'lib/client/templates/notifications.html',
-    'lib/client/templates/notifications.js',
-    'lib/client/templates/sb_notifications_menu.html',
-    'lib/client/templates/sb_notifications_menu.js',
+    'lib/client/templates/notifications/notifications.html',
+    'lib/client/templates/notifications/notifications.js',
+    'lib/client/templates/notifications/sb_notifications_menu.html',
+    'lib/client/templates/notifications/sb_notifications_menu.js',
     ////logo template with title override
     'lib/client/templates/sb_logo.html',
     'lib/client/templates/sb_logo.js',
@@ -125,15 +144,23 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/post_tweet.js',
     'lib/client/templates/posts/sb_submit_button.html',
     'lib/client/templates/posts/sb_post_template.html',
+    'lib/client/templates/posts/post_link_overlay.html',
+    'lib/client/templates/posts/sb_postsLoadMore.html',
+    'lib/client/templates/posts/sb_posts_list_compact.html',
+    'lib/client/templates/posts/sb_posts_list_compact.js',
+    'lib/client/templates/posts/sb_main_posts_list.html',
+    'lib/client/templates/posts/sb_main_posts_list.js',
 
     //back button
-    'lib/client/templates/goBack.html',
-    'lib/client/templates/goBack.js',
+    'lib/client/templates/utils/goBack.html',
+    'lib/client/templates/utils/goBack.js',
 
     //user profile
-    'lib/client/templates/sb_user_profile.html',
-    'lib/client/templates/sb_user_posts.html',
-    'lib/client/templates/sb_user_posts.js',
+    'lib/client/templates/user/sb_user_info.html',
+    'lib/client/templates/user/sb_user_profile.html',
+    'lib/client/templates/user/sb_user_posts.html',
+    'lib/client/templates/user/sb_user_posts.js',
+    'lib/client/templates/utils/log_out.html',
 
     //froala wysiwyg
     'lib/client/froala/froala_form.html',

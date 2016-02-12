@@ -8,8 +8,12 @@ Template.mobile_menu.helpers({
     //console.log(notifications);
     return notifications.length;
   },
-  selected: function (pathName) {
-    return FlowRouter.getRouteName() === pathName ? 'selected' : '';
+  selected: function (pathName, attribute) {
+    if(pathName === 'userProfile'){
+    return FlowRouter.getRouteName() === pathName && FlowRouter.getParam('_idOrSlug') === attribute? 'selected' : '';
+    } else {
+      return FlowRouter.getRouteName() === pathName ? 'selected' : '';
+    }
   }
 });
 

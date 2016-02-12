@@ -14,7 +14,24 @@ Template.channels.onCreated(function () {
   Session.setDefault('searchQuery', '');
 });
 
+Template.channels.onRendered(function () {
+  //$('.channel-list-item').hammer().on('swipe', function(e){
+  //  console.log('swiped!', e);
+  //});
+});
+
 Template.channels.helpers({
+  touchEvents: {
+    'swipeleft .channel-list-item': function (event, templateInstance) {
+      console.log(event, templateInstance);
+    },
+    'drag .channel-list-item': function(event, templateInstance) {
+      console.log(event, templateInstance);
+    }
+  },
+  categoryLink: function(){
+    return Categories.getUrl(this);
+  },
   ChannelsToDisplay: function () {
     return Categories.find().fetch();
   },
@@ -44,12 +61,14 @@ Template.channels.events({
   'click button.subscribe-button': function (e) {
     var channelId = $(e.target).attr("channel-id");
     var channel = Categories.findOne(channelId);
-    console.log(channelId,channel);
+    console.log(channelId, channel);
 
     //toggle subscribe
     var subscribeUnsubscribe = function (channelId) {
       if (IsSubscribedTo(channelId) === false) {
-        return Meteor.call("subscribeToChannel", channelId);
+        return Meteor.call("subscribeToChannel", channelId, function(){
+
+        });
       } else if (IsSubscribedTo(channelId) === true) {
         return Meteor.call("unsubscribeToChannel", channelId);
       }

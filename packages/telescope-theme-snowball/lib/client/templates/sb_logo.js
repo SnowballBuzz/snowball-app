@@ -45,6 +45,10 @@ Template.layout.onCreated(function () {
         case "/users/:_idOrSlug":
           Session.set('customTitle', 'Profile');
           break;
+        //case "/verify-email/:paramToken":
+        //  console.log('verifying and subscribing');
+        //  Meteor.call('subscribePrivateOnVerify');
+        //  break;
         //case "/posts/:_id/:slug?":
         //  Session.set('customTitle', "Snowball");
         //  break;

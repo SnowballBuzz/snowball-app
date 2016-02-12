@@ -25,9 +25,11 @@ FlowRouter.route('/notifications', {
   }
 });
 
-//AccountsTemplates.configure({
-//  defaultTemplate: 'login_form',
-//});
+AccountsTemplates.configure({
+  onLogoutHook: function(){
+
+  }
+});
 
 delete AccountsTemplates.routes.signIn;
 delete AccountsTemplates.routes.signUp;

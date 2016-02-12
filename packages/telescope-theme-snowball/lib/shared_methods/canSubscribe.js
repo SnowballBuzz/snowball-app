@@ -2,7 +2,7 @@ Meteor.methods({
   canSubscribe: function (user, channel) {
 
     //If no allowed emails are set (which they should be), at least add the owner
-    if(!channel.allowedEmails){
+    if (!channel.allowedEmails) {
       var user = Meteor.users.findOne(channel.userId);
       Categories.update(channel._id, {$set: {allowedEmails: user.emails[0].address}});
       return false;
@@ -10,8 +10,8 @@ Meteor.methods({
 
     //get entities
     var entities = channel.allowedEmails;
-    if(channel.allowedEntities){
-      entities += '\n' +  channel.allowedDomains;
+    if (channel.allowedDomains) {
+      entities += '\n' + channel.allowedDomains;
     }
     console.log(entities);
     entities = entities.toLowerCase().trim();
@@ -34,6 +34,12 @@ Meteor.methods({
         match = 1
       }
     });
+
+    //If the user doesn't qualify, then add it to the user's requested channels
+    if (!match) {
+      Meteor.users.update(user._id, {$set: {'telescope.requestedChannel': channel._id}});
+    }
+
     return match;
   }
 });

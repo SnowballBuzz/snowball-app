@@ -1,21 +1,26 @@
 //variables
 @font-face {
   font-family: Open Sans;
+  src: url('/packages/telescope-theme-snowball/fonts/OpenSans-Light.ttf');
+  font-weight: lighter;
+}
+@font-face {
+  font-family: Open Sans;
+  src: url('/packages/telescope-theme-snowball/fonts/OpenSans-Regular.ttf');
+  font-weight: normal;
+}
+@font-face {
+  font-family: Open Sans;
   src: url('/packages/telescope-theme-snowball/fonts/OpenSans-Semibold.ttf');
   font-weight: bold;
 }
-
 @font-face {
   font-family: Montserrat;
   src: url('/packages/telescope-theme-snowball/fonts/Montserrat-Bold.ttf');
   font-weight: bolder;
 }
 
-@font-face {
-  font-family: Open Sans;
-  src: url('/packages/telescope-theme-snowball/fonts/OpenSans-Light.ttf');
-  font-weight: lighter;
-}
+
 
 $bodyfont: Open Sans, sans serif;
 $headerfont: Montserrat, sans serif;
@@ -32,9 +37,14 @@ $white: #fff;
   }
 }
 
+//utility
 .btn-secondary {
   border: 1px solid $grey;
   color: $grey;
+}
+
+.center-text {
+  text-align: center;
 }
 
 //styles
@@ -42,6 +52,8 @@ html {
   body {
     background: $white;
     font-family: $bodyfont;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: $headerfont;
@@ -85,15 +97,37 @@ html {
   &.contentTop-module {
     display: none;
     text-align: right;
-    background: $grey;
     width: 100vw;
-    margin-left: -10px;
     margin-top: -10px;
     padding: 10px 20px;
+  }
+  &.postsListTop-module{
+    margin-top: -10px;
+    padding: 10px;
+    width: 100%;
+    display: none;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      left: -50px;
+      right: -50px;
+      height: 48px;
+      top: 0px;
+      background: $grey;
+      z-index: -1;
+    }
   }
   input.search-field {
     border: 1px solid $lightgrey;
     background-color: $white !important;
+    float: right;
+  }
+  a.closeSearch {
+    float: right;
+    line-height: 27px;
+    color: #fff;
+    padding: 0 10px;
   }
 }
 
@@ -116,18 +150,28 @@ html {
 //post styles
 .post-content {
   .post-heading {
-    position: relative;
+    //position: relative;
     .post-categories {
+      .post-category{
+        min-width: 150px;
+        text-align: center;
+        font-weight: bold;
+        font-family: Montserrat;
+        font-size: 14px;
+      }
     }
     //comment count & time ago
     .post-info {
       position: absolute;
       right: 0;
-      top: 0;
+      top: 5px;
       span.post-comments {
-        font-size: 16px;
+        font-size: 14px;
         color: $lightgrey;
         margin-left: 20px;
+        a{
+          font-weight: lighter;
+        }
         i {
           margin-right: 5px;
         }
@@ -135,9 +179,10 @@ html {
     }
     //title
     .post-title {
-      font-weight: bold;
-      font-size: 120%;
+      font-weight: normal;
+      font-size: 18px;
       display: block;
+      margin-top: 10px;
       &:hover {
         color: inherit !important;
       }
@@ -149,6 +194,7 @@ html {
     .post-vote {
       float: left;
       order: initial !important;
+      position: relative;
       .vote-actions {
         border: none;
         .vote-action {
@@ -189,9 +235,9 @@ html {
     }
   }
   //select categories
-  //.select2 {
-  //  width: 100% !important;
-  //}
+  .select2 {
+    width: 100% !important;
+  }
   .fr-box {
     //hide froala register notice temporarily
     & > div {
@@ -216,12 +262,23 @@ html {
     }
     .fr-counter {
       float: right;
+      font-size: 14px;
+      color: $grey;
     }
   }
 }
 
 .post-rank {
   display: none;
+}
+
+a.post-link-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
 }
 
 .list {
@@ -269,6 +326,45 @@ html {
       }
     }
   }
+}
+
+//end post styles
+
+//comment styles
+.comment-form {
+  box-shadow: none;
+}
+
+.comments {
+  .comment {
+    margin-left: 0;
+    .comment-content {
+      box-shadow: none;
+      //hide votes
+      .comment-actions {
+        display: none;
+      }
+      .comment-meta {
+        font-size: 0;
+        border: none;
+        *{font-size:initial;}
+        span.points, span.unit {
+          display: none;
+        }
+        .edit-link{
+          position: relative;
+          top: 5px;
+        }
+        //hide complex date
+        > span:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.post-subscribe{
+  box-shadow: none;
 }
 
 //for list-style menus

@@ -17,20 +17,28 @@ Categories.addField({
     }
   }
 });
+Users.addField({
+  fieldName: "subscribedChannelsIds",
+  fieldSchema: {
+    type: [String],
+    optional: true,
+    editableBy: ["member", "admin"],
+    "public": true
+  }
+});
+
+SimpleSchema.messages({
+  "required categories": "You must choose an audience (channel) to post your idea."
+});
 Categories.addField({
   fieldName: 'allowedDomains',
   fieldSchema: {
     type: String,
     label: 'Allowed website domains (one per line):',
-    defaultValue: '',
+    optional: true,
     autoform: {
       type: "textarea",
-      placeholder: 'example.com, example.net, etc...',
-      custom: function () {
-        if (this.isPrivate) {
-          return "required";
-        }
-      }
+      placeholder: 'example.com, example.net, etc...'
     }
   }
 });
@@ -39,20 +47,15 @@ Categories.addField({
   fieldSchema: {
     type: String,
     label: 'Allowed email addresses (one per line):',
-    defaultValue: '',
+    optional: true,
     autoform: {
       type: "textarea",
-      placeholder: 'name@example.com, name@example.net, etc...',
-      custom: function () {
-        if (this.isPrivate) {
-          return "required";
-        }
-      }
+      placeholder: 'name@example.com, name@example.net, etc...'
     }
   }
 });
 Categories.addField({
-  //urls & domains
+  //owner of channel
   fieldName: 'userId',
   fieldSchema: {
     type: String,
@@ -74,9 +77,9 @@ Posts.addField({
     autoform: {
       afFieldInput: {
         type: 'select2',
-        multiple: true,
+        //multiple: true,
         options: function () {
-          var categories = Categories.find().map(function (category) {
+          var categories = Categories.find({_id: {$in: Meteor.user().subscribedChannelsIds}}).map(function (category) {
             return {
               value: category._id,
               label: category.name
@@ -111,7 +114,7 @@ Posts.addField({
     optional: true,
     //max: 120,
     editableBy: ["member", "admin"],
-    label: 'Idea',
+    //label: 'Idea',
     autoform: {
       afFieldInput: {
         type: 'froala',
@@ -119,7 +122,7 @@ Posts.addField({
           charCounterCount: true,
           charCounterMax: 120,
           heightMin: 100,
-          placeholderText: 'Type your idea',
+          placeholderText: 'Explain your idea succinctly',
           editorClass: 'title-input'
         },
         methods: [
@@ -128,7 +131,7 @@ Posts.addField({
           },
           {
             method: 'fontSize.apply',
-            parameters: ['30']
+            parameters: ['24']
           }
         ]
       }
@@ -148,10 +151,11 @@ Posts.addField({
       afFieldInput: {
         type: 'froala',
         froalaOptions: {
-          charCounterCount: true,
+          //charCounterCount: true,
           heightMin: 250,
           enter: 'ENTER_P',
-          editorClass: 'body-input'
+          editorClass: 'body-input',
+          placeholderText: 'Type your idea',
         },
         methods: [
           {
@@ -163,20 +167,19 @@ Posts.addField({
             editor.html.set('<ul><li><br></li></ul>');
           },
           keydown: function (e, editor, keydownEvent) {
-            console.log('e', e, 'editor', editor, 'keydownEvent', keydownEvent, 'event', event);
+            //console.log('e', e, 'editor', editor, 'keydownEvent', keydownEvent, 'event', event);
             //backspace
             if (keydownEvent.keyCode === 8) {
-              console.log('backspace', keydownEvent.target.innerHTML);
-              if (keydownEvent.target.innerHTML === '<ul><li><br></li></ul>' || keydownEvent.target.innerHTML === '<p><br></p>') {
-                console.log('preventing');
+              //console.log('backspace', keydownEvent.target.innerHTML);
+              if (keydownEvent.target.innerHTML === '<ul><li><br></li></ul>') {
                 keydownEvent.preventDefault();
-                e.preventDefault();
-                event.preventDefault();
-                return false;
+                //editor.html.set('<ul><li><br></li></ul>');
+                //$(keydownEvent.target).html('<ul><li><br></li></ul>');
+                //editor.events.focus();
+                console.log('prevented');
               }
             } else if (keydownEvent.keyCode === 13) {
               e.preventDefault();
-              //var newHtml = editor.html.get().replace(/p>/g, 'li>');
               $(e.target).find('p').replaceWith(function () {
                 console.log(this);
                 return '<li>' + $(this).contents() + '</li>';
@@ -186,5 +189,14 @@ Posts.addField({
         }
       }
     }
+  }
+});
+
+
+Users.addField({
+  fieldName: 'telescope.requestedChannel',
+  fieldSchema: {
+    type: String,
+    optional: true
   }
 });

@@ -1,5 +1,5 @@
 <template name="sb_layout">
-  {{#if appIsReady}}
+  <!--{{#if appIsReady}}-->
     {{> css}}
       <div class="outer-wrapper {{currentPage}} {{navLayout}}">
         {{> mobile_nav}}
@@ -27,7 +27,7 @@
           </div>
         {{{extraCode}}}
       </div>
-  {{else}}
-      <div class="app-loading">{{> loading}}</div>
-  {{/if}}
+  <!--{{else}}-->
+      <!--<div class="app-loading">{{> loading}}</div>-->
+  <!--{{/if}}-->
 </template>
