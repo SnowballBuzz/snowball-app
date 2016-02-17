@@ -1,6 +1,6 @@
 Categories.before.insert(function (userId, doc) {
   if (doc.isPrivate) {
-    var userEmail = Meteor.users.findOne(userId).emails[0].address;
+    var userEmail = Meteor.users.findOne(userId).telescope.email;
     console.log('adding default email address');
     if (!doc.allowedEmails) {
       doc.allowedEmails = userEmail;

@@ -19,7 +19,7 @@
       {{#HammerTouchArea gestureMap=touchEvents}}
           <ul class="channels-list">
             {{#each channels}}
-                <li class="channel-list-item {{GetClassForIsSubscribedTo _id}}">
+                <li class="channel-list-item {{GetClassForIsSubscribedTo _id}} clearfix">
                     <div class="left-side">
                         <h2 class="name"><a href="{{categoryLink}}">{{name}}</a></h2>
                         <p class="description"> {{description}} </p>

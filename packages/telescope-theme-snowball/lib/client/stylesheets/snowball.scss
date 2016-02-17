@@ -267,6 +267,13 @@ html {
     }
   }
 }
+//fix for not being able to click into form element
+.froala-box, .froala-box .froala-wrapper.f-basic {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
 
 .post-rank {
   display: none;
@@ -279,6 +286,9 @@ a.post-link-overlay {
   right: 0;
   bottom: 0;
   z-index: 0;
+  .template-postPage &{
+    display: none;
+  }
 }
 
 .list {
@@ -482,6 +492,7 @@ i.primary {
       flex: 1;
       margin: 0;
       position: relative;
+      width: 20%;
       &:hover, &.selected {
         a {
           color: $white;
@@ -497,6 +508,11 @@ i.primary {
         display: block;
         padding: 7px 0;
         transition: all .3s;
+        height: 60px;
+        i{
+          margin-top: -5px;
+          margin-bottom: -5px;
+        }
         .small-text {
           font-size: 10px;
         }
@@ -594,36 +610,37 @@ i.primary {
     font-size: large;
   }
 
-  .channel-list-item {
+  li.channel-list-item {
     background: white;
     padding: 10px 0;
-
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid lightgrey;
-
+    border-bottom: 1px solid $lightgrey;
+    display: block;
+    transform-style: preserve-3d;
     .left-side {
-      display: inline-flex;
-      flex-direction: column;
-      margin-right: 1em;
-
+      display: block;
+      width: 100%;
+      padding-right: 130px;
       .name {
         font-size: large;
       }
     }
     .right-side {
-      display: inline-flex;
-      align-self: center;
+      display: block;
+      transform: translateY(-50%);
+      height: 50px;
+      position: absolute;
+      right: 0;
+      top: 50%;
       .subscribe-button {
-        width: 7.8em;
-        height: 2.6em;
+        width: 120px;
+        height: 40px;
+        line-height: 18px;
         color: $darkgrey;
         border: 1px solid $darkgrey;
         background: $white;
         transition: all .3s;
       }
     }
-
     &.subscribed {
       .subscribe-button {
         border: none;

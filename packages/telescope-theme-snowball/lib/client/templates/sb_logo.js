@@ -19,7 +19,7 @@ Template.layout.onCreated(function () {
   Tracker.autorun(function () {
     FlowRouter.watchPathChange();
     var currentContext = FlowRouter.current();
-    //console.log(currentContext);
+    console.log(currentContext);
     //keep track of history
     Tracker.nonreactive(function () {
       var history = Session.get('pathHistory') || [];

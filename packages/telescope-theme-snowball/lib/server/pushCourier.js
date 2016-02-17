@@ -30,6 +30,7 @@ var notifications = {
 };
 Meteor.startup(function () {
   Herald.collection.after.insert(function (userId, doc) {
+    console.log(doc);
     var post = Posts.findOne(doc.data.post._id);
     var message = notifications[doc.courier](post);
     console.log('Notification message:', message, post);

@@ -25,10 +25,22 @@ FlowRouter.route('/notifications', {
   }
 });
 
-AccountsTemplates.configure({
-  onLogoutHook: function(){
+//overriding logout hook to remove message
+//FlowRouter.route('/sign-out', {
+//  name: "signOut",
+//  triggersEnter: [function(context, redirect) {
+//    AccountsTemplates.logout();
+    //Messages.flash(i18n.t("you_have_been_logged_out"));
+//  }]
+//});
 
-  }
+
+AccountsTemplates.configure({
+  homeRoutePath: '/',
+  redirectTimeout: 1000,
+  onLogoutHook: function () {
+    //FlowRouter.go('/');
+  },
 });
 
 delete AccountsTemplates.routes.signIn;
@@ -56,3 +68,4 @@ AccountsTemplates.configureRoute('forgotPwd');
 AccountsTemplates.configureRoute('resetPwd');
 AccountsTemplates.configureRoute('enrollAccount');
 AccountsTemplates.configureRoute('verifyEmail');
+AccountsTemplates.knownRoutes.push('signOut');

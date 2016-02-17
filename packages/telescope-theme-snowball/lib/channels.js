@@ -53,11 +53,12 @@ Telescope.callbacks.add("postsParameters", function (parameters, terms) {
 
   var shownCats;
 
-  //if we're showing a specific channel
+  //If we're showing a specific channel, show only that channel (if allowed)
   if(typeof cat != 'undefined'){
     shownCats = _.intersection(allowedCats, catParams);
+    //Otherwise, show subscribed channels
   } else {
-    shownCats = allowedCats;
+    shownCats = user.subscribedChannelsIds;
   }
   //console.log('shownCats:',shownCats);
   parameters.find.categories = {$in: shownCats};

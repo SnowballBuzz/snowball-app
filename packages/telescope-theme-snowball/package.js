@@ -7,35 +7,36 @@ Package.describe({
 Package.onUse(function (api) {
 
   api.use([
-    'fourseven:scss',
-    'templating',
-    'kadira:flow-router',
-    'arillo:flow-router-helpers',
-    'random',
+    'fourseven:scss@3.4.1',
+    'templating@1.1.1',
+    'kadira:flow-router@2.7.0',
+    'arillo:flow-router-helpers@0.4.5',
+    'random@1.0.3',
     'less',
-    'peppelg:bootstrap-3-modal',
+    'peppelg:bootstrap-3-modal@1.0.4',
     '255kb:cordova-keyboard@1.2.0',
-    'raix:iscroll'
-    //'moonco:hammer'
+    'raix:iscroll@0.0.3',
+    'gwendall:body-events@0.1.6',
+  //'moonco:hammer'
   ], ['client']);
   api.use([
-    'telescope:core',
-    'telescope:notifications',
-    'telescope:tags',
-    'telescope:users',
-    'telescope:search',
-    'matb33:collection-hooks',
-    'aldeed:simple-schema',
-    'aldeed:autoform',
-    'comerc:autoform-selectize',
-    'jeremy:selectize',
-    'aldeed:autoform-select2',
-    'daviator:select2',
-    'easy:search',
+    'telescope:core@0.25.6',
+    'telescope:notifications@0.25.6',
+    'telescope:tags@0.25.6',
+    'telescope:users@0.25.6',
+    'telescope:search@0.25.6',
+    'matb33:collection-hooks@0.8.1',
+    'aldeed:simple-schema@1.3.3',
+    'aldeed:autoform@5.1.2',
+    //'comerc:autoform-selectize',
+    //'jeremy:selectize',
+    'aldeed:autoform-select2@2.0.2',
+    'daviator:select2@0.0.1',
+    'easy:search@2.0.8',
     'raix:push@3.0.2',
-    'kestanous:herald',
-    'matb33:collection-hooks',
+    'kestanous:herald@1.3.0',
     'chriswessels:hammer@4.0.2',
+    'telescope:messages@0.25.6',
   ], ['client', 'server']);
   api.use([
     //'promise'
@@ -47,8 +48,6 @@ Package.onUse(function (api) {
     'fonts/OpenSans-Light.ttf',
     'fonts/OpenSans-Semibold.ttf',
     'images/Snowball200.png',
-    //'ios/PushNotificationsCert.pem',
-    //'ios/PushNotificationsKey.pem',
   ], ['client']);
 
   //functions & methods
@@ -57,6 +56,7 @@ Package.onUse(function (api) {
     'lib/shared_methods/update_share_count.js',
     'lib/shared_methods/channelHooks.js',
     'lib/shared_methods/canSubscribe.js',
+    'lib/shared_methods/notificationTest.js',
     'lib/channels.js',
     'lib/snowball_config.js',
     'lib/modules.js',
@@ -76,6 +76,9 @@ Package.onUse(function (api) {
 
   api.addFiles([
 
+    //fix
+    'lib/client/externalLinkFix.js',
+
     //config
     'lib/client/mobile.js',
 
@@ -92,6 +95,9 @@ Package.onUse(function (api) {
     'lib/client/bootstrap/buttons.less',
     'lib/client/bootstrap/buttons-mixins.less',
     'lib/client/bootstrap/tab-focus.less',
+    'lib/client/bootstrap/forms-mixins.less',
+    'lib/client/bootstrap/forms.less',
+    'lib/client/bootstrap/grid-mixins.less',
 
     //methods
     'lib/client/methods/methods.js',

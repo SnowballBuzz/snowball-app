@@ -1,19 +1,19 @@
 {
-  //  "apn": {
-  //    "passphrase": "snowb@llbuzzer$",
-  //    "key": "ios/apn-production/PushChatKey.pem",
-  //    "cert": "ios/apn-production/PushChatCert.pem"
-  //  },
+  "apn": {
+    "passphrase": "snowb@llbuzzer$",
+    "key": "PushNotificationsKey.pem",
+    "cert": "PushNotificationsLive.pem"
+  },
   "apn-dev": {
     "passphrase": "snowb@llbuzzer$",
-    "key": "ios/PushNotificationsKey.pem",
-    "cert": "ios/PushNotificationsCert.pem"
+    "key": "PushNotificationsKey.pem",
+    "cert": "PushNotificationsCert.pem"
   },
-  //  "gcm": {
-  //    "apiKey": "GET_THIS_FROM_GOOGLE_DEVELOPERS_CONSOLE",
-  //    "projectNumber": GET_THIS_FROM_GOOGLE_DEVELOPERS_CONSOLE
-  //  },
-  "production":false,
+  "gcm": {
+    "apiKey": "AIzaSyCE4Vto11viEgFfhUCcTIpYkAzX15zvM4g",
+    "projectNumber": 779634173403
+  },
+  "production": false,
   "badge": true,
   "sound": true,
   "alert": true,

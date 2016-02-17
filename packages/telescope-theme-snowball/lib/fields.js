@@ -23,7 +23,36 @@ Users.addField({
     type: [String],
     optional: true,
     editableBy: ["member", "admin"],
-    "public": true
+    "public": true,
+    autoform: {
+      omit: true
+    }
+  }
+});
+Users.addField({
+  fieldName: "telescope.pushBadge",
+  fieldSchema: {
+    type: Number,
+    optional: true,
+    editableBy: ["member", "admin"],
+    //"public": true,
+    autoform: {
+      omit: true
+    }
+  }
+});
+Users.addField({
+  fieldName: "telescope.doNotify",
+  fieldSchema: {
+    type: Boolean,
+    defaultValue: true,
+    optional: true,
+    editableBy: ["member", "admin"],
+    //"public": true,
+    label: 'Enable mobile push notifications',
+    autoform: {
+      type: "boolean-radio"
+    }
   }
 });
 
@@ -76,7 +105,7 @@ Posts.addField({
     label: 'Select a Channel',
     autoform: {
       afFieldInput: {
-        type: 'select2',
+        type: 'select',
         //multiple: true,
         options: function () {
           var categories = Categories.find({_id: {$in: Meteor.user().subscribedChannelsIds}}).map(function (category) {

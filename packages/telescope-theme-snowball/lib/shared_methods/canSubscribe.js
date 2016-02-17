@@ -4,7 +4,7 @@ Meteor.methods({
     //If no allowed emails are set (which they should be), at least add the owner
     if (!channel.allowedEmails) {
       var user = Meteor.users.findOne(channel.userId);
-      Categories.update(channel._id, {$set: {allowedEmails: user.emails[0].address}});
+      Categories.update(channel._id, {$set: {allowedEmails: user.telescope.email}});
       return false;
     }
 

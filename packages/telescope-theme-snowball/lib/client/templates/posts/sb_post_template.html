@@ -13,11 +13,11 @@
             <div class="single-post grid">
               {{> goBack}}
                 <div class="posts posts-list">
+                    <div class="pull-right">
+                      {{> post_admin}}
+                    </div>
                   {{> post_item post=this}}
                 </div>
-              <!--{{#if body}}-->
-                  <!--{{> post_body}}-->
-              <!--{{/if}}-->
               {{> comment_submit}}
               {{> comment_list}}
             </div>

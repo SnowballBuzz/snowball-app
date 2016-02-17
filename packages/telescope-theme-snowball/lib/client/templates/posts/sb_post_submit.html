@@ -1,18 +1,25 @@
 <template name="sb_post_submit">
-    {{> goBack text="Cancel"}}
+  {{> goBack text="Cancel"}}
     <div class="logoZoneRight">
         <a href="#" class="submitPost">Post</a>
     </div>
     <div class="form-page post-submit">
-        <div class="grid grid-module">
-          {{> quickForm
-          collection="Posts"
-          id="submitPostForm"
-          template="bootstrap3-horizontal"
-          input-col-class="controls"
-          type="method"
-          meteormethod="submitPost"
-          fields=postFields}}
-        </div>
+      {{#if isSubscribed}}
+          <div class="grid grid-module">
+            {{> quickForm
+            collection="Posts"
+            id="submitPostForm"
+            template="bootstrap3-horizontal"
+            input-col-class="controls"
+            type="method"
+            meteormethod="submitPost"
+            fields=postFields}}
+          </div>
+      {{else}}
+          <div class="grid grid-module">
+              You need to be subscribed to some channels to post new ideas.
+              <a href="{{pathFor 'channels'}}" class="btn btn-default btn-block">Subscribe to some channels</a>
+          </div>
+      {{/if}}
     </div>
 </template>

@@ -4,8 +4,8 @@ App.info({
   description: 'Snowball is a meritocratic platform to raise the best ideas for change.',
   author: 'Mehdi',
   email: 'hi@snowball.buzz',
-  website: 'http://www.snowball.buzz/',
-  version: '0.0.1'
+  website: 'https://www.snowball.buzz/',
+  version: '0.0.4'
 });
 
 App.icons({
@@ -49,9 +49,9 @@ App.launchScreens({
 
 App.setPreference('BackgroundColor', '0xff0000ff');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
-App.setPreference('Orientation', 'default');
-App.setPreference('Orientation', 'all', 'ios');
-App.setPreference('AutoHideSplashScreen' ,'true');
+App.setPreference('Orientation', 'portrait');
+//App.setPreference('Orientation', 'all', 'ios');
+//App.setPreference('AutoHideSplashScreen' ,'true');
 
 
 // Pass preferences for a particular PhoneGap/Cordova plugin

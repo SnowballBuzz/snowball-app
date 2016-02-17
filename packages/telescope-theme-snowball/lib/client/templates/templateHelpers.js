@@ -4,6 +4,6 @@ Template.registerHelper('isUser', function (userA, userB) {
   return userA._id === userB._id;
 });
 Template.registerHelper('twitterLink', function () {
-  var url = Telescope.utils.getSiteUrl() + '/posts/' + this._id + '/' + this.slug;
+  var url = Telescope.utils.getSiteUrl() + 'posts/' + this._id + '/' + this.slug;
   return encodeURIComponent(url);
 });
