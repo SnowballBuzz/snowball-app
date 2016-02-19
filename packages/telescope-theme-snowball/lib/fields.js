@@ -51,7 +51,9 @@ Users.addField({
     //"public": true,
     label: 'Enable mobile push notifications',
     autoform: {
-      type: "boolean-radio"
+      afFieldInput: {
+        type: "boolean-select"
+      }
     }
   }
 });
