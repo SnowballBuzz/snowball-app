@@ -5,7 +5,7 @@ App.info({
   author: 'Mehdi',
   email: 'hi@snowball.buzz',
   website: 'https://www.snowball.buzz/',
-  version: '0.0.4'
+  version: '0.0.5'
 });
 
 App.icons({

@@ -41,15 +41,15 @@ Telescope.callbacks.add("postsParameters", function (parameters, terms) {
   //end from tscope
 
   var user = Meteor.users.findOne(terms.userId);
-  var allowedCats = [];
+  var userCats = [];
 
   //If the user has subscribed channels, add those to allowed channels
-  if (((user != null ? user.subscribedChannelsIds : void 0) != null) === true) {
-    allowedCats = user.subscribedChannelsIds;
+  if (((typeof user != 'undefined' ? user.subscribedChannelsIds : void 0) != null) === true) {
+    userCats = user.subscribedChannelsIds;
   }
   //include public channels
   var publicCats = _.pluck(Categories.find({isPrivate: 0}).fetch(), '_id');
-  allowedCats = _.union(publicCats, allowedCats);
+  var allowedCats = _.union(publicCats, userCats);
 
   var shownCats;
 
@@ -58,7 +58,7 @@ Telescope.callbacks.add("postsParameters", function (parameters, terms) {
     shownCats = _.intersection(allowedCats, catParams);
     //Otherwise, show subscribed channels
   } else {
-    shownCats = user.subscribedChannelsIds;
+    shownCats = userCats;
   }
   //console.log('shownCats:',shownCats);
   parameters.find.categories = {$in: shownCats};

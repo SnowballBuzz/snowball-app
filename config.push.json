@@ -13,7 +13,7 @@
     "apiKey": "AIzaSyCE4Vto11viEgFfhUCcTIpYkAzX15zvM4g",
     "projectNumber": 779634173403
   },
-  "production": false,
+  "production": true,
   "badge": true,
   "sound": true,
   "alert": true,
