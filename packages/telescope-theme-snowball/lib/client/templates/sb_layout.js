@@ -4,6 +4,20 @@ Template.layout.onRendered(function () {
 });
 
 Template.layout.helpers({
+  notLoggedOutCordova: function(){
+      //if on cordova
+    if(Meteor.isCordova){
+      //if not logged in, don't show content
+      if(!Meteor.userId()){
+        return false;
+      //if logged in, do show content
+      } else {
+        return true;
+      }
+    } else {
+      return true;
+    }
+  },
   resetPushBadges: function () {
     if (Meteor.userId()) {
       //todo: redirect if the user enters from a push notification

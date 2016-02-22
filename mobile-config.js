@@ -5,8 +5,9 @@ App.info({
   author: 'Mehdi',
   email: 'hi@snowball.buzz',
   website: 'https://www.snowball.buzz/',
-  version: '0.0.5'
+  version: '0.0.6'
 });
+//meteor build ~/Builds/Snowball --architecture os.linux.x86_64 --server https://app.snowball.buzz
 
 App.icons({
 //iOS

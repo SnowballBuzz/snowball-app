@@ -1,5 +1,5 @@
 Meteor.methods({
-  pushNotification: function (message, userId) {
+  pushNotification: function (userId, message) {
     // Push.debug = true; // Add verbosity
     var user = Users.findOne(userId);
     if (user) {

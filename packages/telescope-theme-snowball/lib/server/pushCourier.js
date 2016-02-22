@@ -18,22 +18,23 @@ var notifications = {
   postApproved: function (post) {
     return 'Your post “' + post.title + '” has been approved';
   },
-  newComment: function (post) {
-    return post.author + ' left a new comment on your post "' + post.title + '"';
+  newComment: function (post, comment) {
+    return comment.author + ' left a new comment on your post "' + post.title + '"';
   },
-  subject: function (post) {
-    return post.author + ' replied to your comment on "' + post.title + '"';
+  newReply: function (post, comment) {
+    return comment.author + ' replied to your comment on "' + post.title + '"';
   },
-  newCommentSubscribed: function (post) {
-    return post.author + ' left a new comment on "' + post.title + '"';
+  newCommentSubscribed: function (post, comment) {
+    return comment.author + ' left a new comment on "' + post.title + '"';
   }
 };
 Meteor.startup(function () {
   Herald.collection.after.insert(function (userId, doc) {
-    console.log(doc);
+    //console.log(doc, userId);
     var post = Posts.findOne(doc.data.post._id);
-    var message = notifications[doc.courier](post);
-    console.log('Notification message:', message, post);
+    var comment = doc.data.comment? Comments.findOne(doc.data.comment._id): '';
+    var message = notifications[doc.courier](post, comment);
+    console.log('Notification message:', message);
     Meteor.call('pushNotification', doc.userId, message);
   });
 });

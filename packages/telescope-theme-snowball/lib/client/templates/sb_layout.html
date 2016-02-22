@@ -6,7 +6,7 @@
         {{> mobile_nav}}
           <div class="inner-wrapper template-{{pageName}}">
             {{> header}}
-            {{#if isLoggedIn}}
+            {{#if notLoggedOutCordova}}
               {{> modules zone="hero"}}
                 <div class="content-wrapper">
                   {{#if notAllowed}}

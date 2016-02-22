@@ -4,23 +4,24 @@
   src: url('/packages/telescope-theme-snowball/fonts/OpenSans-Light.ttf');
   font-weight: lighter;
 }
+
 @font-face {
   font-family: Open Sans;
   src: url('/packages/telescope-theme-snowball/fonts/OpenSans-Regular.ttf');
   font-weight: normal;
 }
+
 @font-face {
   font-family: Open Sans;
   src: url('/packages/telescope-theme-snowball/fonts/OpenSans-Semibold.ttf');
   font-weight: bold;
 }
+
 @font-face {
   font-family: Montserrat;
   src: url('/packages/telescope-theme-snowball/fonts/Montserrat-Bold.ttf');
   font-weight: bolder;
 }
-
-
 
 $bodyfont: Open Sans, sans serif;
 $headerfont: Montserrat, sans serif;
@@ -101,7 +102,7 @@ html {
     margin-top: -10px;
     padding: 10px 20px;
   }
-  &.postsListTop-module{
+  &.postsListTop-module {
     margin-top: -10px;
     padding: 10px;
     width: 100%;
@@ -131,9 +132,13 @@ html {
   }
 }
 
-.notifications-wrapper {
+ul.notifications-wrapper {
   padding: 10px;
-  li.menu-item {
+  li.notification-item {
+    .avatar{
+      float: left;
+      margin-right: 15px;
+    }
     border-bottom: 1px solid $lightgrey;
     padding-bottom: 10px;
   }
@@ -152,7 +157,7 @@ html {
   .post-heading {
     //position: relative;
     .post-categories {
-      .post-category{
+      .post-category {
         min-width: 150px;
         text-align: center;
         font-weight: bold;
@@ -169,7 +174,7 @@ html {
         font-size: 14px;
         color: $lightgrey;
         margin-left: 20px;
-        a{
+        a {
           font-weight: lighter;
         }
         i {
@@ -267,6 +272,7 @@ html {
     }
   }
 }
+
 //fix for not being able to click into form element
 .froala-box, .froala-box .froala-wrapper.f-basic {
   -webkit-user-select: text !important;
@@ -286,7 +292,7 @@ a.post-link-overlay {
   right: 0;
   bottom: 0;
   z-index: 0;
-  .template-postPage &{
+  .template-postPage & {
     display: none;
   }
 }
@@ -357,11 +363,13 @@ a.post-link-overlay {
       .comment-meta {
         font-size: 0;
         border: none;
-        *{font-size:initial;}
+        * {
+          font-size: initial;
+        }
         span.points, span.unit {
           display: none;
         }
-        .edit-link{
+        .edit-link {
           position: relative;
           top: 5px;
         }
@@ -373,7 +381,8 @@ a.post-link-overlay {
     }
   }
 }
-.post-subscribe{
+
+.post-subscribe {
   box-shadow: none;
 }
 
@@ -509,7 +518,7 @@ i.primary {
         padding: 7px 0;
         transition: all .3s;
         height: 60px;
-        i{
+        i {
           margin-top: -5px;
           margin-bottom: -5px;
         }

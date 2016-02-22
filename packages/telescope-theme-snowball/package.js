@@ -116,6 +116,7 @@ Package.onUse(function (api) {
     'lib/client/templates/login_form.html',
     ////layout
     'lib/client/templates/sb_layout.html',
+    'lib/client/templates/sb_layout.js',
     'lib/client/templates/sb_header.html',
     ////mobile menu
     'lib/client/templates/mobile_menu.html',

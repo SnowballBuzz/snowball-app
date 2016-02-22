@@ -1,7 +1,17 @@
 <template name="notifications">
   {{#if isLoggedIn}}
-      <div class="notifications-wrapper">
-        {{> menuComponent menuName="notifications" menuLabel=menuLabel menuItems=menuItems menuType=list expandLevel=1}}
-      </div>
+      <!--{{> menuComponent menuName="notifications" menuLabel=menuLabel menuItems=menuItems menuType=list expandLevel=1}}-->
+    {{#if notifications}}
+      {{> notifications_mark_as_read}}
+    {{/if}}
+      <ul class="notifications-wrapper">
+        {{#each notifications}}
+            <li class="notification-item clearfix">
+                <!--why this doesn't work?-->
+                <!--{{> avatar userId=mainUserId shape="circle"}}-->
+                <span class="message">{{{message}}}</span>
+            </li>
+        {{/each}}
+      </ul>
   {{/if}}
 </template>
