@@ -1,7 +1,7 @@
 <template name="post_tweet">
     <div class="post-share post-meta-item">
         <a class="tweet-post"
-           href="//twitter.com/intent/tweet?text={{encodedTitle}}&{{viaTwitter}}&url={{twitterLink}}"
+           href="//twitter.com/intent/tweet?text={{channel}}{{encodedTitle}}&{{viaTwitter}}&url={{twitterLink}}"
            data-id="{{_id}}" target="_system">
             <h4>{{{icon "twitter"}}} Share {{shares}}</h4>
         </a>

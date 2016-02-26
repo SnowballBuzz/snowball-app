@@ -38,7 +38,15 @@ Template.post_tweet.helpers({
     return !!this.url ? this.url : Posts.getPageUrl(this);
   },
   viaTwitter: function () {
+    //%40
     return !!Settings.get('twitterAccount') ? 'via='+Settings.get('twitterAccount') : '';
+  },
+  channel: function(){
+    if(this.categories.length){
+      var cat = Categories.findOne(this.categories[0]);
+      cat = cat.slug.replace(/\-/g,'');
+      return '%23' + cat + '%20';
+    }
   }
 });
 

@@ -19,14 +19,14 @@ Template.body.events({
       var isUrl = /^https?:|^unix:/
       console.log(atts);
       // && (atts.target === '_system' || atts.target === '_blank')
-      if (typeof atts.target != 'undefined' || isUrl.test(atts.href)) {
+      if (typeof atts.target != 'undefined' || isUrl.test(atts.href.value)) {
         //console.log(e, d, t);
         e.preventDefault();
         e.stopImmediatePropagation();
         e.stopPropagation();
         //console.log('prevented');
-        console.log('opening ' + atts.href + ' in ' + atts.target);
-        window.open(atts.href, atts.target);
+        console.log('opening ' + atts.href.value + ' in ' + atts.target.value);
+        window.open(atts.href.value, atts.target.value);
       }
     }
   }

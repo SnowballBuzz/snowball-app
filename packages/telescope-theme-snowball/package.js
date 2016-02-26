@@ -72,6 +72,7 @@ Package.onUse(function (api) {
     'lib/server/addAndVerifyEmail.js',
     'lib/server/verifyUnverifiedAccounts.js',
     'lib/server/subscribePrivateOnVerify.js',
+    'lib/server/spiderableIgnoreSSLErrors.js'
   ], ['server']);
 
   api.addFiles([
