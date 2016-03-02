@@ -2,13 +2,7 @@
     <div class="logo header-module">
         <!--{{> modules zone="logoZoneLeft"}}-->
       {{#if routeIs 'postsDefault'}}
-        {{#if currentUser}}
-            <div class="segmented-control">
-              {{> menuComponent menuName="view" menuLabel=menuLabel menuItems=menuItems menuType="list"}}
-            </div>
-        {{else}}
-            <h1 class="logo-text"><a href="/">{{getSetting "title" "Telescope"}}</a></h1>
-        {{/if}}
+            <h1 class="logo-text"><a href="/">{{getSetting "title" "Sb"}}</a></h1>
       {{else}}
         {{#if customTitle}}
             <h1 class="logo-text"><a>{{customTitle}}</a></h1>
