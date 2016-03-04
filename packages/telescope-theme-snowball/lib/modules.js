@@ -30,8 +30,8 @@ Telescope.modules.add("primaryNav", [
 Telescope.modules.add('secondaryNav', [
   {template: 'notifications_menu', order: 10},
   {template: 'search', order: 15},
-  {template: 'submit_button', order: 20},
-  {template: 'user_menu', order: 30}
+  {template: 'submit_button', order: 30},
+  {template: 'user_menu', order: 20}
 ]);
 Telescope.modules.add('postsListTop', [{template: 'search', order: 1, class: 'hidden', id: 'search2'}]);
 //hidden
