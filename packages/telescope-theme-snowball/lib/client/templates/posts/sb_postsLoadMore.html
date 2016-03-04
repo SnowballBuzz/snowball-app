@@ -9,10 +9,14 @@
               <div class="posts-loading">{{> loading}}</div>
           {{/if}}
         {{else}}
-            <div class="no-posts">
-              {{_ "sorry_we_couldnt_find_any_posts"}}
-                <br>
-                <a href="{{pathFor 'channels'}}" class="btn btn-default btn-block">Subscribe to some channels</a></div>
+                {{#if isLoggedIn}}
+                    <div class="no-posts" text-align="center">
+                      {{_ "sorry_we_couldnt_find_any_posts"}}
+                        <br>
+                        <center><a href="{{pathFor 'channels'}}" class="btn btn-default btn-block">Join a channel</a></center></div>
+                {{else}}
+                  <center><p><a href="/sign-in">{{_ "please_sign_in_first"}}</a></p></center>
+                {{/if}}
         {{/if}}
       {{else}}
           <div class="posts-loading">{{> loading}}</div>
