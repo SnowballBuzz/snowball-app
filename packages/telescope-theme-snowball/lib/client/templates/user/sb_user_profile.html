@@ -2,7 +2,7 @@
   {{> goBack}}
   {{#with user}}
     {{save}}
-    {{#if isUser currentUser this}}It's me!{{/if}}
+    {{#if isUser currentUser this}}<center>Welcome to your own profile! <br> Only you can see your posts and votes, but your comments are public.</center>{{/if}}
     {{> modules zone="profileDisplay" moduleData=this}}
   {{/with}}
 </template>

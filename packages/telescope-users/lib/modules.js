@@ -14,7 +14,7 @@ Telescope.modules.add("profileDisplay", [
   },
   {
     template: 'user_downvoted_posts',
-    order: 5
+    order: 4
   },
   {
     template: 'user_comments',

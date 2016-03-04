@@ -55,6 +55,6 @@ Telescope.modules.add('postComponents', [
 Telescope.modules.add('footer', {template: 'mobile_menu', order: 1});
 
 //back button for user profile edit
-Telescope.modules.add('profileDisplay', {template: 'log_out', order: 1});
+Telescope.modules.add('profileDisplay', {template: 'log_out', order: 6});
 
 Telescope.modules.add('profileEdit', {template: 'goBack', order: 1});

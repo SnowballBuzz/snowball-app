@@ -4,24 +4,24 @@
             <div class="modal-content">
                 <form action="" id="privateChannelEmail">
                     <div class="modal-header">
-                        <h4 class="modal-title">Verify your email to join the {{name}} channel</h4>
+                        <h4 class="modal-title">Verify your affiliation</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Enter an email address based on one of the following domain names:</p>
-                        <ul>
+                        <p>To join the <strong> {{name}} </strong> channel, please provide an email address with one of the following domain names:<br></p>
+                        <ul line-height="1">
                           {{#each domains}}
-                              <li><strong>{{this}}</strong></li>
+                              <li margin="0 0 1px 0"> &nbsp; &nbsp; <strong>@{{this}}</strong></li>
                           {{/each}}
                         </ul>
                         <input type="email" id="" name="email" placeholder="your-email@organization.com">
-                        <p>Please check your mailbox for a confirmation link.</p>
+                        <br><p>Please check your mailbox for a confirmation link.</p>
 
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         <!--                <button type="button" class="btn btn-default resendVerification">Resend My Verification</button> -->
-                        <button type="submit" class="btn btn-primary submitEmail">Verify my email</button>
+                        <button type="submit" class="btn btn-primary submitEmail">Send Verification</button>
                     </div>
                 </form>
             </div>
