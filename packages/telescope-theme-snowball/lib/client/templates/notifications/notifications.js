@@ -6,9 +6,10 @@ Template.notifications.helpers({
     }, {sort: {timestamp: -1}}).map(function (notification) {
       var post = notification.data.post;
       var comment = notification.data.comment;
+      // Anonymized newPost case below 
       switch (notification.courier) {
         case 'newPost':
-          notification.message = '<a href="/users/' + post.userId + '">' + post.author + '</a> has created a new post: <a href="/posts/' + post._id + '">' + post.title + '</a>';
+          notification.message = 'Someone has posted a new idea: <a href="/posts/' + post._id + '">' + post.title + '</a>';
           notification.mainUserId = post.userId;
           break;
         case 'newPendingPost':
