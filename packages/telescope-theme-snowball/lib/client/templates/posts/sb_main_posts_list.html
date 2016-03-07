@@ -1,7 +1,17 @@
 <template name="sb_main_posts_list">
     <div class="main-posts-list">
         <div class="logoZoneRight">
-            <a href="#" class="showPostsSearch"><i class="fa fa-search"></i></a>
+            <!-- Adding the Post a new idea Button next to the search button (ML) -->
+              <table>
+                <tr>
+                  <td>
+                    <a href="#" class="showPostsSearch"><i class="fa fa-search"></i></a>
+                  </td>
+                  <td>
+                    <a href="/submit"><i class="fa fa-edit"></i></a>
+                  </td>
+                </tr>
+              </table>
         </div>
       {{> modules zone="postsListTop"}}
       {{#if customTemplate}}
