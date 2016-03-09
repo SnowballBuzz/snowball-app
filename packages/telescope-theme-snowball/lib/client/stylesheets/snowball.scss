@@ -235,7 +235,12 @@ ul.notifications-wrapper {
           .downvote h4{text-decoration: underline;font-weight: bold;}
         }
         .vote-action {
-          width: auto !important;
+          &.downvote{
+            width: 115px !important;
+          }
+          &.upvote{
+            width: 90px !important;
+          }
           border-top: 0;
           display: inline-block;
           h4 {
@@ -247,7 +252,7 @@ ul.notifications-wrapper {
       }
     }
     .post-share {
-      float: left;
+      float: right;
       display: block !important;
       a.tweet-post {
         padding: 2px 3px;

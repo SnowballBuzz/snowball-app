@@ -170,6 +170,7 @@ Package.onUse(function (api) {
     'lib/client/templates/user/sb_user_posts.html',
     'lib/client/templates/user/sb_user_posts.js',
     'lib/client/templates/utils/log_out.html',
+    'lib/client/templates/sb_comments_list_compact.html',
 
     //froala wysiwyg
     'lib/client/froala/froala_form.html',
