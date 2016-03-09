@@ -21,11 +21,13 @@ Template.post_vote.helpers({
   },
   upvotePercent: function () {
     var totalVotes = this.upvotes + this.downvotes;
-    return 100 * (this.upvotes / totalVotes ) + '%';
+    var percentUpvote = 100 * (this.upvotes / totalVotes);
+    return percentUpvote.toFixed(0) + '%';
   },
   downvotePercent: function () {
     var totalVotes = this.upvotes + this.downvotes;
-    return 100 * (this.downvotes / totalVotes) + '%';
+    var percentDownvote = 100 * (this.downvotes / totalVotes);
+    return percentDownvote.toFixed(0) + '%';
   }
 });
 Template.post_vote.events({
