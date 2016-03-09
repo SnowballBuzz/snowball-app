@@ -228,6 +228,12 @@ ul.notifications-wrapper {
       position: relative;
       .vote-actions {
         border: none;
+        &.upvoted{
+          .upvote h4{text-decoration: underline;font-weight: bold;}
+        }
+        &.downvoted{
+          .downvote h4{text-decoration: underline;font-weight: bold;}
+        }
         .vote-action {
           width: auto !important;
           border-top: 0;
