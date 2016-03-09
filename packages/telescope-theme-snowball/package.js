@@ -159,6 +159,9 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/sb_posts_list_compact.js',
     'lib/client/templates/posts/sb_main_posts_list.html',
     'lib/client/templates/posts/sb_main_posts_list.js',
+    'lib/client/templates/posts/post_rationale.html',
+    //'lib/client/templates/posts/post_rationale.js',
+
 
     //back button
     'lib/client/templates/utils/goBack.html',
@@ -172,6 +175,10 @@ Package.onUse(function (api) {
     'lib/client/templates/utils/log_out.html',
     'lib/client/templates/sb_comments_list_compact.html',
 
+    //textareaAdvanced
+    'lib/client/autoform-textarea-advanced/afTextareaAdvanced.html',
+    'lib/client/autoform-textarea-advanced/afTextareaAdvanced.js',
+    'lib/client/autoform-textarea-advanced/afTextareaAdvanced.scss',
     //froala wysiwyg
     'lib/client/froala/froala_form.html',
     'lib/client/froala/froala_form.js',

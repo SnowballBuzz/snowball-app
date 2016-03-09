@@ -249,10 +249,15 @@ ul.notifications-wrapper {
           }
           border-top: 0;
           display: inline-block;
+          padding: 0;
           h4 {
             font-family: $bodyfont;
             font-size: 14px;
             color: $darkgrey;
+            text-align: left;
+            i{
+              text-align: left;
+            }
           }
         }
       }

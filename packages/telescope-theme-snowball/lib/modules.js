@@ -49,7 +49,8 @@ Telescope.modules.add('postMeta', [
   //{template: 'post_admin', order: 15}
 ]);
 Telescope.modules.add('postComponents', [
-  {template: 'post_link_overlay', order: 1}
+  {template: 'post_link_overlay', order: 1},
+  {template: 'post_rationale', order: 11}
 ]);
 //add mobile menu
 Telescope.modules.add('footer', {template: 'mobile_menu', order: 1});
