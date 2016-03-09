@@ -5,7 +5,7 @@ var notifications = {
       return Posts.getNotificationProperties(this.data.post);
     },
     subject: function () {
-      return this.postAuthorName+' has created a new post: '+this.postTitle;
+      return 'Someone has created a new post: '+this.postTitle;
     },
     emailTemplate: "emailNewPost"
   },

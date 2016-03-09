@@ -147,6 +147,7 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/sb_post_title.html',
     'lib/client/templates/posts/sb_post_info.html',
     'lib/client/templates/posts/sb_post_vote.html',
+    'lib/client/templates/posts/sb_post_vote.js',
     'lib/client/templates/posts/sb_post_content.html',
     'lib/client/templates/posts/post_tweet.html',
     'lib/client/templates/posts/post_tweet.js',

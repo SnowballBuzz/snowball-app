@@ -4,26 +4,24 @@
             <div class="modal-content">
                 <form action="" id="privateChannelEmail">
                     <div class="modal-header">
-                        <h4 class="modal-title">This is a private channel.</h4>
+                        <h4 class="modal-title">Verify your affiliation</h4>
                     </div>
-
                     <div class="modal-body">
-                        <p>{{name}} is a private channel. Either your email address is not allowed, or you have not verified your email address. Allowed domains for
-                            this channel are:</p>
-                        <ul>
+                        <p>To join the <strong> {{name}} </strong> channel, please provide an email address with one of the following domain names:<br></p>
+                        <ul line-height="1">
                           {{#each domains}}
-                              <li><strong>{{this}}</strong></li>
+                              <li margin="0 0 1px 0"> &nbsp; &nbsp; <strong>@{{this}}</strong></li>
                           {{/each}}
                         </ul>
-                        <p>If you have an email address from one of those domains, type it below. Once you've verified
-                            your address, you'll be able to join this channel.</p>
-                        <input type="email" id="" name="email">
+                        <input type="email" id="" name="email" placeholder="your-email@organization.com">
+                        <br><p>Please check your mailbox for a confirmation link.</p>
+
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-default resendVerification">Resend My Verification</button>
-                        <button type="submit" class="btn btn-primary submitEmail">Submit</button>
+        <!--                <button type="button" class="btn btn-default resendVerification">Resend My Verification</button> -->
+                        <button type="submit" class="btn btn-primary submitEmail">Send Verification</button>
                     </div>
                 </form>
             </div>

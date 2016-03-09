@@ -7,10 +7,10 @@ function executeFunctionByName(functionName, context /*, args */) {
   }
   return context[func].apply(context, args);
 }
-
+// Anonymized newPost function below
 var notifications = {
   newPost: function (post) {
-    return post.author + ' has created a new post: ' + post.title;
+    return 'Someone has posted a new idea: ' + post.title;
   },
   newPendingPost: function (post) {
     return post.author + ' has a new post pending approval: ' + post.title;

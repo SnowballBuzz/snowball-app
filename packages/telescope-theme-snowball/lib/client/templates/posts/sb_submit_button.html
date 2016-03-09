@@ -2,7 +2,10 @@
   {{#if currentUser}}
       <div class="submit-button {{moduleClass}}">
           <a id="submit" class="submit btn" href="{{pathFor 'postSubmit'}}">
-              <i class="fa fa-plus-circle"></i>&nbsp;&nbsp;{{_ "post"}}
+              <i class="fa fa-edit primary"></i>
+              <!-- add a conditional here to show "Post Idea" only if page width is > 800px (later)
+                  {{_ "post"}}
+              -->
           </a>
       </div>
   {{/if}}

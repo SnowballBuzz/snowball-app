@@ -1,24 +1,27 @@
 <template name="sb_post_vote">
     <div class="post-vote {{moduleClass}}">
         <div class="vote-actions {{actionsClass}}">
-            <a class="vote-action upvote-link" href="#" title="{{_ "upvote_"}}">
+            <a class="vote-action upvote" href="#" title="{{_ "upvote_"}}">
                 <h4>
-                  {{{icon "upvote"}}}
-                    <span class="sr-only">{{_ "upvote_"}}</span>
-                    Upvote
-                  {{#if currentUser.hasUpvoted this}}
-                    {{#if upvotes}}
-                      {{upvotes}}
-                    {{/if}}
+                  {{#if hasVoted}}
+                    {{upvotePercent}}
+                  {{else}}
+                    {{{icon "upvote"}}}
+                      <span class="sr-only">{{_ "upvote_"}}</span>
+                      Upvote
                   {{/if}}
                 </h4>
             </a>
           {{#if enableDownvotes}}
-              <a class="vote-action downvote-link" href="#" title="{{_ "downvote"}}">
+              <a class="vote-action downvote" href="#" title="{{_ "downvote"}}">
                   <h4>
-                    {{{icon "downvote"}}}
-                      <span class="sr-only">{{_ "downvote_"}}</span>
-                      Downvote
+                    {{#if hasVoted}}
+                      {{downvotePercent}}
+                    {{else}}
+                      {{{icon "downvote"}}}
+                        <span class="sr-only">{{_ "downvote_"}}</span>
+                        Downvote
+                    {{/if}}
                   </h4>
               </a>
           {{/if}}
