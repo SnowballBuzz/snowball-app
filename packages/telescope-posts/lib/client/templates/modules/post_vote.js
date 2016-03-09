@@ -30,11 +30,11 @@ Template.post_vote.events({
     } else if (user.hasUpvoted(post)) {
       Meteor.call('cancelUpvotePost', post._id, function(){
         Events.track("post upvote cancelled", {'_id': post._id});
-      });        
+      });
     } else {
       Meteor.call('upvotePost', post._id, function(){
         Events.track("post upvoted", {'_id': post._id});
-      });  
+      });
     }
   },
   'click .downvote-link': function(e){
@@ -48,11 +48,11 @@ Template.post_vote.events({
     if (user.hasDownvoted(post)) {
       Meteor.call('cancelDownvotePost', post._id, function(){
         Events.track("post downvote cancelled", {'_id': post._id});
-      });        
+      });
     } else {
       Meteor.call('downvotePost', post._id, function(){
         Events.track("post downvoted", {'_id': post._id});
-      });  
+      });
     }
-  }  
+  }
 });
