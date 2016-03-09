@@ -1,5 +1,14 @@
 <template name="sb_postsLoadMore">
     <div class="posts-load-more">
+      {{#if isLoggedIn}}
+          <div class="no-posts" text-align="center">
+            {{_ "sorry_we_couldnt_find_any_posts"}}
+              <br><br>
+              <center><a href="{{pathFor 'channels'}}" class="btn btn-default btn-block">Join a Group</a></center></div>
+      {{else}}
+        <center><p><a href="/sign-in">{{_ "please_sign_in_first"}}</a></p></center>
+      {{/if}}
+
       {{#if postsReady}}
         {{#if hasPosts}}
           {{#if showLoadMoreButton}}
@@ -9,14 +18,6 @@
               <div class="posts-loading">{{> loading}}</div>
           {{/if}}
         {{else}}
-                {{#if isLoggedIn}}
-                    <div class="no-posts" text-align="center">
-                      {{_ "sorry_we_couldnt_find_any_posts"}}
-                        <br><br>
-                        <center><a href="{{pathFor 'channels'}}" class="btn btn-default btn-block">Join a Group</a></center></div>
-                {{else}}
-                  <center><p><a href="/sign-in">{{_ "please_sign_in_first"}}</a></p></center>
-                {{/if}}
         {{/if}}
       {{else}}
           <div class="posts-loading">{{> loading}}</div>
