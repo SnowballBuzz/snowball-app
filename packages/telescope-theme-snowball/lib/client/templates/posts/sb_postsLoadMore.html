@@ -1,25 +1,30 @@
 <template name="sb_postsLoadMore">
     <div class="posts-load-more">
-      {{#if postsReady}}
-        {{#if hasPosts}}
-          {{#if showLoadMoreButton}}
-              <a class="more-button" href="#"><span>{{_ "load_more"}}</span></a>
-          {{/if}}
-          {{#if showInfiniteScroll}}
+      {{#if isLoggedIn}}
+          {{#if postsReady}}
+            {{#if hasPosts}}
+                {{#if showLoadMoreButton}}
+                    <a class="more-button" href="#"><span>{{_ "load_more"}}</span></a>
+                {{/if}}
+                {{#if showInfiniteScroll}}
+                    <div class="posts-loading">{{> loading}}</div>
+                {{/if}}
+            {{else}}
+                <div class="no-posts" text-align="center">
+                  {{_ "sorry_we_couldnt_find_any_posts"}}
+                  <br><br>
+                  <div class="center-text">
+                    <a href="{{pathFor 'channels'}}" class="btn btn-default btn-block">
+                      Join a Group
+                    </a>
+                  </div>
+                </div>
+            {{/if}}
+          {{else}}
               <div class="posts-loading">{{> loading}}</div>
           {{/if}}
-        {{else}}
-                {{#if isLoggedIn}}
-                    <div class="no-posts" text-align="center">
-                      {{_ "sorry_we_couldnt_find_any_posts"}}
-                        <br><br>
-                        <center><a href="{{pathFor 'channels'}}" class="btn btn-default btn-block">Join a Group</a></center></div>
-                {{else}}
-                  <center><p><a href="/sign-in">{{_ "please_sign_in_first"}}</a></p></center>
-                {{/if}}
-        {{/if}}
       {{else}}
-          <div class="posts-loading">{{> loading}}</div>
+          <div class="center-text"><a href="/sign-in">{{_ "please_sign_in_first"}}</a></div>
       {{/if}}
     </div>
 </template>
