@@ -4,6 +4,7 @@
             <a class="vote-action upvote" href="#" title="{{_ "upvote_"}}">
                 <h4>
                   {{#if hasVoted}}
+                    {{{icon "upvote"}}}
                     {{upvotePercent}}
                   {{else}}
                     {{{icon "upvote"}}}
@@ -16,6 +17,7 @@
               <a class="vote-action downvote" href="#" title="{{_ "downvote"}}">
                   <h4>
                     {{#if hasVoted}}
+                    {{{icon "downvote"}}}
                       {{downvotePercent}}
                     {{else}}
                       {{{icon "downvote"}}}
