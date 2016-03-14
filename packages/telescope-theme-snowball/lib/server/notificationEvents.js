@@ -6,7 +6,7 @@ Posts.after.update(function (userId, post, fieldNames, modifier, options) {
       var notificationData = {post: _.pick(post, '_id', 'userId', 'title', 'url', 'upvotes')};
       notifiedUserIds = _.intersection(notifiedUserIds, post.userId);
       if (_.contains([2, 5, 10, 50, 100, 200, 500], post.upvotes)) {
-        console.log('2,5,10,60,100,200, or 500');
+        console.log('2,5,10,50,100,200, or 500');
         Herald.createNotification(notifiedUserIds, {courier: 'xPosts', data: notificationData});
       }
     }
