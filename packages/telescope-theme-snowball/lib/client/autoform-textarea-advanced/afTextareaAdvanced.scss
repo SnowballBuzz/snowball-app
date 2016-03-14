@@ -1,6 +1,14 @@
-form textarea.afTextareaAdvanced {
-  box-sizing: border-box;
-  max-height: 160px; // optional but recommended
-  min-height: 38px;
-  overflow-x: hidden; // for Firefox (issue #5)
+.afTextareaAdvanced {
+  position: relative;
+  textarea {
+    box-sizing: border-box;
+    max-height: 160px; // optional but recommended
+    min-height: 38px;
+    overflow-x: hidden; // for Firefox (issue #5)
+  }
+  .charCount{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
 }

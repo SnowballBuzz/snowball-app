@@ -153,7 +153,7 @@ Posts.addField({
       submitOnEnter: true,
       afFieldInput: {
         type: 'textareaAdvanced',
-        placeholder: 'Explain your idea succinctly',
+        placeholder: 'What do you want to achieve',
       }
     }
   }

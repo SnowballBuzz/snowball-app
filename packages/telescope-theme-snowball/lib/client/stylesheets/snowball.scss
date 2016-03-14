@@ -458,8 +458,10 @@ span.glyphicon.glyphicon-plus:before {
   }
   .form-group:last-child {
     textarea {
+      -webkit-appearance: none;
       font-size: 18px;
       border: 1px solid $lightgrey;
+      border-radius: none;
       border-bottom-left-radius: 4px;
       border-bottom-right-radius: 4px;
       border-top: none;

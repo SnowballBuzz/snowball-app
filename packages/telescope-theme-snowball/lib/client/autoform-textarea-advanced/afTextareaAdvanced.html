@@ -1,7 +1,8 @@
 <template name="afTextareaAdvanced">
-    <textarea {{this.atts}} class="afTextareaAdvanced">{{this.value}}</textarea>
-  {{#if atts.countChars}}
-      <div class="pull-right">{{charsUsed}}/{{charsRemaining}}</div>
-  {{/if}}
+    <div class="afTextareaAdvanced">
+        <textarea {{this.atts}} class="afTextareaAdvanced">{{this.value}}</textarea>
+      {{#if atts.countChars}}
+          <div class="charCount">{{charsUsed}}</div>
+      {{/if}}</div>
 
 </template>

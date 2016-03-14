@@ -66,11 +66,8 @@ Template.afTextareaAdvanced.onRendered(function () {
 
 Template.afTextareaAdvanced.helpers({
   charsUsed: function () {
-    return Session.get('postCharsUsed') || 0;
-  },
-  charsRemaining: function () {
     var data = Template.currentData();
-    return data.max;
+    return data.max - Session.get('postCharsUsed') || data.max;
   }
 });
 
@@ -83,7 +80,7 @@ Template.afTextareaAdvanced.events({
     }
     if (data.atts.submitOnEnter && e.which == 13) {
       e.preventDefault();
-      $('.afTextareaAdvanced').submit();
+      $('.afTextareaAdvanced').parent('form').submit();
     }
   }
 });
