@@ -147,7 +147,7 @@ Posts.addField({
     editableBy: ["member", "admin"],
     label: 'Idea',
     autoform: {
-      rows: 2,
+      rows: 1,
       autoSize: true,
       countChars: true,
       submitOnEnter: true,

@@ -5,10 +5,15 @@
     max-height: 160px; // optional but recommended
     min-height: 38px;
     overflow-x: hidden; // for Firefox (issue #5)
+    resize: none;
   }
   .charCount{
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 1px;
+    right: 0;
+    height: 20px;
+    width: 32px;
+    background-color: rgba(255,255,255,.8);
+    text-align: center;
   }
 }
