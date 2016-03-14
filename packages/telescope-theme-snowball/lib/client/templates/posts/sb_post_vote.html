@@ -5,6 +5,7 @@
                 <h4>
                   {{{icon "upvote"}}}
                   {{#if hasVoted}}
+                    {{{icon "upvote"}}}
                     {{upvotePercent}}
                   {{else}}
                       <span class="sr-only">{{_ "upvote_"}}</span>
@@ -17,6 +18,7 @@
                   <h4>
                     {{{icon "downvote"}}}
                     {{#if hasVoted}}
+                    {{{icon "downvote"}}}
                       {{downvotePercent}}
                     {{else}}
                         <span class="sr-only">{{_ "downvote_"}}</span>
