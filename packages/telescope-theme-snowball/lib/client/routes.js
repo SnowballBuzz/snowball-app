@@ -25,6 +25,14 @@ FlowRouter.route('/notifications', {
   }
 });
 
+FlowRouter.route('/submit', {
+  name: "postSubmit",
+  action: function(params, queryParams) {
+    //BlazeLayout.render("layout", {main: "post_submit"});
+    console.log('rendered submit page');
+  }
+});
+
 //overriding logout hook to remove message
 //FlowRouter.route('/sign-out', {
 //  name: "signOut",
