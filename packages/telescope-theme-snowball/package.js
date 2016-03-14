@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Telescope snowball theme",
-  version: '0.0.1',
+  version: '0.0.8',
   name: "telescope-theme-snowball"
 });
 
@@ -49,7 +49,12 @@ Package.onUse(function (api) {
     'fonts/OpenSans-Regular.ttf',
     'fonts/OpenSans-Light.ttf',
     'fonts/OpenSans-Semibold.ttf',
+    'fonts/icomoon.ttf',
+    'fonts/icomoon.svg',
+    'fonts/icomoon.eot',
+    'fonts/icomoon.woff',
     'images/Snowball200.png',
+  //  'lib/Snowball200.png',
   ], ['client']);
 
   //functions & methods
@@ -88,6 +93,10 @@ Package.onUse(function (api) {
     //styles
     'lib/client/stylesheets/snowball.scss',
     'lib/client/colors.js',
+
+    //linear icons set
+    'lib/client/icons-set-style.css',
+    'lib/client/icons.js',
 
     //bootstrap
     'lib/client/bootstrap/modal.js',
