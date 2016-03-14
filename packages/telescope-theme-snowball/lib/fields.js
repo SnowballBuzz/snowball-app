@@ -150,6 +150,7 @@ Posts.addField({
       rows: 2,
       autoSize: true,
       countChars: true,
+      submitOnEnter: true,
       afFieldInput: {
         type: 'textareaAdvanced',
         placeholder: 'Explain your idea succinctly',
@@ -158,58 +159,32 @@ Posts.addField({
   }
 });
 Posts.removeField("body");
-//Posts.addField({
-//  fieldName: 'body',
-//  fieldSchema: {
-//    type: String,
-//    optional: true,
-//    //max: 3000,
-//    editableBy: ["member", "admin"],
-//    label: 'Rationale',
-//    autoform: {
-//      afFieldInput: {
-//        type: 'froala',
-//        froalaOptions: {
-//          //charCounterCount: true,
-//          heightMin: 250,
-//          enter: 'ENTER_P',
-//          editorClass: 'body-input',
-//          placeholderText: 'Type your idea',
-//        },
-//        methods: [
-//          {
-//            method: 'toolbar.hide'
-//          }
-//        ],
-//        events: {
-//          initialized: function (e, editor) {
-//            editor.html.set('<ul><li><br></li></ul>');
-//          },
-//          keydown: function (e, editor, keydownEvent) {
-//            //console.log('e', e, 'editor', editor, 'keydownEvent', keydownEvent, 'event', event);
-//            //backspace
-//            if (keydownEvent.keyCode === 8) {
-//              //console.log('backspace', keydownEvent.target.innerHTML);
-//              if (keydownEvent.target.innerHTML === '<ul><li><br></li></ul>') {
-//                keydownEvent.preventDefault();
-//                //editor.html.set('<ul><li><br></li></ul>');
-//                //$(keydownEvent.target).html('<ul><li><br></li></ul>');
-//                //editor.events.focus();
-//                console.log('prevented');
-//              }
-//            } else if (keydownEvent.keyCode === 13) {
-//              e.preventDefault();
-//              $(e.target).find('p').replaceWith(function () {
-//                console.log(this);
-//                return '<li>' + $(this).contents() + '</li>';
-//              });
-//            }
-//          }
-//        }
-//      }
-//    }
-//  }
-//});
+Posts.addField([
+  {
+    fieldName: 'rationale',
+    fieldSchema: {
+      type: Array,
+      optional: true,
+      //max: 3000,
+      editableBy: ["member", "admin"],
+      label: 'Rationale',
+      autoform: {
+        //type: '',
+      }
+    }
+  },
+  {
+    fieldName: 'rationale.$',
+    fieldSchema: {
+      type: String,
+      //optional: true,
+      editableBy: ["member", "admin"],
+      //autoform: {
+      //  type: "text"
+      //}
+    }
+  }
+]);
 
 
 Users.addField({

@@ -1,0 +1,17 @@
+<template name="post_submit_quick">
+    <div class="post_submit_quick">
+      {{#if isLoggedIn}}
+        {{#if hasGroup}}
+          {{#autoForm id="post_submit_quick" collection="Posts" type="method" meteormethod="submitPost" doc=category}}
+            {{> afQuickField name="categories" value=prefillGroup type="select" label=false}}
+            {{> afQuickField name="title" label=false}}
+          {{/autoForm}}
+        {{else}}
+          {{#autoForm id="post_submit_quick" collection="Posts" type="method" meteormethod="submitPost"}}
+            {{> afQuickField name="categories" type="select" label=false}}
+            {{> afQuickField name="title" label=false}}
+          {{/autoForm}}
+        {{/if}}
+      {{/if}}
+    </div>
+</template>

@@ -76,9 +76,13 @@ Template.afTextareaAdvanced.events({
     }
     if (data.atts.autoSize) {
       var textarea = $(e.target)[0];
-      console.log(textarea, textarea.scrollHeight);
+      //console.log(textarea, textarea.scrollHeight);
       $(textarea).css({height: 'auto'});
       $(textarea).height(textarea.scrollHeight);
+    }
+    if (data.atts.submitOnEnter && e.which == 13) {
+      e.preventDefault();
+      $('.afTextareaAdvanced').submit();
     }
   }
 });
