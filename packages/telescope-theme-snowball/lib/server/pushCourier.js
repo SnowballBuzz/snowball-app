@@ -26,6 +26,9 @@ var notifications = {
   },
   newCommentSubscribed: function (post, comment) {
     return comment.author + ' left a new comment on "' + post.title + '"';
+  },
+  xPosts: function(post){
+    return "Contrats! Your post has " + post.upvotes + ' upvotes!';
   }
 };
 Meteor.startup(function () {
