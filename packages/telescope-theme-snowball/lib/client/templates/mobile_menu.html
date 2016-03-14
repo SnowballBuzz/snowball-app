@@ -3,13 +3,13 @@
       <ul class="mobile-fixed-menu mobile-only">
           <li class="mobile-menu-feed {{selected 'postsDefault'}}">
               <a href="{{pathFor 'postsDefault'}}">
-                  <i class="fa fa-inbox primary"></i><br>
+                  <i class="icon icon-home5 primary"></i><br>
                   <span class="small-text">Home</span>
               </a>
           </li>
           <li class="mobile-menu-channels {{selected 'Channels'}}">
               <a href="{{pathFor 'Channels'}}">
-                  <i class="fa fa-tags primary"></i><br>
+                  <i class="icon icon-users2 primary"></i><br>
                   <span class="small-text">Groups</span>
               </a>
           </li>
@@ -29,7 +29,7 @@
 -->
           <li class="mobile-menu-profile {{selected 'userProfile' currentUser.telescope.slug}}">
               <a href="{{pathFor 'userProfile' _idOrSlug=currentUser.telescope.slug}}">
-                  <i class="fa fa-user primary"></i><br>
+                  <i class="icon icon-user primary"></i><br>
                   <span class="small-text">Me</span>
               </a>
           </li>

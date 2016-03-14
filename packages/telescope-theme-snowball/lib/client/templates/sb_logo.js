@@ -53,7 +53,7 @@ Template.layout.onCreated(function () {
         //  Session.set('customTitle', "Snowball");
         //  break;
         case "/channels/add":
-          Session.set('customTitle', "Add Channel");
+          Session.set('customTitle', "New Group");
           break;
         default:
           Session.set('customTitle', null);
@@ -87,7 +87,7 @@ Template.logo.helpers({
     //var route = FlowRouter.current().route.path;
     switch (route) {
       case '/channels':
-        return '<a><i class="fa fa-plus-circle"></i></a>';
+        return '<a><i class="icon icon-plus-circle"></i></a>';
         break;
       case '/submit':
         return '<a>Cancel</a>'
@@ -102,10 +102,10 @@ Template.logo.helpers({
     //var route = FlowRouter.current().route.path;
     switch (route) {
       case '/':
-        return '<a><i class="fa fa-search"></i></a>';
+        return '<a><i class="icon icon-magnifier"></i></a>';
         break;
       case '/channels':
-        return '<a><i class="fa fa-search"></i></a>';
+        return '<a><i class="icon icon-magnifier"></i></a>';
         break;
       case '/submit':
         return '<a>Post</a>';
@@ -120,4 +120,3 @@ Template.logo.helpers({
 });
 
 Template.sb_logo.events({});
-

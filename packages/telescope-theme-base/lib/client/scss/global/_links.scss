@@ -2,7 +2,7 @@ a{
   text-decoration: none;
   &, &:link, &:visited, &:active{
     color: currentColor;
-    font-weight: bold;
+  //  font-weight: bold;   //updated by (ML) 
   }
   &:hover{
     color: $red;

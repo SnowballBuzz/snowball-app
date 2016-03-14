@@ -372,6 +372,7 @@ a.post-link-overlay {
 .list {
   .post {
     display: block;
+    padding: 10px 0;
     .post-body {
       padding: 10px 0;
       margin: 0;
@@ -389,6 +390,7 @@ a.post-link-overlay {
     }
   }
 }
+// REVIEW BELOW (ML): Should change these icons to Linearicons 
 
 span.glyphicon.glyphicon-minus:before {
   content: "";

@@ -1,16 +1,16 @@
 <template name="channels">
     <div class="logoZoneLeft">
-        <a href="{{pathFor 'AddChannels'}}" class="addChannel"><i class="fa fa-plus-circle"></i></a>
+        <a href="{{pathFor 'AddChannels'}}" class="addChannel"><i class="icon icon-plus-circle"></i></a>
     </div>
     <div class="logoZoneRight">
       <!-- Adding the Post a new idea Button next to the search button (ML) -->
         <table>
           <tr>
             <td>
-              <a href="#" class="showChannelSearch"><i class="fa fa-search"></i></a>
+              <a href="#" class="showChannelSearch"><i class="icon icon-magnifier"></i></a>
             </td>
             <td>
-              <a href="/submit"><i class="fa fa-edit"></i></a>
+              <a href="/submit"><i class="icon icon-pencil4"></i></a>
             </td>
           </tr>
         </table>
@@ -18,7 +18,7 @@
     <div class="channels-view">
         <div class="channels-header clearfix">
             <a href="{{pathFor 'AddChannels'}}" class="btn btn-secondary addChannel desktop-only pull-left">
-                <i class="fa fa-plus-circle"></i>
+                <i class="icon icon-plus-circle"></i>
                 &nbsp;&nbsp;Create Group
             </a>
             <div class="search {{searchQueryEmpty}} {{moduleClass}} pull-right">
@@ -38,7 +38,7 @@
                     <div class="right-side">
                         <button class="subscribe-button" channel-id="{{_id}}">
                           {{#if isPrivate}}
-                              <i class="fa fa-lock"></i>&nbsp;
+                              <i class="icon icon-lock"></i>&nbsp;
                           {{/if}}
                           {{#if IsSubscribedTo _id}}
                               Joined

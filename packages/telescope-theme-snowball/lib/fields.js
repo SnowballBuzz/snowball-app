@@ -3,7 +3,7 @@ Categories.removeField(['order', 'slug', 'image', 'parentId']);
 Categories.addField({
   fieldName: 'isPrivate',
   fieldSchema: {
-    label: 'Make this private',
+    label: 'Make this group private',
     defaultValue: 0,
     type: Number,
     autoform: {
@@ -153,7 +153,7 @@ Posts.addField({
       submitOnEnter: true,
       afFieldInput: {
         type: 'textareaAdvanced',
-        placeholder: 'What do you want to achieve',
+        placeholder: 'What do you want to achieve today?',
       }
     }
   }
