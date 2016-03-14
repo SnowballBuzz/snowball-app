@@ -3,11 +3,11 @@
         <div class="vote-actions {{actionsClass}}">
             <a class="vote-action upvote" href="#" title="{{_ "upvote_"}}">
                 <h4>
+                  {{{icon "upvote"}}}
                   {{#if hasVoted}}
                     {{{icon "upvote"}}}
                     {{upvotePercent}}
                   {{else}}
-                    {{{icon "upvote"}}}
                       <span class="sr-only">{{_ "upvote_"}}</span>
                       Upvote
                   {{/if}}
@@ -16,11 +16,11 @@
           {{#if enableDownvotes}}
               <a class="vote-action downvote" href="#" title="{{_ "downvote"}}">
                   <h4>
+                    {{{icon "downvote"}}}
                     {{#if hasVoted}}
                     {{{icon "downvote"}}}
                       {{downvotePercent}}
                     {{else}}
-                      {{{icon "downvote"}}}
                         <span class="sr-only">{{_ "downvote_"}}</span>
                         Downvote
                     {{/if}}

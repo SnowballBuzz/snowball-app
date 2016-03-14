@@ -143,85 +143,48 @@ Posts.addField({
   fieldSchema: {
     type: String,
     optional: true,
-    //max: 120,
+    max: 120,
     editableBy: ["member", "admin"],
-    //label: 'Idea',
+    label: 'Idea',
     autoform: {
+      rows: 1,
+      autoSize: true,
+      countChars: true,
+      submitOnEnter: true,
       afFieldInput: {
-        type: 'froala',
-        froalaOptions: {
-          charCounterCount: true,
-          charCounterMax: 120,
-          heightMin: 100,
-          placeholderText: 'Explain your idea succinctly',
-          editorClass: 'title-input'
-        },
-        methods: [
-          {
-            method: 'toolbar.hide'
-          },
-          {
-            method: 'fontSize.apply',
-            parameters: ['24']
-          }
-        ]
+        type: 'textareaAdvanced',
+        placeholder: 'What do you want to achieve',
       }
     }
   }
 });
 Posts.removeField("body");
-Posts.addField({
-  fieldName: 'body',
-  fieldSchema: {
-    type: String,
-    optional: true,
-    //max: 3000,
-    editableBy: ["member", "admin"],
-    label: 'Rationale',
-    autoform: {
-      afFieldInput: {
-        type: 'froala',
-        froalaOptions: {
-          //charCounterCount: true,
-          heightMin: 250,
-          enter: 'ENTER_P',
-          editorClass: 'body-input',
-          placeholderText: 'Type your idea',
-        },
-        methods: [
-          {
-            method: 'toolbar.hide'
-          }
-        ],
-        events: {
-          initialized: function (e, editor) {
-            editor.html.set('<ul><li><br></li></ul>');
-          },
-          keydown: function (e, editor, keydownEvent) {
-            //console.log('e', e, 'editor', editor, 'keydownEvent', keydownEvent, 'event', event);
-            //backspace
-            if (keydownEvent.keyCode === 8) {
-              //console.log('backspace', keydownEvent.target.innerHTML);
-              if (keydownEvent.target.innerHTML === '<ul><li><br></li></ul>') {
-                keydownEvent.preventDefault();
-                //editor.html.set('<ul><li><br></li></ul>');
-                //$(keydownEvent.target).html('<ul><li><br></li></ul>');
-                //editor.events.focus();
-                console.log('prevented');
-              }
-            } else if (keydownEvent.keyCode === 13) {
-              e.preventDefault();
-              $(e.target).find('p').replaceWith(function () {
-                console.log(this);
-                return '<li>' + $(this).contents() + '</li>';
-              });
-            }
-          }
-        }
+Posts.addField([
+  {
+    fieldName: 'rationale',
+    fieldSchema: {
+      type: Array,
+      optional: true,
+      //max: 3000,
+      editableBy: ["member", "admin"],
+      label: 'Rationale',
+      autoform: {
+        //type: '',
       }
     }
+  },
+  {
+    fieldName: 'rationale.$',
+    fieldSchema: {
+      type: String,
+      //optional: true,
+      editableBy: ["member", "admin"],
+      //autoform: {
+      //  type: "text"
+      //}
+    }
   }
-});
+]);
 
 
 Users.addField({

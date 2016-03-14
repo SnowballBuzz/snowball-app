@@ -37,6 +37,8 @@ Package.onUse(function (api) {
     'kestanous:herald@1.3.0',
     'chriswessels:hammer@4.0.2',
     'telescope:messages@0.25.6',
+    'babrahams:editable-list@0.4.10',
+    'dburles:mongo-collection-instances@0.3.5',
   ], ['client', 'server']);
   api.use([
     //'promise'
@@ -153,6 +155,8 @@ Package.onUse(function (api) {
     //post stuff
     'lib/client/templates/posts/sb_post_submit.html',
     'lib/client/templates/posts/sb_post_submit.js',
+    'lib/client/templates/posts/post_submit_quick.html',
+    'lib/client/templates/posts/post_submit_quick.js',
     'lib/client/templates/posts/sb_post_title.html',
     'lib/client/templates/posts/sb_post_info.html',
     'lib/client/templates/posts/sb_post_vote.html',
@@ -161,6 +165,7 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/post_tweet.html',
     'lib/client/templates/posts/post_tweet.js',
     'lib/client/templates/posts/sb_submit_button.html',
+    'lib/client/templates/posts/sb_submit_button.js',
     'lib/client/templates/posts/sb_post_template.html',
     'lib/client/templates/posts/post_link_overlay.html',
     'lib/client/templates/posts/sb_postsLoadMore.html',
@@ -168,6 +173,9 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/sb_posts_list_compact.js',
     'lib/client/templates/posts/sb_main_posts_list.html',
     'lib/client/templates/posts/sb_main_posts_list.js',
+    'lib/client/templates/posts/post_rationale.html',
+    'lib/client/templates/posts/post_rationale.js',
+
 
     //back button
     'lib/client/templates/utils/goBack.html',
@@ -179,6 +187,13 @@ Package.onUse(function (api) {
     'lib/client/templates/user/sb_user_posts.html',
     'lib/client/templates/user/sb_user_posts.js',
     'lib/client/templates/utils/log_out.html',
+    'lib/client/templates/sb_comments_list_compact.html',
+
+    //textareaAdvanced
+    'lib/client/autoform-textarea-advanced/afTextareaAdvanced.html',
+    'lib/client/autoform-textarea-advanced/afTextareaAdvanced.js',
+    'lib/client/autoform-textarea-advanced/afTextareaAdvanced.scss',
+    'lib/client/autoform-textarea-advanced/jquery.textarea_autosize.js',
 
     //froala wysiwyg
     'lib/client/froala/froala_form.html',

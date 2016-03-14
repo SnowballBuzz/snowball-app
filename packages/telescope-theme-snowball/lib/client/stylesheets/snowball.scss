@@ -48,6 +48,11 @@ $white: #fff;
   text-align: center;
 }
 
+.hide {
+  display: none;
+  height: 0;
+}
+
 //styles
 html {
   body {
@@ -94,21 +99,21 @@ html {
   }
 }
 
-.login-warning{
+.login-warning {
   height: 60px;
   margin-top: -10px;
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: center;
-  span{
+  span {
     font-size: 16px;
   }
-  span, a{
+  span, a {
     color: $white;
     margin: 0 0 0 15px;
     display: inline-block;
   }
-  &:before{
+  &:before {
     content: '';
     display: block;
     height: 60px;
@@ -161,7 +166,7 @@ html {
 ul.notifications-wrapper {
   padding: 10px;
   li.notification-item {
-    .avatar{
+    .avatar {
       float: left;
       margin-right: 15px;
     }
@@ -228,26 +233,42 @@ ul.notifications-wrapper {
       position: relative;
       .vote-actions {
         border: none;
-        &.upvoted{
-          .upvote h4{text-decoration: underline;font-weight: bold;}
+        &.upvoted {
+          .upvote h4 {
+            text-decoration: underline;
+            font-weight: bold;
+          }
         }
-        &.downvoted{
-          .downvote h4{text-decoration: underline;font-weight: bold;}
+        &.downvoted {
+          .downvote h4 {
+            text-decoration: underline;
+            font-weight: bold;
+          }
         }
         .vote-action {
-          width: auto !important;
+          &.downvote {
+            width: 115px !important;
+          }
+          &.upvote {
+            width: 90px !important;
+          }
           border-top: 0;
           display: inline-block;
+          padding: 0;
           h4 {
             font-family: $bodyfont;
             font-size: 14px;
             color: $darkgrey;
+            text-align: left;
+            i {
+              text-align: left;
+            }
           }
         }
       }
     }
     .post-share {
-      float: left;
+      float: right;
       display: block !important;
       a.tweet-post {
         padding: 2px 3px;
@@ -264,8 +285,9 @@ ul.notifications-wrapper {
     }
   }
 }
-.no-posts{
-  .btn{
+
+.no-posts {
+  .btn {
     margin: 0 auto;
   }
 }
@@ -334,6 +356,19 @@ a.post-link-overlay {
   }
 }
 
+.category-heading-wrapper {
+  .category-heading {
+    margin-right: 0px;
+    padding: 0;
+    .category-title {
+      height: 37px;
+      .main-category-title {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
 .list {
   .post {
     display: block;
@@ -355,28 +390,88 @@ a.post-link-overlay {
   }
 }
 
-.template-postPage {
-  .single-post {
-    .post {
-      box-shadow: none;
-    }
-    .post-body {
-      //Only show the first
-      //todo: remove duplicate content; juggle between list and detail view
-      display: none;
-      &:first-child {
-        display: block;
-        padding: 20px 15px;
+span.glyphicon.glyphicon-minus:before {
+  content: "";
+  font-family: fontAwesome;
+}
+
+span.glyphicon.glyphicon-plus:before {
+  content: "";
+  font-family: fontAwesome;
+}
+
+.template-postPage, .template-postsDefault {
+  .post_rationale {
+    ul {
+      color: $darkgrey;
+      &.public {
+        list-style: disc;
+        margin-left: 25px;
       }
-      box-shadow: none;
-      ul {
-        li {
-          color: $grey;
-          ul {
-            margin-top: 8px;
+    }
+  }
+  .single-post {
+    .posts {
+      display: block;
+      .post {
+        box-shadow: none;
+        display: block;
+      }
+      .post-body {
+        //Only show the first
+        //todo: remove duplicate content; juggle between list and detail view
+        display: none;
+        &:first-child {
+          display: block;
+          padding: 20px 15px;
+        }
+        box-shadow: none;
+        ul {
+          li {
+            color: $grey;
+            ul {
+              margin-top: 8px;
+            }
           }
         }
       }
+    }
+  }
+}
+
+#post_submit_quick {
+  border: 1px solid $lightgrey;
+  border-radius: 4px;
+  overflow: hidden;
+  //idea should be in here
+  .form-group:first-child {
+    margin-bottom: 0;
+  }
+  textarea.idea {
+    -webkit-appearance: none;
+    font-size: 18px;
+    margin-bottom: -11px;
+    border: none;
+    border-bottom: 1px dashed $lightgrey;
+  }
+  .inline-fields {
+    display: flex;
+    flex-direction: row;
+    .form-group {
+      flex-grow: 2;
+      select.group {
+        margin-bottom: -11px;
+        -webkit-appearance: none;
+        border: none;
+        box-shadow: none;
+        //display: inline-block;
+      }
+    }
+    .btn[type="submit"] {
+      flex-grow: 1;
+      border: none;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
     }
   }
 }
@@ -694,6 +789,24 @@ i.primary {
         color: $white;
         float: right;
       }
+    }
+  }
+}
+
+//user profile
+.profileDisplay {
+  .btn {
+    display: block;
+  }
+  .user-profile {
+    .user-profile-avatar {
+      .avatar {
+        margin: 0 auto;
+      }
+    }
+    .edit-profile-button {
+      display: block;
+      margin: 0 auto;
     }
   }
 }
