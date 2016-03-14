@@ -156,6 +156,7 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/post_tweet.html',
     'lib/client/templates/posts/post_tweet.js',
     'lib/client/templates/posts/sb_submit_button.html',
+    'lib/client/templates/posts/sb_submit_button.js',
     'lib/client/templates/posts/sb_post_template.html',
     'lib/client/templates/posts/post_link_overlay.html',
     'lib/client/templates/posts/sb_postsLoadMore.html',

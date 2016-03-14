@@ -1,8 +1,8 @@
 <template name="sb_submit_button">
   {{#if currentUser}}
       <div class="submit-button {{moduleClass}}">
-          <a id="submit" class="submit btn" href="{{pathFor 'postSubmit'}}">
-              <i class="fa fa-edit primary"></i>
+          <a id="submit" class="submit-btn btn" href="#">
+              {{{icon 'edit'}}}
               <!-- add a conditional here to show "Post Idea" only if page width is > 800px (later)
                   {{_ "post"}}
               -->
