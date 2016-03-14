@@ -55,6 +55,13 @@ Template.afTextareaAdvanced.onCreated(function () {
 
 Template.afTextareaAdvanced.onRendered(function () {
   console.log(this, Template.currentData());
+  if (Template.currentData().atts.autoSize) {
+    var textarea = $('#' + Template.currentData().atts.id)[0];
+    //console.log(textarea, textarea.scrollHeight);
+    //$(textarea).css({height: 'auto'});
+    //$(textarea).height(textarea.scrollHeight);
+    $(textarea).textareaAutoSize();
+  }
 });
 
 Template.afTextareaAdvanced.helpers({
@@ -73,12 +80,6 @@ Template.afTextareaAdvanced.events({
     var data = Template.currentData();
     if (data.atts.countChars) {
       Session.set('postCharsUsed', e.target.textLength);
-    }
-    if (data.atts.autoSize) {
-      var textarea = $(e.target)[0];
-      //console.log(textarea, textarea.scrollHeight);
-      $(textarea).css({height: 'auto'});
-      $(textarea).height(textarea.scrollHeight);
     }
     if (data.atts.submitOnEnter && e.which == 13) {
       e.preventDefault();

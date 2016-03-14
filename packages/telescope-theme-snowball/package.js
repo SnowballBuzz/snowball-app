@@ -183,6 +183,8 @@ Package.onUse(function (api) {
     'lib/client/autoform-textarea-advanced/afTextareaAdvanced.html',
     'lib/client/autoform-textarea-advanced/afTextareaAdvanced.js',
     'lib/client/autoform-textarea-advanced/afTextareaAdvanced.scss',
+    'lib/client/autoform-textarea-advanced/jquery.textarea_autosize.js',
+
     //froala wysiwyg
     'lib/client/froala/froala_form.html',
     'lib/client/froala/froala_form.js',

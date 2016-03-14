@@ -1,5 +1,6 @@
-form textarea.afTextareaAdvanced{
-  min-height: auto;
-  transition: height .3s;
-  overflow: hidden;
+form textarea.afTextareaAdvanced {
+  box-sizing: border-box;
+  max-height: 160px; // optional but recommended
+  min-height: 38px;
+  overflow-x: hidden; // for Firefox (issue #5)
 }

@@ -1,8 +1,12 @@
 <template name="post_rationale">
     <div class="post_rationale">
       {{#if addRationale}}
-        {{#autoForm collection="Posts" id="updateRationaleForm" type="update" doc=this autosaveOnKeyup=true trimStrings=false}}
-          {{> afQuickField name="rationale"}}
+          <!--autosaveOnKeyup=true-->
+        {{#autoForm collection="Posts" id="updateRationaleForm" type="update" doc=this trimStrings=false}}
+          {{> afArrayField name="rationale"}}
+          {{#if addRationale}}
+              <button type="submit" class="btn btn-block save-rationale btn-default">Save Rationale</button>
+          {{/if}}
         {{/autoForm}}
       {{else}}
         {{#if rationale}}
@@ -14,12 +18,10 @@
         {{/if}}
       {{/if}}
       {{#if isOwnerAndSingle}}
-        {{#if addRationale}}
-            <div class="btn btn-block save-rationale btn-default">Save Rationale</div>
-        {{else}}
-            <div class="btn btn-block add-rationale  btn-default">Add Rationale</div>
+          {{#unless addRationale}}
+            <a class="btn btn-block add-rationale  btn-default">Add Rationale</a>
             <small>Rationale are added as bullet points to your idea to convince others.</small>
-        {{/if}}
+        {{/unless}}
       {{/if}}
     </div>
 </template>
