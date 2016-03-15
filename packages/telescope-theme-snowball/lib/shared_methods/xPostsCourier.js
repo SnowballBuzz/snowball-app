@@ -7,7 +7,7 @@ Herald.addCourier('xPosts', {
         var post = this.data.post;
         var subject = 'The idea "' + post.title + '" has ' + post.upvotes + ' upvotes!';
         var html = Telescope.email.buildTemplate(
-          'The idea  "<a href="https://app.snowball.buzz/posts/' + post._id + '">' + post.title + '</a>" has ' + post.upvotes + ' upvotes.');
+          'The idea  "<a href="https://app.snowball.buzz/posts/' + post._id + '">' + post.title + '</a>" has ' + post.upvotes + ' upvotes. <br>');
         Telescope.email.send(Users.getEmail(user), subject, html);
       }
     },

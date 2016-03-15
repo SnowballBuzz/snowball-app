@@ -20,7 +20,9 @@ Meteor.methods({
           }, // Query the appCollection
           // token: appId or token eg. "{ apn: token }"
           // tokens: array of appId's or tokens
-           payload: post,
+           payload: {
+             post: post
+           },
           // delayUntil: Date
         });
       }

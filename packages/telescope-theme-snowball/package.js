@@ -118,6 +118,7 @@ Package.onUse(function (api) {
 
     //copy override
     'i18n/en.i18n.json',
+    'lib/client/momentOverride.js',
 
     //utility
     'lib/client/templates/templateHelpers.js',
