@@ -84,13 +84,13 @@ form, .accounts-dialog{
     width:100%;
     font-size:14px;
     @include border-box;
-    border: 1px solid $grey;
+    border: 1px solid #eee;
     transition: $border-color, 500ms;
     // box-shadow: inset 0px 0px 0px 1px black(0.2);
     &:focus{
       outline: none;
       border-color:$red;
-      box-shadow: 0px 0px 5px 0px rgba($red,0.3);
+      box-shadow: 0px 0px 0px 0px rgba($red,0.3);
     }
     &[type="number"]{
       width: 30%;

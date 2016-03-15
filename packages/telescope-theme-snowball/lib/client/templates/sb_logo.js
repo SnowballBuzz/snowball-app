@@ -111,7 +111,7 @@ Template.logo.helpers({
         return '<a>Post</a>';
         break;
       case "/users/:_idOrSlug":
-        return '<a><i class="fa fa-cog"></i></a>';
+        return '<a><i class="icon icon-cog"></i></a>';
         break;
       default:
         return false;

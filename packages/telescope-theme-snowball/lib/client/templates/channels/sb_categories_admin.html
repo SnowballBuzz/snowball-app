@@ -12,7 +12,9 @@
         {{> afQuickField name="isPrivate"}}
         {{#if afFieldValueIs name="isPrivate" value=1}}
           {{> afQuickField name="allowedDomains"}}
+      <!-- Simplifying form here (ML)
           {{> afQuickField name="allowedEmails"}}
+      -->
         {{/if}}
           <button type="submit" class="btn btn-primary">Create Group</button>
       {{/autoForm}}

@@ -26,9 +26,9 @@
 $bodyfont: Open Sans, sans serif;
 $headerfont: Montserrat, sans serif;
 $small-break: 600px;
-$darkgrey: #404040;
-$grey: #707070;
-$lightgrey: #999;
+$darkgrey: #444;
+$grey: #777;
+$lightgrey: #ccc;
 $white: #fff;
 
 //mixins
@@ -215,7 +215,7 @@ ul.notifications-wrapper {
       span.post-comments {
         font-size: 12px;
         color: $lightgrey;
-        margin-left: 18px;
+        margin-left: 15px;
         a {
           font-weight: lighter;
         }
@@ -465,7 +465,7 @@ span.glyphicon.glyphicon-plus:before {
     font-size: 14px;
     margin-bottom: -11px;
     border: none;
-    border-bottom: 1px dashed $lightgrey;
+    border-bottom: 1px $lightgrey;
   }
   .inline-fields {
     display: flex;
@@ -587,7 +587,7 @@ span.glyphicon.glyphicon-plus:before {
   display: none;
   position: fixed;
   height: 60px;
-  width: 60px;
+  width: 80px;
   line-height: 60px;
   top: 0;
   z-index: 100;

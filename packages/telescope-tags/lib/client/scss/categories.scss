@@ -1,4 +1,4 @@
-$red: #DD3416;
+$red: #1634DD;
 @function black($opacity){
   @return rgba(0,0,0,$opacity);
 }
@@ -98,13 +98,13 @@ $red: #DD3416;
 
 .main-category-title{
   display: inline-block;
-  font-size: 22px;
+  font-size: 18px;
   margin-bottom: 0;
 }
 
 .category-description{
   font-weight: normal;
-  font-size: 15px;
+  font-size: 14px;
   margin: 0;
 }
 

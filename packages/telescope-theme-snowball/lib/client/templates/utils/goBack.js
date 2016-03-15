@@ -12,7 +12,7 @@ Template.goBack.helpers({
     if (!!this.text) {
       return this.text;
     } else {
-      return '<i class="fa fa-chevron-left"></i>';
+      return '<i class="icon icon-chevron-left"></i>';
     }
   }
 });
