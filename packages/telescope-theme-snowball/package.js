@@ -71,6 +71,7 @@ Package.onUse(function (api) {
     'lib/fields.js',
     'lib/server/permissions.js',
     'lib/channelsSearchIndex.js',
+    'lib/shared_methods/xPostsCourier.js'
     //'lib/config.push.json'
   ], ['client', 'server']);
   api.addFiles([
