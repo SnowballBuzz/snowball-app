@@ -81,7 +81,8 @@ Package.onUse(function (api) {
     'lib/server/verifyUnverifiedAccounts.js',
     'lib/server/subscribePrivateOnVerify.js',
     'lib/server/spiderableIgnoreSSLErrors.js',
-    'lib/server/notificationEvents.js'
+    'lib/server/notificationEvents.js',
+    'lib/server/accountsConfig.js'
   ], ['server']);
 
   api.addFiles([

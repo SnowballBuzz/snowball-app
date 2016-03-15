@@ -429,6 +429,8 @@ span.glyphicon.glyphicon-plus:before {
       .post {
         box-shadow: none;
         display: block;
+        float: right;
+        padding: 10px 0;
       }
       .post-body {
         //Only show the first

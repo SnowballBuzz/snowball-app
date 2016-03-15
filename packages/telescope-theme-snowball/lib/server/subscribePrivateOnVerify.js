@@ -1,10 +1,11 @@
 //if the user requested a channel, check if this email matches and subscribe him/her
 
-Users.after.update(function (userId, doc, fieldNames, modifier, options) {
+Users.after.update(function (userId, user, fieldNames, modifier, options) {
   if (!!modifier.$set) {
     if (modifier.$set['emails.$.verified'] === true) {
       console.log('subscribePrivateOnVerify.js: verified email');
-      Meteor.call('subscribePrivateOnVerify', Meteor.users.findOne(userId));
+      //console.log('subscribePrivateOnVerify.js:', userId, user, fieldNames, modifier, options);
+      Meteor.call('subscribePrivateOnVerify', Meteor.users.findOne(user._id));
     }
   }
 });

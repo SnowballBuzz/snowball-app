@@ -84,5 +84,11 @@ AccountsTemplates.configureRoute('changePwd');
 AccountsTemplates.configureRoute('forgotPwd');
 AccountsTemplates.configureRoute('resetPwd');
 AccountsTemplates.configureRoute('enrollAccount');
-AccountsTemplates.configureRoute('verifyEmail');
+AccountsTemplates.configureRoute('verifyEmail', {
+  layoutType: 'blaze',
+  name: 'verifyEmail',
+  template: 'login_form',
+  layoutTemplate: 'layout',
+  contentRegion: 'main'
+});
 AccountsTemplates.knownRoutes.push('signOut');

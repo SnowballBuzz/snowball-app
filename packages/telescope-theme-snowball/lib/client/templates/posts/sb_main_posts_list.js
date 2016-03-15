@@ -7,7 +7,9 @@ Template.main_posts_list.onRendered(function(){
 });
 
 Template.main_posts_list.helpers({
-
+  categoryPage: function(){
+    return FlowRouter.getQueryParam('cat');
+  }
 });
 
 Template.main_posts_list.events({

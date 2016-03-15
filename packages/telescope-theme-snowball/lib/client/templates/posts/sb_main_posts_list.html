@@ -5,23 +5,27 @@
         </div>
         <div class="logoZoneRight">
             <!-- Adding the Post a new idea Button next to the search button (ML) -->
-              <table>
+            <table>
                 <tr>
-                  <td>
-                    <a href="#" class="showPostsSearch"><i class="icon icon-magnifier"></i></a>
-                  </td>
-                  <td>
-                    {{> submit_button}}
-                  </td>
+                    <td>
+                        <a href="#" class="showPostsSearch"><i class="icon icon-magnifier"></i></a>
+                    </td>
+                    <td>
+                      {{> submit_button}}
+                    </td>
                 </tr>
-              </table>
+            </table>
         </div>
-      {{> modules zone="postsListTop"}}
-      {{#if customTemplate}}
-        {{> Template.dynamic template=customTemplate data=arguments}}
+      {{#if categoryPage}}
+        <div class="grid-small grid-block dialog no-rightscenter-text">You are not subscribed to this page. <a href="{{pathFor 'Channels'}}" class="btn btn-default">Subscribe here</a></div>
       {{else}}
-        {{> posts_list_controller arguments}}
+        {{> modules zone="postsListTop"}}
+        {{#if customTemplate}}
+          {{> Template.dynamic template=customTemplate data=arguments}}
+        {{else}}
+          {{> posts_list_controller arguments}}
+        {{/if}}
+        {{> modules zone="postsListBottom"}}
       {{/if}}
-      {{> modules zone="postsListBottom"}}
     </div>
 </template>
