@@ -124,6 +124,7 @@ Posts.addField({
       afFieldInput: {
         type: 'select',
         //multiple: true,
+        firstOption: "Choose an audience",
         options: function () {
           var categories = Categories.find({_id: {$in: Meteor.user().subscribedChannelsIds}}).map(function (category) {
             return {

@@ -462,6 +462,9 @@ span.glyphicon.glyphicon-plus:before {
     .form-group {
       flex-grow: 2;
       select.group {
+        option:first-child{
+          color: $grey;
+        }
         margin-bottom: -11px;
         -webkit-appearance: none;
         border: none;
