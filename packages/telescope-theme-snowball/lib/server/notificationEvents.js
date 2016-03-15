@@ -9,8 +9,8 @@ Posts.after.update(function (userId, post, fieldNames, modifier, options) {
       if (_.contains([2, 5, 10, 50, 100, 200, 500], post.upvotes) && !group.isPrivate) {
         console.log('2,5,10,50,100,200, or 500');
         Herald.createNotification(notifiedUserIds, {courier: 'xPosts', data: notificationData});
-      } else if (post.upvotes === 5 && group.isPrivate){
-        console.log('two private upvotes');
+      } else if (post.upvotes === 5 && group.isPrivate) {
+        console.log('5 private upvotes');
         Herald.createNotification(notifiedUserIds, {courier: 'xPosts', data: notificationData});
       }
     }
@@ -22,8 +22,8 @@ Herald.addCourier('xPosts', {
     email: {
       emailRunner: function (user) {
         var properties = Posts.getNotificationProperties(this.data.post);
-        var subject = "Contrats! Your post has " + this.upvotes + ' upvotes!';
-        var html = Telescope.email.buildTemplate('Your post, <a href="https://app.snowball.buzz/posts/' + properties._id + '">' + properties.title + '</a>, received ' + properties.upvotes + ' upvotes! Nice idea.');
+        var subject = 'The idea "' + properties.title + '" has ' + this.upvotes + ' upvotes!';
+        var html = Telescope.email.buildTemplate('The idea  "<a href="https://app.snowball.buzz/posts/' + properties._id + '">' + properties.title + '</a>", received ' + properties.upvotes + ' upvotes.');
         Telescope.email.send(Users.getEmail(user), subject, html);
       }
     },

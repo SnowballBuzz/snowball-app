@@ -15,6 +15,15 @@ FlowRouter.route('/channels/add', {
   }
 });
 
+FlowRouter.route('/channels/:id/edit', {
+  name: 'EditChannels',
+  action: function (params) {
+    return BlazeLayout.render("layout", {
+      main: "categories_admin"
+    });
+  }
+});
+
 
 FlowRouter.route('/notifications', {
   name: 'Notifications',

@@ -38,6 +38,6 @@ Meteor.startup(function () {
     var comment = doc.data.comment? Comments.findOne(doc.data.comment._id): '';
     var message = notifications[doc.courier](post, comment);
     console.log('Notification message:', message);
-    Meteor.call('pushNotification', doc.userId, message);
+    Meteor.call('pushNotification', doc.userId, message, doc.data.post);
   });
 });

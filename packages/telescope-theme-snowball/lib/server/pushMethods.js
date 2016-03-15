@@ -1,5 +1,5 @@
 Meteor.methods({
-  pushNotification: function (userId, message) {
+  pushNotification: function (userId, message, post) {
     // Push.debug = true; // Add verbosity
     var user = Users.findOne(userId);
     if (user) {
@@ -17,10 +17,10 @@ Meteor.methods({
           query: {
             // Ex. send to a specific user if using accounts:
             userId: userId
-          } // Query the appCollection
+          }, // Query the appCollection
           // token: appId or token eg. "{ apn: token }"
           // tokens: array of appId's or tokens
-          // payload: user data
+           payload: post,
           // delayUntil: Date
         });
       }

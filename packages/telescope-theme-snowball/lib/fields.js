@@ -85,6 +85,21 @@ Categories.addField({
     }
   }
 });
+Posts.addField({
+  fieldName: 'notifyUpvotes',
+  fieldSchema: {
+    type: Number,
+    optional: true,
+    editableBy: ["member", "admin"],
+    label: 'Notify me after this many upvotes',
+    autoform: {
+      afFieldInput: {
+        type: 'number'
+        //placeholder: 'What do you want to achieve today?',
+      }
+    }
+  }
+});
 Categories.addField({
   //owner of channel
   fieldName: 'userId',
