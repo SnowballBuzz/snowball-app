@@ -59,17 +59,17 @@ Users.addField({
 });
 
 SimpleSchema.messages({
-  "required categories": "You must choose an audience (channel) to post your idea."
+  "required categories": "Please choose the group you want to post your idea to."
 });
 Categories.addField({
   fieldName: 'allowedDomains',
   fieldSchema: {
     type: String,
-    label: 'Allowed website domains (one per line):',
+    label: 'Allowed domains',
     optional: true,
     autoform: {
       type: "textarea",
-      placeholder: 'example.com, example.net, etc...'
+      placeholder: ' organization1.com \n organization2.net \n etc... (one domain per line)'
     }
   }
 });
@@ -81,7 +81,7 @@ Categories.addField({
     optional: true,
     autoform: {
       type: "textarea",
-      placeholder: 'name@example.com, name@example.net, etc...'
+      placeholder: ' name@example.com \n name@example.net'
     }
   }
 });
@@ -119,7 +119,7 @@ Posts.addField({
     type: [String],
     optional: false,
     editableBy: ["member", "admin"],
-    label: 'Select a Channel',
+    label: 'Select a Group',
     autoform: {
       afFieldInput: {
         type: 'select',
@@ -169,7 +169,7 @@ Posts.addField({
       submitOnEnter: true,
       afFieldInput: {
         type: 'textareaAdvanced',
-        placeholder: 'What do you want to achieve today?',
+        placeholder: 'What impact would you like to have today?',
       }
     }
   }
