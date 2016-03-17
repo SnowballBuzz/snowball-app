@@ -25,7 +25,7 @@ Telescope.utils.icons = {
   menu: "bars",
   subscribe: "envelope-o",
   delete: "trash-o",
-  edit: "icon-pencil4", //updated
+  edit: "icon-pencil", //updated
   popularity: "fire",
   time: "icon-clock3", //updated
   best: "star",

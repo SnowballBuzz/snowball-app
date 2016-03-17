@@ -1,8 +1,8 @@
 App.info({
   id: 'buzz.snowball.app',
   name: 'Snowball',
-  description: 'Snowball is a meritocratic platform to raise the best ideas for change.',
-  author: 'Mehdi',
+  description: 'Snowball is a platform to crowdsource ideas for change.',
+  author: 'Elmidou',
   email: 'hi@snowball.buzz',
   website: 'https://www.snowball.buzz/',
   version: '0.0.7'
