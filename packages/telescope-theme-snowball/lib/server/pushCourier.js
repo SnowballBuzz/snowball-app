@@ -28,7 +28,7 @@ var notifications = {
     return comment.author + ' left a new comment on "' + post.title + '"';
   },
   xPosts: function(post){
-    return "Contrats! Your post has " + post.upvotes + ' upvotes!';
+    return "Congrats! Your post has " + post.upvotes + ' upvotes: ' + post.title;
   }
 };
 Meteor.startup(function () {
