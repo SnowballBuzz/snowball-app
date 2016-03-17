@@ -14,8 +14,10 @@ moment.locale('en', {
         // if less than a week, use days
         return number + "d";
       } else {
-        // pluralize weeks
-        return weeks + "w" + (weeks === 1 ? "" : "s");
+        // to pluralize weeks :
+        // return weeks + "w" + (weeks === 1 ? "" : "s");
+        // disabled for compressed dates
+        return weeks + "w";
       }
     },
     M: "%dmo",
