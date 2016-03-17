@@ -1,4 +1,5 @@
 <template name="channels">
+    {{#if currentUser}}
     <div class="logoZoneLeft">
         <a href="{{pathFor 'AddChannels'}}" class="addChannel"><i class="icon icon-plus-circle"></i></a>
     </div>
@@ -52,4 +53,7 @@
           </ul>
       {{/HammerTouchArea}}
     </div>
+      {{else}}
+        <div class="grid-small grid-block dialog no-rights center-text">You are not logged in.</div>
+      {{/if}}
 </template>

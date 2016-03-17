@@ -61,11 +61,11 @@ html {
     -webkit-overflow-scrolling: touch;
     overflow-y: scroll;
   }
-  .content-wrapper{
-    padding:0 10px;
+  .content-wrapper {
+    padding: 0 10px;
     max-width: 800px;
     margin: 0 auto;
-    @include small{
+    @include small {
       overflow-x: hidden;
       overflow-y: hidden;
       padding-top: 70px;
@@ -401,6 +401,7 @@ a.post-link-overlay {
     }
   }
 }
+
 // REVIEW BELOW (ML): Should change these icons to Linearicons
 
 span.glyphicon.glyphicon-minus:before {
@@ -429,6 +430,8 @@ span.glyphicon.glyphicon-plus:before {
       .post {
         box-shadow: none;
         display: block;
+        float: right;
+        padding: 10px 0;
       }
       .post-body {
         //Only show the first
@@ -473,7 +476,7 @@ span.glyphicon.glyphicon-plus:before {
     .form-group {
       flex-grow: 2;
       select.group {
-        option:first-child{
+        option:first-child {
           color: $grey;
         }
         margin-bottom: -11px;
@@ -594,16 +597,19 @@ span.glyphicon.glyphicon-plus:before {
   line-height: 60px;
   top: 0;
   z-index: 100;
-  tr{
+  tr {
     border-bottom: 0px;
   }
-  a {
+  a, span, h4 {
     color: $grey;
     display: block;
     width: 100%;
     height: 100%;
     text-align: center;
     font-size: initial;
+  }
+  h4 {
+    line-height: 60px;
   }
   @include small {
     display: block;

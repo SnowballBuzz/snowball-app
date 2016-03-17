@@ -71,6 +71,7 @@ Package.onUse(function (api) {
     'lib/fields.js',
     'lib/server/permissions.js',
     'lib/channelsSearchIndex.js',
+    'lib/shared_methods/xPostsCourier.js'
     //'lib/config.push.json'
   ], ['client', 'server']);
   api.addFiles([
@@ -80,7 +81,8 @@ Package.onUse(function (api) {
     'lib/server/verifyUnverifiedAccounts.js',
     'lib/server/subscribePrivateOnVerify.js',
     'lib/server/spiderableIgnoreSSLErrors.js',
-    'lib/server/notificationEvents.js'
+    'lib/server/notificationEvents.js',
+    'lib/server/accountsConfig.js'
   ], ['server']);
 
   api.addFiles([
@@ -117,6 +119,7 @@ Package.onUse(function (api) {
 
     //copy override
     'i18n/en.i18n.json',
+    'lib/client/momentOverride.js',
 
     //utility
     'lib/client/templates/templateHelpers.js',

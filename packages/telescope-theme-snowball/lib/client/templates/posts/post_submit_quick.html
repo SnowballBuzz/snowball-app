@@ -1,6 +1,6 @@
 <template name="post_submit_quick">
     <div class="post_submit_quick">
-      {{#if currentUser}}
+      {{#if currentUser.subscribedChannelsIds}}
         {{#autoForm id="post_submit_quick" collection="Posts" type="method" meteormethod="submitPost" doc=category}}
           {{> afQuickField name="title" label=false class="idea"}}
             <div class="inline-fields">

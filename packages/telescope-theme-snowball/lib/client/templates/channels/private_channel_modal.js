@@ -24,6 +24,7 @@ Template.private_channel_modal.events({
     var email = e.target.email.value;
     Modal.hide('private_channel_modal');
     Meteor.call('addAndVerifyEmail', Meteor.user(), email);
+    alert("Success! We've just sent you a validation email. Please check your inbox to join this private group.");
   },
   'click .resendVerification': function(e,t){
     Meteor.call('verifyUnverifiedAccounts', function(){
