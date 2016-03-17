@@ -8,7 +8,9 @@ Template.main_posts_list.onRendered(function(){
 
 Template.main_posts_list.helpers({
   categoryPage: function(){
-    return FlowRouter.getQueryParam('cat');
+    var categorySlug = FlowRouter.getQueryParam('cat');
+    var category = Categories.findOne({slug: categorySlug[0]});
+    return category && !_.contains(Meteor.user().subscribedChannelsIds, category._id);
   }
 });
 

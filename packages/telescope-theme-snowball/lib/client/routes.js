@@ -36,7 +36,7 @@ FlowRouter.route('/notifications', {
 
 FlowRouter.route('/submit', {
   name: "postSubmit",
-  action: function(params, queryParams) {
+  action: function (params, queryParams) {
     //BlazeLayout.render("layout", {main: "post_submit"});
     console.log('rendered submit page');
   }
@@ -47,7 +47,7 @@ FlowRouter.route('/submit', {
 //  name: "signOut",
 //  triggersEnter: [function(context, redirect) {
 //    AccountsTemplates.logout();
-    //Messages.flash(i18n.t("you_have_been_logged_out"));
+//Messages.flash(i18n.t("you_have_been_logged_out"));
 //  }]
 //});
 
@@ -92,3 +92,18 @@ AccountsTemplates.configureRoute('verifyEmail', {
   contentRegion: 'main'
 });
 AccountsTemplates.knownRoutes.push('signOut');
+
+FlowRouter.triggers.enter([
+  function () {
+    // Meteor.setTimeout(function() {
+      BlazeLayout.render('layout', {
+        main: "channels",
+        headerZoneRight: 'tester',
+        // headerZoneLeft: 'tester',
+      });
+    // }, 0);
+    // console.log('on channel page');
+  }
+], {
+  only: ["Channels"]
+});

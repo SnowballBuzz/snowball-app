@@ -125,6 +125,8 @@ Package.onUse(function (api) {
     'lib/client/templates/templateHelpers.js',
 
     //templates
+    ////test
+    'lib/client/templates/tester.html',
     ////search
     'lib/client/templates/sb_search.html',
     'lib/client/templates/sb_search.js',
