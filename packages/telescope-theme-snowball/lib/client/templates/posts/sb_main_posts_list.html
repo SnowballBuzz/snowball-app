@@ -17,7 +17,8 @@
             </table>
         </div>
       {{#if categoryPage}}
-        <div class="grid-small grid-block dialog no-rightscenter-text">You are not subscribed to this page. <a href="{{pathFor 'Channels'}}" class="btn btn-default">Subscribe here</a></div>
+        <!--todo: change this to isSubscribed or something, right now this happens on every category page-->
+        <div class="grid-small grid-block dialog no-rights center-text">You are not subscribed to this page. <a href="{{pathFor 'Channels'}}" class="btn btn-default">Subscribe here</a></div>
       {{else}}
         {{> modules zone="postsListTop"}}
         {{#if customTemplate}}
