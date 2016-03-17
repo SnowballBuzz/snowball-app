@@ -594,6 +594,9 @@ span.glyphicon.glyphicon-plus:before {
   line-height: 60px;
   top: 0;
   z-index: 100;
+  tr{
+    border-bottom: 0px;
+  }
   a {
     color: $grey;
     display: block;
@@ -617,7 +620,7 @@ span.glyphicon.glyphicon-plus:before {
 
 //icon with badge
 i.primary {
-  font-size: 24px;
+  font-size: 20px;
   position: relative;
   .badge {
     position: absolute;
@@ -654,6 +657,7 @@ i.primary {
         a {
           color: $white;
           background: $grey;
+          margin: 0;
           .badge {
             color: $grey;
             background: $white;
@@ -663,9 +667,9 @@ i.primary {
       a {
         color: $grey;
         display: block;
-        padding: 7px 0;
+        padding: 0px 0;
         transition: all .3s;
-        height: 60px;
+        height: 48px;
         i {
           margin-top: -5px;
           margin-bottom: -5px;
