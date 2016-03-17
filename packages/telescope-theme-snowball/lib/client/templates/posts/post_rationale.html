@@ -2,12 +2,12 @@
     <div class="post_rationale">
       {{#if addRationale}}
           <!--autosaveOnKeyup=true-->
-        {{#autoForm collection="Posts" id="updateRationaleForm" type="update" doc=this trimStrings=false}}
-          {{> afArrayField name="rationale"}}
-          {{#if addRationale}}
+        {{#if addRationale}}
+          {{#autoForm collection="Posts" id="updateRationaleForm" type="update" doc=this trimStrings=false autosave=true}}
+            {{> afArrayField name="rationale"}}
               <button type="submit" class="btn btn-block save-rationale btn-default">Save Argument</button>
-          {{/if}}
-        {{/autoForm}}
+          {{/autoForm}}
+        {{/if}}
       {{else}}
         {{#if rationale}}
             <ul class="{{publicClass}}">
@@ -18,7 +18,7 @@
         {{/if}}
       {{/if}}
       {{#if isOwnerAndSingle}}
-          {{#unless addRationale}}
+        {{#unless addRationale}}
             <a class="btn btn-block add-rationale  btn-default">Add Argument</a>
             <small>Arguments are added as bullet points to your idea to convince others.</small>
         {{/unless}}

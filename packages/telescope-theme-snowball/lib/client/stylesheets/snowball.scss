@@ -468,7 +468,7 @@ span.glyphicon.glyphicon-plus:before {
     font-size: 14px;
     margin-bottom: -11px;
     border: none;
-    border-bottom: 1px $lightgrey;
+    border-bottom: 1px dashed $lightgrey;
   }
   .inline-fields {
     display: flex;
