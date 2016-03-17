@@ -1,6 +1,7 @@
 <template name="sb_logo">
     <div class="logo header-module">
         <!--{{> modules zone="logoZoneLeft"}}-->
+      {{> Template.dynamic template=headerZoneLeft}}
       {{#if routeIs 'postsDefault'}}
             <h1 class="logo-text"><a href="/">{{getSetting "title" "Sb"}}</a></h1>
       {{else}}
@@ -11,5 +12,6 @@
         {{/if}}
       {{/if}}
         <!--{{> modules zone="logoZoneRight"}}-->
+      {{> Template.dynamic template=headerZoneRight}}
     </div>
 </template>
