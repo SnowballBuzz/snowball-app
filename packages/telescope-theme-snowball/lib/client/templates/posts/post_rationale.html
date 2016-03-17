@@ -5,7 +5,7 @@
         {{#autoForm collection="Posts" id="updateRationaleForm" type="update" doc=this trimStrings=false}}
           {{> afArrayField name="rationale"}}
           {{#if addRationale}}
-              <button type="submit" class="btn btn-block save-rationale btn-default">Save Rationale</button>
+              <button type="submit" class="btn btn-block save-rationale btn-default">Save Argument</button>
           {{/if}}
         {{/autoForm}}
       {{else}}
@@ -19,8 +19,8 @@
       {{/if}}
       {{#if isOwnerAndSingle}}
           {{#unless addRationale}}
-            <a class="btn btn-block add-rationale  btn-default">Add Rationale</a>
-            <small>Rationale are added as bullet points to your idea to convince others.</small>
+            <a class="btn btn-block add-rationale  btn-default">Add Argument</a>
+            <small>Arguments are added as bullet points to your idea to convince others.</small>
         {{/unless}}
       {{/if}}
     </div>
