@@ -18,3 +18,7 @@ Posts.after.update(function (userId, post, fieldNames, modifier, options) {
   }
 );
 
+Posts.after.insert(function (userId, post, fieldNames) {
+  // var user = Users.findOne(post.userId);
+  Users.update(userId, {$inc: {'telescope.karma': 2}});
+});
