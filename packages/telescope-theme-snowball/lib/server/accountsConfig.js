@@ -1,3 +1,5 @@
-Users.after.insert(function(userId, user){
-  Accounts.sendVerificationEmail(user);
+Users.after.insert(function (userId, user) {
+  if (user.emails) {
+    Accounts.sendVerificationEmail(user);
+  }
 });
