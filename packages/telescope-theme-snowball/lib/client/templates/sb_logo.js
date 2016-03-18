@@ -87,7 +87,7 @@ Template.logo.helpers({
     //var route = FlowRouter.current().route.path;
     switch (route) {
       case '/channels':
-        return '<a><i class="icon icon-plus-circle primary"></i></a>';
+        return '<a><i class="icon icon-plus primary"></i></a>';
         break;
       case '/submit':
         return '<a>Cancel</a>'
