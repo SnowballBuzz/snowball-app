@@ -13,7 +13,10 @@ Template.category_title.helpers({
     category: function(){
       var groupId = FlowRouter.getParam('id');
       return Categories.findOne(groupId);
-    }
+    },
+  isOwnerOrAdmin: function(){
+    return this.userId === Meteor.userId() || Users.is.admin(Meteor.user());
+  }
 });
 
 Template.category_title.events({

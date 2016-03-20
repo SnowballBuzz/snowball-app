@@ -4,6 +4,7 @@ var invitedUser = function (user) {
     Invites.update({invitedUserEmail: user.telescope.email}, {$set: {accepted: true}});
     console.log(user, invite);
     user.subscribedChannelsIds = [invite.groupId];
+    // user.emails[0].verified = true;
   }
   console.log(user);
   return user;

@@ -8,17 +8,28 @@
                 <form id="share_group" novalidate="novalidate">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="5mA2hqT7bNxeou25C" class="control-label">Type or paste comma-separated emails</label>
+                            <label for="5mA2hqT7bNxeou25C" class="control-label">Type or paste comma-separated
+                                emails</label>
                             <div class="autoform-tags-field">
-                                <input type="text" class="" name="bulkInvite" id="5mA2hqT7bNxeou25C" data-role="tagsinput">
+                                <input type="text" class="" name="bulkInvite" id="5mA2hqT7bNxeou25C"
+                                       data-role="tagsinput">
                             </div>
                             <span class="help-block"></span>
                         </div>
-                      <div class="text-hr"><span>or</span></div>
+                        <div class="text-hr"><span>or</span></div>
                         <div class="form-group">
                             <label for="KZnmvbwvTKYfZq7Mq" class="control-label">Bulk invite with a .csv file:</label>
-                            <input type="file" name="bulkInviteCSV" id="KZnmvbwvTKYfZq7Mq" data-schema-key="bulkInviteCSV">
+                            <input type="file" name="bulkInviteCSV" id="KZnmvbwvTKYfZq7Mq"
+                                   data-schema-key="bulkInviteCSV">
                             <span class="help-block"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailSubject">Email subject:</label>
+                            <input id="emailSubject" name="emailSubject" type="text" value='Snowball - {username} invited you to join the "{group}" group!'>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailHtml">Email content:</label>
+                        <textarea name="emailHtml" id="emailHtml" cols="30" rows="10">Hey!&#10;&#10;{username} invited you to join the Snowball group {group}. &#10;Upvote your favorite ideas! &#10;&#10;Sign up here: {link}</textarea>
                         </div>
                     </div>
                     <div class="modal-footer">

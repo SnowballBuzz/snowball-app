@@ -11,8 +11,10 @@
                         {{/each}}
                       </div>
                   {{/with}}
-                    <h2 class="main-category-title">{{title}}</h2>
-                    <a href="#" class="pull-right share-group">Invite Friends: <i class="icon-share2"></i></a>
+                      <h2 class="main-category-title">{{title}}</h2>
+                  {{#if isOwnerOrAdmin}}
+                      <a href="#" class="pull-right share-group">Invite Friends: <i class="icon-share2"></i></a>
+                  {{/if}}
                 </div>
               {{#if description}}
                   <h3 class="category-description">{{description}}</h3>
