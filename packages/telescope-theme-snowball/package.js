@@ -17,6 +17,7 @@ Package.onUse(function (api) {
     '255kb:cordova-keyboard@1.2.0',
     'raix:iscroll@0.0.3',
     'gwendall:body-events@0.1.6',
+    'harrison:papa-parse@1.1.1'
   //'moonco:hammer'
   ], ['client']);
   api.use([
@@ -25,12 +26,14 @@ Package.onUse(function (api) {
     'telescope:tags@0.25.6',
     'telescope:users@0.25.6',
     'telescope:search@0.25.6',
+    'telescope:email@0.25.6',
     'matb33:collection-hooks@0.8.1',
     'aldeed:simple-schema@1.3.3',
     'aldeed:autoform@5.1.2',
     //'comerc:autoform-selectize',
     //'jeremy:selectize',
     'aldeed:autoform-select2@2.0.2',
+    'loftsteinn:autoform-tags@0.2.0',
     'daviator:select2@0.0.1',
     'easy:search@2.0.8',
     'raix:push@3.0.2',
@@ -39,6 +42,7 @@ Package.onUse(function (api) {
     'telescope:messages@0.25.6',
     'babrahams:editable-list@0.4.10',
     'dburles:mongo-collection-instances@0.3.5',
+    'telescope:invites@0.25.6'
   ], ['client', 'server']);
   api.use([
     //'promise'
@@ -71,8 +75,8 @@ Package.onUse(function (api) {
     'lib/fields.js',
     'lib/server/permissions.js',
     'lib/channelsSearchIndex.js',
-    'lib/shared_methods/xPostsCourier.js'
-    //'lib/config.push.json'
+    'lib/shared_methods/xPostsCourier.js',
+    // 'lib/invitesCollection.js'
   ], ['client', 'server']);
   api.addFiles([
     'lib/server/pushCourier.js',
@@ -82,7 +86,9 @@ Package.onUse(function (api) {
     'lib/server/subscribePrivateOnVerify.js',
     'lib/server/spiderableIgnoreSSLErrors.js',
     'lib/server/notificationEvents.js',
-    'lib/server/accountsConfig.js'
+    'lib/server/accountsConfig.js',
+    'lib/server/sendInviteEmails.js',
+    'lib/server/userHooks.js'
   ], ['server']);
 
   api.addFiles([
@@ -142,6 +148,11 @@ Package.onUse(function (api) {
     ////channels
     'lib/client/templates/channels/channels.html',
     'lib/client/templates/channels/channels.js',
+    'lib/client/templates/channels/sb_post_categories.html',
+    'lib/client/templates/channels/share_group.html',
+    'lib/client/templates/channels/share_group.js',
+    'lib/client/templates/channels/sb_category_title.html',
+    'lib/client/templates/channels/sb_category_title.js',
     'lib/client/templates/channels/sb_categories_admin.html',
     'lib/client/templates/channels/sb_categories_admin.js',
     'lib/client/templates/channels/private_channel_modal.html',

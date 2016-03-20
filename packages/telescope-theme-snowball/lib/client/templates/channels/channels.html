@@ -32,7 +32,7 @@
             {{#each channels}}
                 <li class="channel-list-item {{GetClassForIsSubscribedTo _id}} clearfix">
                     <div class="left-side">
-                        <h2 class="name"><a href="{{categoryLink}}">{{name}}</a></h2>
+                        <h2 class="name"><a href="{{pathFor 'Channel' id=_id}}">{{name}}</a></h2>
                         <p class="description"> {{description}} </p>
                     </div>
 

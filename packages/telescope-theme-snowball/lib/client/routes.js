@@ -1,4 +1,5 @@
-FlowRouter.route('/channels', {
+//group routes
+FlowRouter.route('/groups', {
   name: 'Channels',
   action: function (params) {
     return BlazeLayout.render("layout", {
@@ -6,7 +7,7 @@ FlowRouter.route('/channels', {
     });
   }
 });
-FlowRouter.route('/channels/add', {
+FlowRouter.route('/groups/add', {
   name: 'AddChannels',
   action: function (params) {
     return BlazeLayout.render("layout", {
@@ -14,8 +15,15 @@ FlowRouter.route('/channels/add', {
     });
   }
 });
-
-FlowRouter.route('/channels/:id/edit', {
+FlowRouter.route('/groups/:id', {
+  name: 'Channel',
+  action: function(params){
+    return BlazeLayout.render('layout',{
+      main: 'main_posts_list'
+    });
+  }
+});
+FlowRouter.route('/groups/:id/edit', {
   name: 'EditChannels',
   action: function (params) {
     return BlazeLayout.render("layout", {

@@ -17,6 +17,28 @@ Categories.addField({
     }
   }
 });
+Categories.addField({
+  fieldName: 'bulkInvite',
+  label: 'Paste comma-separated emails',
+  fieldSchema: {
+    type: [String],
+    optional: true,
+    autoform: {
+      type: 'tags'
+    }
+  }
+});
+Categories.addField({
+  fieldName: 'bulkInviteCSV',
+  label: 'Mass import via CSV',
+  fieldSchema: {
+    type: String,
+    optional: true,
+    autoform: {
+      type: 'file'
+    }
+  }
+});
 Users.addField({
   fieldName: "subscribedChannelsIds",
   fieldSchema: {
@@ -205,6 +227,14 @@ Posts.addField([
 
 Users.addField({
   fieldName: 'telescope.requestedChannel',
+  fieldSchema: {
+    type: String,
+    optional: true
+  }
+});
+
+Invites.addField({
+  fieldName: 'groupId',
   fieldSchema: {
     type: String,
     optional: true
