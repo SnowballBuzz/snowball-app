@@ -25,11 +25,18 @@
                         </div>
                         <div class="form-group">
                             <label for="emailSubject">Email subject:</label>
-                            <input id="emailSubject" name="emailSubject" type="text" value='Snowball - {username} invited you to join the "{group}" group!'>
+                            <input id="emailSubject" name="emailSubject" type="text" value='{username} invited you to join the "{group}" group!'>
                         </div>
                         <div class="form-group">
-                            <label for="emailHtml">Email content:</label>
-                        <textarea name="emailHtml" id="emailHtml" cols="30" rows="10">Hey!&#10;&#10;{username} invited you to join the Snowball group {group}. &#10;Upvote your favorite ideas! &#10;&#10;Sign up here: {link}</textarea>
+                            <label for="summernote">Email content:</label>
+                            <br><br>
+                        <!--<textarea name="emailHtml" id="emailHtml" cols="30" rows="10"></textarea>-->
+                            <div id="summernote">
+                                Hey!<br><br>
+                                {username} invited you to join the Snowball group {group}. <br>
+                                Upvote your favorite ideas! <br><br>
+                                Sign up here: {link}
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">

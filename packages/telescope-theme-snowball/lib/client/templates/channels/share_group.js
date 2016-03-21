@@ -4,6 +4,7 @@ Template.share_group.onCreated(function () {
 
 Template.share_group.onRendered(function () {
   $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
+  $('#summernote').summernote();
 });
 
 Template.share_group.helpers();
@@ -18,7 +19,10 @@ Template.share_group.events({
     var data;
     var subject = e.target.emailSubject.value;
     //variables: {username}, {category}, {link}
-    var html = e.target.emailHtml.value;
+    // var html = e.target.emailHtml.value;
+    // console.log(e);
+    var html = $('#summernote').summernote('code');
+    console.log(html);
     if (pasted) {
       data = pasted.split(',');
       // console.log(data);

@@ -6,7 +6,11 @@ var invitedUser = function (user) {
     user.subscribedChannelsIds = [invite.groupId];
     // user.emails[0].verified = true;
   }
-  console.log(user);
+  // console.log(user);
+  //todo: use more serious security here
+  if(Session.get('verifyEmail')){
+    user.emails[0].verified = true;
+  }
   return user;
 };
 Telescope.callbacks.add("onCreateUser", invitedUser);

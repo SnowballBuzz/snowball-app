@@ -115,3 +115,14 @@ FlowRouter.triggers.enter([
 ], {
   only: ["Channels"]
 });
+
+FlowRouter.triggers.enter([
+  function(context){
+    if(context.queryParams.inviteId){
+      console.log(context.queryParams.inviteId);
+      Session.set('verifyEmail', true);
+    }
+  }
+],{
+  only: ["signUp"]
+});

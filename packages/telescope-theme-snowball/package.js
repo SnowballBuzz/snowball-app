@@ -17,7 +17,8 @@ Package.onUse(function (api) {
     '255kb:cordova-keyboard@1.2.0',
     'raix:iscroll@0.0.3',
     'gwendall:body-events@0.1.6',
-    'harrison:papa-parse@1.1.1'
+    'harrison:papa-parse@1.1.1',
+    'summernote:summernote@0.8.1'
   //'moonco:hammer'
   ], ['client']);
   api.use([
@@ -77,6 +78,7 @@ Package.onUse(function (api) {
     'lib/channelsSearchIndex.js',
     'lib/shared_methods/xPostsCourier.js',
     // 'lib/invitesCollection.js'
+    'lib/shared_methods/userHooks.js'
   ], ['client', 'server']);
   api.addFiles([
     'lib/server/pushCourier.js',
@@ -88,7 +90,6 @@ Package.onUse(function (api) {
     'lib/server/notificationEvents.js',
     'lib/server/accountsConfig.js',
     'lib/server/sendInviteEmails.js',
-    'lib/server/userHooks.js'
   ], ['server']);
 
   api.addFiles([

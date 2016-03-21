@@ -9,6 +9,7 @@ Meteor.methods({
     html = html.replace('{username}', user.telescope.displayName);
     html = html.replace('{group}', group.name);
     _.each(emails, function (email) {
+      // console.log('email', email);
       var user = Users.findOne({'telescope.email': email});
       var emailProperties = {
         newUser: typeof user === 'undefined',
@@ -18,20 +19,30 @@ Meteor.methods({
         profileUrl: Users.getProfileUrl(Meteor.user())
       };
       if (Users.findOne({'telescope.email': email})) {
-        link = Settings.get('siteUrl', Meteor.absoluteUrl());
+        link = Settings.get('siteUrl', Meteor.absoluteUrl()).replace(/\/+$/, "") + FlowRouter.path('Channel', {id: groupId});
         html = html.replace('{link}', link);
-        Telescope.email.send(email, subject, html);
+        Meteor.setTimeout(function () {
+          Telescope.email.send(email, subject, html);
+        },1);
       } else {
         //only add invites for new users
-        var invite = Invites.update({invitedUserEmail: email}, {
-          $set: {
+        var invite = Invites.findOne({invitedUserEmail: email});
+        if (typeof invite === 'undefined') {
+          invite = Invites.insert({
+            invitedUserEmail: email,
             groupId: groupId,
             invitingUserId: Meteor.userId()
-          }
-        }, {upsert: true});
-        link = Settings.get('siteUrl', Meteor.absoluteUrl()) + 'invite/' + invite._id;
+          });
+        }
+        link = Settings.get('siteUrl', Meteor.absoluteUrl()).replace(/\/+$/, "") + FlowRouter.path('signUp', {}, {
+            email: email,
+            inviteId: invite._id
+          });
         html = html.replace('{link}', link);
-        Telescope.email.send(email, subject, html);
+        console.log(html.toString());
+        Meteor.setTimeout(function () {
+          Telescope.email.send(email, subject, html);
+        }, 1);
       }
     });
     var cat = Categories.findOne(groupId);
