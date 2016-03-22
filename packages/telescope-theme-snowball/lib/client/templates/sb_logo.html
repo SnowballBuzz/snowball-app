@@ -5,11 +5,12 @@
       {{#if routeIs 'postsDefault'}}
             <h1 class="logo-text"><a href="/">{{getSetting "title" "Sb"}}</a></h1>
       {{else}}
-        {{#if customTitle}}
-            <h1 class="logo-text"><a>{{{customTitle}}}</a></h1>
-        {{else}}
-            <h1 class="logo-text"><a href="/">{{getSetting "title" "Sb"}}</a></h1>
-        {{/if}}
+        <!--{{#if customTitle}}-->
+            <!--<h1 class="logo-text"><a>{{{customTitle}}}</a></h1>-->
+        <!--{{else}}-->
+            <!--<h1 class="logo-text"><a href="/">{{getSetting "title" "Sb"}}</a></h1>-->
+        <!--{{/if}}-->
+        {{{customTitle}}}
       {{/if}}
         <!--{{> modules zone="logoZoneRight"}}-->
       {{> Template.dynamic template=headerZoneRight}}

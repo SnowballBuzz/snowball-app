@@ -54,7 +54,7 @@ Template.afTextareaAdvanced.onCreated(function () {
 });
 
 Template.afTextareaAdvanced.onRendered(function () {
-  console.log(this, Template.currentData());
+  // console.log(this, Template.currentData());
   if (Template.currentData().atts.autoSize) {
     var textarea = $('#' + Template.currentData().atts.id)[0];
     //console.log(textarea, textarea.scrollHeight);

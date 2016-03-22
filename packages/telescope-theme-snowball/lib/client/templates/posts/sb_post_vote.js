@@ -39,9 +39,23 @@ Template.post_vote.events({
       FlowRouter.go('signIn');
       Messages.flash(i18n.t("please_log_in_first"), "info");
     } else if (!user.hasUpvoted(post) && !user.hasDownvoted(post)) {
-      Meteor.call('upvotePost', post._id, function () {
-        Events.track("post upvoted", {'_id': post._id});
-      });
+      if (Users.hasJoinedGroup(post.categories[0], Meteor.userId())) {
+        Meteor.call('upvotePost', post._id, function () {
+          Events.track("post upvoted", {'_id': post._id});
+        });
+      } else {
+        var join = confirm('Join the group to upvote this post');
+        if (join) {
+          Meteor.call('joinGroup', post.categories[0], Meteor.userId(), function (err, res) {
+            if (res) {
+              console.log(err, res);
+              Meteor.call('upvotePost', post._id, function () {
+                Events.track("post upvoted", {'_id': post._id});
+              });
+            }
+          });
+        }
+      }
     }
   },
   'click .downvote': function (e) {
@@ -53,12 +67,26 @@ Template.post_vote.events({
       Messages.flash(i18n.t("please_log_in_first"), "info");
     }
     if (!user.hasUpvoted(post) && !user.hasDownvoted(post)) {
-      Meteor.call('cancelDownvotePost', post._id, function () {
-        Events.track("post downvote cancelled", {'_id': post._id});
-      });
-      Meteor.call('downvotePost', post._id, function () {
-        Events.track("post downvoted", {'_id': post._id});
-      });
+      // Meteor.call('cancelDownvotePost', post._id, function () {
+      //   Events.track("post downvote cancelled", {'_id': post._id});
+      // });
+      if (Users.hasJoinedGroup(post.categories[0], Meteor.userId())) {
+        Meteor.call('downvotePost', post._id, function () {
+          Events.track("post downvoted", {'_id': post._id});
+        });
+      } else {
+        var join = confirm('Join the group to downvote this post');
+        if (join) {
+          Meteor.call('joinGroup', post.categories[0], Meteor.userId(), function (err, res) {
+            if (res) {
+              console.log(res)
+              Meteor.call('downvotePost', post._id, function () {
+                Events.track("post downvoted", {'_id': post._id});
+              });
+            }
+          });
+        }
+      }
     }
   }
 }); 

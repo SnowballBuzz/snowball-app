@@ -11,8 +11,8 @@ Template.main_posts_list.helpers({
     var category;
     if(FlowRouter.getQueryParam('cat')){
       category = Categories.findOne({slug: FlowRouter.getQueryParam('cat')[0]});
-    }else if(FlowRouter.getParam('id')){
-      category = Categories.findOne(FlowRouter.getParam('id'));
+    }else if(FlowRouter.getParam('groupId')){
+      category = Categories.findOne(FlowRouter.getParam('groupId'));
     }else{
       category = false;
     }

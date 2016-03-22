@@ -11,7 +11,7 @@ Template.category_title.helpers({
       return FlowRouter.getRouteName() === 'Channel';
     },
     category: function(){
-      var groupId = FlowRouter.getParam('id');
+      var groupId = FlowRouter.getParam('groupId');
       return Categories.findOne(groupId);
     },
   isOwnerOrAdmin: function(){

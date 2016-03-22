@@ -693,6 +693,7 @@ i.primary {
 @include small {
   ul.mobile-fixed-menu {
     position: fixed;
+    margin-bottom: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -722,7 +723,6 @@ i.primary {
         transition: all .3s;
         height: 48px;
         i {
-          margin-top: -5px;
           margin-bottom: -5px;
           display: block;
         }

@@ -15,10 +15,10 @@ FlowRouter.route('/groups/add', {
     });
   }
 });
-FlowRouter.route('/groups/:id', {
+FlowRouter.route('/groups/:groupId', {
   name: 'Channel',
-  action: function(params){
-    return BlazeLayout.render('layout',{
+  action: function (params) {
+    return BlazeLayout.render('layout', {
       main: 'main_posts_list'
     });
   }
@@ -104,11 +104,11 @@ AccountsTemplates.knownRoutes.push('signOut');
 FlowRouter.triggers.enter([
   function () {
     // Meteor.setTimeout(function() {
-      BlazeLayout.render('layout', {
-        main: "channels",
-        headerZoneRight: 'tester',
-        // headerZoneLeft: 'tester',
-      });
+    BlazeLayout.render('layout', {
+      main: "channels",
+      headerZoneRight: 'tester',
+      // headerZoneLeft: 'tester',
+    });
     // }, 0);
     // console.log('on channel page');
   }
@@ -117,12 +117,13 @@ FlowRouter.triggers.enter([
 });
 
 FlowRouter.triggers.enter([
-  function(context){
-    if(context.queryParams.inviteId){
+  function (context) {
+    if (context.queryParams.inviteId) {
       console.log(context.queryParams.inviteId);
-      Session.set('verifyEmail', true);
+      //todo: use more serious security here
+      // Meteor.call('verifyEmail', context.queryParams.inviteId, Meteor.userId());
     }
   }
-],{
+], {
   only: ["signUp"]
 });

@@ -68,6 +68,7 @@ Package.onUse(function (api) {
     'lib/shared_methods/update_share_count.js',
     'lib/shared_methods/channelHooks.js',
     'lib/shared_methods/canSubscribe.js',
+    'lib/shared_methods/joinGroup.js',
     'lib/shared_methods/notificationTest.js',
     'lib/channels.js',
     'lib/snowball_config.js',

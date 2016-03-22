@@ -33,11 +33,14 @@ Meteor.methods({
             groupId: groupId,
             invitingUserId: Meteor.userId()
           });
+          invite = Invites.findOne(invite);
         }
+        console.log(invite);
         link = Settings.get('siteUrl', Meteor.absoluteUrl()).replace(/\/+$/, "") + FlowRouter.path('signUp', {}, {
             email: email,
             inviteId: invite._id
           });
+        console.log(link);
         html = html.replace('{link}', link);
         console.log(html.toString());
         Meteor.setTimeout(function () {

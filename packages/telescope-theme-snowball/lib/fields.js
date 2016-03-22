@@ -233,6 +233,21 @@ Users.addField({
   }
 });
 
+Users.addField({
+  fieldName: 'profile.inviteId',
+  fieldSchema: {
+    type: String,
+    optional: true,
+    autoform: {
+      omit: true
+    }
+  }
+});
+AccountsTemplates.addField({
+  _id: 'inviteId',
+  type: 'hidden'
+});
+
 Invites.addField({
   fieldName: 'groupId',
   fieldSchema: {

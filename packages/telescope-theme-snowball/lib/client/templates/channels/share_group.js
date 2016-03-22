@@ -14,7 +14,7 @@ Template.share_group.events({
     e.preventDefault();
     var pasted = e.target.bulkInvite.value;
     var files = e.target.bulkInviteCSV.files;
-    var groupId = FlowRouter.getParam('id');
+    var groupId = FlowRouter.getParam('groupId');
     var group = Categories.findOne(groupId);
     var data;
     var subject = e.target.emailSubject.value;
@@ -22,7 +22,7 @@ Template.share_group.events({
     // var html = e.target.emailHtml.value;
     // console.log(e);
     var html = $('#summernote').summernote('code');
-    console.log(html);
+    // console.log(html);
     if (pasted) {
       data = pasted.split(',');
       // console.log(data);

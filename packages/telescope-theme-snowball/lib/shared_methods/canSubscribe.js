@@ -13,7 +13,7 @@ Meteor.methods({
     if (channel.allowedDomains) {
       entities += '\n' + channel.allowedDomains;
     }
-    console.log(entities);
+    // console.log(entities);
     entities = entities.toLowerCase().trim();
     entities = entities.split('\n');
 
