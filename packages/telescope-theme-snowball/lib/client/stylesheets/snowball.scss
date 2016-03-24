@@ -44,6 +44,22 @@ $white: #fff;
   color: $grey;
 }
 
+.text-hr {
+  text-align: center;
+  border-bottom: 1px solid $grey;
+  position: relative;
+  top: -1em;
+  margin-bottom: 1em;
+  height: 1em;
+  span{
+    position: relative;
+    top: .1em;
+    background-color: #fff;
+    padding: 0px 7px;
+    font-weight: bold;
+  }
+}
+
 .center-text {
   text-align: center;
 }
@@ -68,6 +84,7 @@ html {
     padding: 0 10px;
     max-width: 800px;
     margin: 0 auto;
+    height: 100%;
     @include small {
       overflow-x: hidden;
       overflow-y: hidden;
@@ -85,8 +102,19 @@ html {
     border-bottom: 1px solid $lightgrey;
     box-shadow: none !important;
     display: block !important;
+    h1.logo-text{
+      margin: 0;
+    }
     a {
-      line-height: 48px;
+      line-height: 60px;
+      i{
+        line-height: 60px;
+      }
+      &:hover{
+        i{
+          text-decoration: none;
+        }
+      }
     }
     .content-wrapper {
       @include small {
@@ -375,9 +403,17 @@ a.post-link-overlay {
     margin-right: 0px;
     padding: 0;
     .category-title {
-      height: 37px;
+      height: 30px;
+      position: relative;
       .main-category-title {
+        margin: 0;
         font-size: 17px;
+      }
+      .share-group{
+        font-size: 14px;
+        line-height: 50px;
+        position: absolute;
+        right: 10px;
       }
     }
   }
@@ -669,6 +705,7 @@ i.primary {
 @include small {
   ul.mobile-fixed-menu {
     position: fixed;
+    margin-bottom: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -698,7 +735,6 @@ i.primary {
         transition: all .3s;
         height: 48px;
         i {
-          margin-top: -5px;
           margin-bottom: -5px;
           display: block;
         }
@@ -855,6 +891,20 @@ i.primary {
     .edit-profile-button {
       display: block;
       margin: 0 auto;
+    }
+  }
+}
+
+.autoform-tags-field{
+  .bootstrap-tagsinput{
+    .tag{
+      background-color: grey;
+      padding: 2px 6px;
+    }
+    input{
+      width: auto !important;
+      display: inline-block;
+      border: none;
     }
   }
 }

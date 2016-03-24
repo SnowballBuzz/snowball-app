@@ -1,11 +1,3 @@
-var IsSubscribedTo = function (channelId) {
-  if ((Meteor.user().subscribedChannelsIds != null) === false) {
-    return false;
-  } else {
-    return $.inArray(channelId, Meteor.user().subscribedChannelsIds) !== -1;
-  }
-};
-
 Template.channels.onCreated(function () {
   Telescope.modules.add("titleArea", {
     template: "title",
@@ -35,9 +27,11 @@ Template.channels.helpers({
   ChannelsToDisplay: function () {
     return Categories.find().fetch();
   },
-  IsSubscribedTo: IsSubscribedTo,
+  IsSubscribedTo: function(groupId){
+    return Users.hasJoinedGroup(groupId);
+  },
   GetClassForIsSubscribedTo: function (channelId) {
-    if (IsSubscribedTo(channelId)) {
+    if (Users.hasJoinedGroup(channelId)) {
       return "subscribed";
     } else {
       return "not-subscribed";
@@ -46,11 +40,11 @@ Template.channels.helpers({
   channels: function () {
     //todo: will need to limit this eventually
     return ChannelsIndex.search(Session.get('searchQuery'), {}).fetch().sort(function (a, b) {
-      if (IsSubscribedTo(a._id) && IsSubscribedTo(b._id)) {
+      if (Users.hasJoinedGroup(a._id) && Users.hasJoinedGroup(b._id)) {
         return 0;
-      } else if (!IsSubscribedTo(a._id) && IsSubscribedTo(b._id)) {
+      } else if (!Users.hasJoinedGroup(a._id) && Users.hasJoinedGroup(b._id)) {
         return 1;
-      } else if (IsSubscribedTo(a._id) && !IsSubscribedTo(b._id)) {
+      } else if (Users.hasJoinedGroup(a._id) && !Users.hasJoinedGroup(b._id)) {
         return -1;
       }
     });
@@ -60,39 +54,7 @@ Template.channels.helpers({
 Template.channels.events({
   'click button.subscribe-button': function (e) {
     var channelId = $(e.target).attr("channel-id");
-    var channel = Categories.findOne(channelId);
-    console.log(channelId, channel);
-
-    //toggle subscribe
-    var subscribeUnsubscribe = function (channelId) {
-      if (IsSubscribedTo(channelId) === false) {
-        return Meteor.call("subscribeToChannel", channelId, function(){
-
-        });
-      } else if (IsSubscribedTo(channelId) === true) {
-        return Meteor.call("unsubscribeToChannel", channelId);
-      }
-    };
-
-    //If it's private and you're not the owner, deny, otherwise subscribe
-    if (channel.isPrivate) {
-      Meteor.call('canSubscribe', Meteor.user(), channel, function (err, res) {
-        if (res) {
-          //if it returns true, subscribe
-          console.log('subscribed');
-          subscribeUnsubscribe(channelId);
-        } else if (err) {
-          //if you get an error
-          throw err;
-        } else {
-          //if it returns false
-          Modal.show('private_channel_modal', channel);
-        }
-      });
-      //if it's public or you own it subscribe
-    } else {
-      subscribeUnsubscribe(channelId);
-    }
+    Meteor.call('joinGroup', channelId, Meteor.userId());
   },
   'click .showChannelSearch': function () {
     $('.channels-header').slideToggle(200);

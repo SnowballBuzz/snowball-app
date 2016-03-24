@@ -37,6 +37,12 @@ Telescope.modules.add('postsListTop', [
   {template: 'search', order: 1, class: 'hidden', id: 'search2'},
   {template: 'post_submit_quick', order: 10}
 ]);
+Telescope.modules.add("postsListTop", {
+  template: 'category_title',
+  order: 1,
+  only: ["Channel"]
+});
+
 //hidden
 //Telescope.modules.add('contentTop', {template: 'search', order: 20});
 //move post category before title

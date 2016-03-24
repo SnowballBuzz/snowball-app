@@ -8,8 +8,14 @@ Template.main_posts_list.onRendered(function(){
 
 Template.main_posts_list.helpers({
   categoryPage: function(){
-    var categorySlug = FlowRouter.getQueryParam('cat');
-    var category = Categories.findOne({slug: categorySlug[0]});
+    var category;
+    if(FlowRouter.getQueryParam('cat')){
+      category = Categories.findOne({slug: FlowRouter.getQueryParam('cat')[0]});
+    }else if(FlowRouter.getParam('groupId')){
+      category = Categories.findOne(FlowRouter.getParam('groupId'));
+    }else{
+      category = false;
+    }
     return category && !_.contains(Meteor.user().subscribedChannelsIds, category._id);
   }
 });

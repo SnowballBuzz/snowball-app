@@ -45,6 +45,9 @@ Template.layout.onCreated(function () {
         case "/users/:_idOrSlug":
           Session.set('customTitle', 'Profile');
           break;
+        // case "/invite/:inviteId":
+        //   Session.set('verifyEmail', true);
+        //   break;
         //case "/verify-email/:paramToken":
         //  console.log('verifying and subscribing');
         //  Meteor.call('subscribePrivateOnVerify');

@@ -15,7 +15,7 @@ Template.categories_admin.helpers({
   },
   category: function(){
     if(FlowRouter.getRouteName() === 'EditChannels') {
-      return Categories.findOne(FlowRouter.getParam('id'));
+      return Categories.findOne(FlowRouter.getParam('groupId'));
     }
   }
 });

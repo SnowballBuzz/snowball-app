@@ -1,0 +1,61 @@
+<template name="share_group">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Invite some friends</h4>
+                </div>
+                <form id="share_group" novalidate="novalidate">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="5mA2hqT7bNxeou25C" class="control-label">Type or paste comma-separated
+                                emails</label>
+                            <div class="autoform-tags-field">
+                                <input type="text" class="" name="bulkInvite" id="5mA2hqT7bNxeou25C"
+                                       data-role="tagsinput">
+                            </div>
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="text-hr"><span>or</span></div>
+                        <div class="form-group">
+                            <label for="KZnmvbwvTKYfZq7Mq" class="control-label">Bulk invite with a .csv file:</label>
+                            <input type="file" name="bulkInviteCSV" id="KZnmvbwvTKYfZq7Mq"
+                                   data-schema-key="bulkInviteCSV">
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailSubject">Email subject:</label>
+                            <input id="emailSubject" name="emailSubject" type="text" value='{username} invited you to join the "{group}" group!'>
+                        </div>
+                        <div class="form-group">
+                            <label for="summernote">Email content:</label>
+                            <br><br>
+                        <!--<textarea name="emailHtml" id="emailHtml" cols="30" rows="10"></textarea>-->
+                            <div id="summernote">
+                                Hey!<br><br>
+                                {username} invited you to join the Snowball group {group}. <br>
+                                Upvote your favorite ideas! <br><br>
+                                Sign up here: {link}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary right">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
+
+        <!--{{#autoForm id="share_group" collection="Categories" type="update" doc=this}}-->
+<!--<div class="modal-body">-->
+<!--{{> afQuickField name="bulkInvite"}}-->
+<!--{{> afQuickField name="bulkInviteCSV"}}-->
+<!--</div>-->
+<!--<div class="modal-footer">-->
+<!--<button type="submit" class="btn btn-default right">Submit</button>-->
+<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--</div>-->
+        <!--{{/autoForm}}-->
