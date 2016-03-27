@@ -6,15 +6,13 @@ Template.categories_admin.onRendered(function () {
 });
 
 Template.categories_admin.helpers({
-  editOrInsert: function () {
-    if(FlowRouter.getRouteName() === 'EditChannels'){
-      return 'update';
-    } else {
-      return 'insert';
-    }
+  editForm: function () {
+    return FlowRouter.getRouteName() === 'EditChannels';
   },
   category: function(){
+    console.log(FlowRouter.getRouteName() === 'EditChannels');
     if(FlowRouter.getRouteName() === 'EditChannels') {
+      console.log('on EditChannels route');
       return Categories.findOne(FlowRouter.getParam('groupId'));
     }
   }

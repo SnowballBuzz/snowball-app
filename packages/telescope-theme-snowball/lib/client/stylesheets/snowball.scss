@@ -406,9 +406,11 @@ a.post-link-overlay {
         margin: 0;
         font-size: 17px;
       }
-      .share-group{
-        font-size: 14px;
-        line-height: 50px;
+      .admin-tools{
+        a {
+          font-size: 14px;
+          line-height: 35px;
+        }
         position: absolute;
         right: 10px;
       }

@@ -47,8 +47,8 @@ Template.post_vote.events({
         var join = confirm('Join the group to upvote this post');
         if (join) {
           Meteor.call('joinGroup', post.categories[0], Meteor.userId(), function (err, res) {
+            console.log(err, res);
             if (res) {
-              console.log(err, res);
               Meteor.call('upvotePost', post._id, function () {
                 Events.track("post upvoted", {'_id': post._id});
               });

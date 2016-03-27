@@ -13,7 +13,10 @@
                   {{/with}}
                       <h2 class="main-category-title">{{title}}</h2>
                   {{#if isOwnerOrAdmin}}
-                      <a href="#" class="pull-right share-group">Invite Friends: <i class="icon-share2"></i></a>
+                    <span class="admin-tools">
+                      <a href="#" class="share-group"><i class="icon-share2"></i></a>
+                      <a href="{{pathFor 'EditChannels' groupId=_id}}" class="edit-group"><i class="icon-pencil"></i></a>
+                    </span>
                   {{/if}}
                 </div>
               {{#if description}}

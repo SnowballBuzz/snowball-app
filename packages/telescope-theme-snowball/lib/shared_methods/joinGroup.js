@@ -26,15 +26,17 @@ Meteor.methods({
     //If it's private and you're not the owner, deny, otherwise subscribe
     if (channel.isPrivate) {
       Meteor.call('canSubscribe', user, channel, function (err, res) {
+        //if it returns true, subscribe
         if (res) {
-          //if it returns true, subscribe
           console.log('subscribed');
           subscribeUnsubscribe(groupId);
-        } else if (err) {
+          return channel;
           //if you get an error
+        } else if (err) {
           throw err;
-        } else {
           //if it returns false
+        } else {
+          console.log(err, res);
           if (Meteor.isClient) {
             Modal.show('private_channel_modal', channel);
           }

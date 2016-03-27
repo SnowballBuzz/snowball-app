@@ -23,7 +23,7 @@ FlowRouter.route('/groups/:groupId', {
     });
   }
 });
-FlowRouter.route('/groups/:id/edit', {
+FlowRouter.route('/groups/:groupId/edit', {
   name: 'EditChannels',
   action: function (params) {
     return BlazeLayout.render("layout", {
