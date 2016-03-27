@@ -3,6 +3,7 @@
     <div class="comment-form comment-new module">
       <h4 class="comment-new-heading">{{_ "add_comment"}}</h4>
       {{> quickForm collection="Comments" id="submitCommentForm" template="bootstrap3-horizontal" input-col-class="controls" type="method" meteormethod="submitComment" fields=commentFields parentContext=this}}
+  <p> To promote constructive discussions, comments are not anonymous.</p>
     </div>
   {{else}}
     {{#if isLoggedIn}}
@@ -10,5 +11,5 @@
     {{else}}
       <p class="cannot-comment-message"><a href="{{pathFor route='signIn'}}">{{_ "please_log_in_to_comment"}}</a></p>
     {{/if}}
-  {{/if}}  
+  {{/if}}
 </template>
