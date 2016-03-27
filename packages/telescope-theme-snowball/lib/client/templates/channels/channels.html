@@ -1,29 +1,19 @@
 <template name="channels">
     {{#if currentUser}}
     <div class="logoZoneLeft">
-        <a href="{{pathFor 'AddChannels'}}" class="addChannel"><i class="icon icon-plus-circle primary"></i></a>
+        <a href="{{pathFor 'AddChannels'}}" class="addChannel"><i class="icon icon-plus primary"></i></a>
     </div>
     <div class="logoZoneRight">
-        <!-- Adding the Post a new idea Button next to the search button (ML) -->
-        <table>
-            <tr>
-                <td>
-                    <a href="#" class="showChannelSearch"><i class="icon icon-magnifier primary"></i></a>
-                </td>
-                <td>
-                  {{> submit_button}}
-                </td>
-            </tr>
-        </table>
+            <a href="#" class="showChannelSearch"><i class="icon icon-funnel primary"></i></a>
     </div>
     <div class="channels-view">
         <div class="channels-header clearfix">
             <a href="{{pathFor 'AddChannels'}}" class="btn btn-secondary addChannel desktop-only pull-left">
-                <i class="icon icon-plus-circle"></i>
+                <i class="icon icon-plus"></i>
                 &nbsp;&nbsp;Create Group
             </a>
             <div class="search {{searchQueryEmpty}} {{moduleClass}} pull-right">
-                <input id="search_channels" type="search" class="search-field" placeholder="{{_ 'search'}} channels"
+                <input id="search_channels" type="search" class="search-field" placeholder="Filter Groups"
                        value="{{searchQuery}}">
             </div>
         </div>

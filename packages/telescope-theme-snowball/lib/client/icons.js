@@ -8,31 +8,32 @@ Telescope.utils.getIcon = function (iconName, iconClass) {
 
 
 Telescope.utils.icons = {
-  expand: "angle-right",
-  collapse: "angle-down",
-  next: "angle-right",
-  close: "times",
+  expand: "chevron-right", //?
+  collapse: "chevron-down", //?
+  next: "chevron-right",  //?
+  close: "clock3", //is this the right one to use?
   upvote: "icon-chevron-up", //updated
-  voted: "check",
+  voted: "check", //?
   downvote: "icon-chevron-down", //updated
   facebook: "icon-Facebook-1", //updated
   twitter: "icon-social-twitter-outline", //updated
-  googleplus: "google-plus",
-  linkedin: "linkedin-square",
+  googleplus: "google-plus", //NON EXISTENT!
+  linkedin: "linkedin-square", //!
   comment: "icon-bubble", //updated with linearicon (ML)
-  share: "share-square-o",
-  more: "ellipsis-h",
-  menu: "bars",
-  subscribe: "envelope-o",
-  delete: "trash-o",
+  share: "share2", //updated
+  more: "ellipsis", //updated
+  menu: "icon-menu", //updated
+  subscribe: "icon-register",
+  delete: "icon-eraser", //updated
   edit: "icon-pencil", //updated
-  popularity: "fire",
+  popularity: "icon-bullhorn", //updated
   time: "icon-clock3", //updated
-  best: "star",
+  best: "icon-star", //updated
   search: "icon-magnifier", //updated
-  approve: "check-circle-o",
-  reject: "times-circle-o",
-  views: "eye",
-  clicks: "mouse-pointer",
+  filter: "icon-funnel", //added!
+  approve: "icon-check", //updated
+  reject: "icon-cross2", //updated
+  views: "icon-eye", //updated
+  clicks: "icon-spotlights",
   score: "icon-podium"
 };

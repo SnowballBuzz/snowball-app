@@ -303,3 +303,6 @@
 .icon-ellipsis:before {
     content: "\e9e9";
 }
+.icon-funnel:before{
+  content: '\e97c';
+}

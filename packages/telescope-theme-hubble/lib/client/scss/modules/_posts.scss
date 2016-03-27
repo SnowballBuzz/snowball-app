@@ -580,6 +580,7 @@
 					font-size: 0;
 					&:after {
 						font-size: 12px;
+						// TODO : note that "pts" is showing up for users that are not logged in now (ML) 	
 						content: "pts ";
 					}
 				}
