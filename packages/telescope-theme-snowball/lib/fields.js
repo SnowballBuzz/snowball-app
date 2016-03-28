@@ -113,6 +113,7 @@ Posts.addField({
     type: Number,
     optional: true,
     editableBy: ["member", "admin"],
+    //todo: why dosn't the label show up?
     label: 'Notify me after this many upvotes',
     autoform: {
       afFieldInput: {

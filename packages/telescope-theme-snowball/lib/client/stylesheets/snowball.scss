@@ -457,6 +457,12 @@ span.glyphicon.glyphicon-plus:before {
 
 .template-postPage, .template-postsDefault {
   .post_rationale {
+    a.add-rationale{
+      margin: 0 auto;
+    }
+    small{
+      text-align: center;
+    }
     ul {
       color: $darkgrey;
       &.public {
