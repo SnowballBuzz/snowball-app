@@ -1,12 +1,12 @@
 <template name="sb_submit_button">
   {{#if currentUser}}
-      <div class="submit-button {{moduleClass}}">
-          <a id="submit" class="submit-btn btn" href="#">
+      <span class="submit-button {{moduleClass}}">
+          <a id="submit" class="submit-btn" href="#">
               {{{icon 'edit' 'primary'}}}
               <!-- add a conditional here to show "Post Idea" only if page width is > 800px (later)
                   {{_ "post"}}
               -->
           </a>
-      </div>
+      </span>
   {{/if}}
 </template>
