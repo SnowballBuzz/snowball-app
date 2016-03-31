@@ -18,6 +18,15 @@ Telescope.modules.remove('profileEdit','afArrayField_bootstrap3-horizontal');
 //Telescope.modules.remove('profileDisplay', 'user_posts');
 
 //add
+
+//header
+Telescope.modules.add('logoArea', {template: 'logo', order: 1,
+  except: ['Channel', 'signIn', 'signUp']
+});
+Telescope.modules.add('logoArea', {template: 'channel_title', order: 1, only: ['Channel']});
+Telescope.modules.add('logoArea', {template: 'signin_title', order: 1, only: ['signIn']});
+Telescope.modules.add('logoArea', {template: 'signup_title', order: 1, only: ['signUp']});
+
 //title area for Session.set('customTitle', 'example'), controlled in logo.js
 Telescope.modules.add("titleArea", {template: "title", order: 10});
 //left nav

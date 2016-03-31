@@ -3,10 +3,12 @@
         <div class="content-wrapper">
           {{#if hasPrimaryNav}}
             {{> modules zone="primaryNav" zoneClass="desktop-only nav desktop-nav header-module primary-nav " moduleClass="header-submodule"}}
+            {{> modules zone="leftMobileNav" zoneClass="mobile-only nav header-module left-mobile-nav" moduleClass="header-submodule"}}
           {{/if}}
-          {{> logo}}
+          {{> modules zone="logoArea" zoneClass="logo-area" moduleClass="header-submodule"}}
           {{#if hasSecondaryNav}}
             {{> modules zone="secondaryNav" zoneClass="desktop-only nav desktop-nav secondary-nav " moduleClass="header-submodule"}}
+            {{> modules zone="rightMobileNav" zoneClass="mobile-only nav header-module right-mobile-nav" moduleClass="header-submodule"}}
           {{/if}}
         </div>
     </header>

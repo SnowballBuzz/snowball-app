@@ -101,19 +101,31 @@ AccountsTemplates.configureRoute('verifyEmail', {
 });
 AccountsTemplates.knownRoutes.push('signOut');
 
+// FlowRouter.triggers.enter([
+//   function () {
+//     // Meteor.setTimeout(function() {
+//     BlazeLayout.render('layout', {
+//       main: "channels",
+//       // headerZoneRight: 'tester',
+//       // headerZoneLeft: 'tester',
+//     });
+//     // }, 0);
+//     // console.log('on channel page');
+//   }
+// ], {
+//   only: ["Channels"]
+// });
+
 FlowRouter.triggers.enter([
-  function () {
-    // Meteor.setTimeout(function() {
-    BlazeLayout.render('layout', {
-      main: "channels",
-      headerZoneRight: 'tester',
-      // headerZoneLeft: 'tester',
-    });
-    // }, 0);
-    // console.log('on channel page');
+  function(context){
+    BlazeLayout.render("layout", {main: "main_posts_list"});
+    if(!Meteor.userId()){
+      console.log('not logged in, redirecting');
+      FlowRouter.go('signIn');
+    }
   }
 ], {
-  only: ["Channels"]
+  only: ['postsDefault']
 });
 
 FlowRouter.triggers.enter([

@@ -131,10 +131,12 @@ Package.onUse(function (api) {
 
     //utility
     'lib/client/templates/templateHelpers.js',
+    'lib/client/templates/utils/goBack.html',
+    'lib/client/templates/utils/goBack.js',
+    'lib/client/templates/utils/signin_title.html',
+    'lib/client/templates/utils/signup_title.html',
 
-    //templates
-    ////test
-    'lib/client/templates/tester.html',
+    //template
     ////search
     'lib/client/templates/sb_search.html',
     'lib/client/templates/sb_search.js',
@@ -148,6 +150,8 @@ Package.onUse(function (api) {
     'lib/client/templates/mobile_menu.html',
     'lib/client/templates/mobile_menu.js',
     ////channels
+    'lib/client/templates/channels/channel_title.html',
+    'lib/client/templates/channels/channel_title.js',
     'lib/client/templates/channels/channels.html',
     'lib/client/templates/channels/channels.js',
     'lib/client/templates/channels/sb_post_categories.html',
@@ -194,11 +198,6 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/sb_main_posts_list.js',
     'lib/client/templates/posts/post_rationale.html',
     'lib/client/templates/posts/post_rationale.js',
-
-
-    //back button
-    'lib/client/templates/utils/goBack.html',
-    'lib/client/templates/utils/goBack.js',
 
     //user profile
     'lib/client/templates/user/sb_user_info.html',

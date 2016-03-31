@@ -9,15 +9,6 @@
             {{#if notLoggedOutCordova}}
               {{> modules zone="hero"}}
                 <div class="content-wrapper">
-<!-- Cancelling the redundant login bar
-                  {{#unless isLoggedIn}}
-                      <div class="login-warning">
-                          <span>It looks like you're not logged in</span>
-                          <a href="{{pathFor 'signIn'}}" class="btn btn-primary sign-in">Sign In</a>
-                          <a href="{{pathFor 'signUp'}}" class="btn register">Register</a>
-                      </div>
-                  {{/unless}}
--->
                   {{#if notAllowed}}
                     {{> Template.dynamic template=notAllowed.template data=notAllowed.data}}
                   {{else}}

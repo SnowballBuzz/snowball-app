@@ -1,18 +1,10 @@
 <template name="sb_logo">
     <div class="logo header-module">
-        <!--{{> modules zone="logoZoneLeft"}}-->
-      {{> Template.dynamic template=headerZoneLeft}}
-      {{#if routeIs 'postsDefault'}}
-            <h1 class="logo-text"><a href="/">{{getSetting "title" "Sb"}}</a></h1>
-      {{else}}
-        <!--{{#if customTitle}}-->
-            <!--<h1 class="logo-text"><a>{{{customTitle}}}</a></h1>-->
-        <!--{{else}}-->
-            <!--<h1 class="logo-text"><a href="/">{{getSetting "title" "Sb"}}</a></h1>-->
-        <!--{{/if}}-->
-        {{{customTitle}}}
-      {{/if}}
-        <!--{{> modules zone="logoZoneRight"}}-->
-      {{> Template.dynamic template=headerZoneRight}}
+        <h1 class="logo-text">
+            <a class="logo-link" href="{{pathFor 'postsDefault'}}">
+                <img class="snowball-header-logo" src="/packages/telescope-theme-snowball/images/Snowball200.png"
+                     alt="SNOWBALL">
+            </a>
+        </h1>
     </div>
 </template>
