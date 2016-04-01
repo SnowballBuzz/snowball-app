@@ -1,12 +1,5 @@
 <template name="sb_main_posts_list">
     <div class="main-posts-list">
-        <div class="logoZoneLeft">
-          {{#if currentUser}}<span class="userPoints">{{currentUser.telescope.karma}}pts</span>{{/if}}
-        </div>
-        <div class="logoZoneRight">
-            <a href="#" class="showPostsSearch"><i class="icon icon-magnifier primary"></i></a>
-          {{> submit_button}}
-        </div>
       {{#if categoryPage}}
           <!--todo: change this to isSubscribed or something, right now this happens on every category page-->
           <div class="grid-small grid-block dialog no-rights center-text">You are not subscribed to this page. <a

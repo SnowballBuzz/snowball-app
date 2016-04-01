@@ -1,49 +1,40 @@
 <template name="channels">
-    {{#if currentUser}}
-    <div class="logoZoneLeft">
-        <a href="{{pathFor 'AddChannels'}}" class="addChannel"><i class="icon icon-plus primary"></i></a>
-    </div>
-    <div class="logoZoneRight">
-            <a href="#" class="showChannelSearch"><i class="icon icon-funnel primary"></i></a>
-    </div>
-    <div class="channels-view">
-        <div class="channels-header clearfix">
-            <a href="{{pathFor 'AddChannels'}}" class="btn btn-secondary addChannel desktop-only pull-left">
-                <i class="icon icon-plus"></i>
-                &nbsp;&nbsp;Create Group
-            </a>
-            <div class="search {{searchQueryEmpty}} {{moduleClass}} pull-right">
-                <input id="search_channels" type="search" class="search-field" placeholder="Filter Groups"
-                       value="{{searchQuery}}">
-            </div>
-        </div>
-      {{#HammerTouchArea gestureMap=touchEvents}}
-          <ul class="channels-list">
-            {{#each channels}}
-                <li class="channel-list-item {{GetClassForIsSubscribedTo _id}} clearfix">
-                    <div class="left-side">
-                        <h2 class="name"><a href="{{pathFor 'Channel' groupId=_id}}">{{name}}</a></h2>
-                        <p class="description"> {{description}} </p>
-                    </div>
+  {{#if currentUser}}
+      <div class="logoZoneRight">
+          <a href="#" class="showChannelSearch"><i class="icon icon-funnel primary"></i></a>
+      </div>
+      <div class="channels-view">
+          <div class="form-group">
+              <input id="search_channels" type="search" class="search-field form-control" placeholder="Filter Groups"
+                     value="{{searchQuery}}">
+          </div>
+        {{#HammerTouchArea gestureMap=touchEvents}}
+            <ul class="channels-list">
+              {{#each channels}}
+                  <li class="channel-list-item {{GetClassForIsSubscribedTo _id}} clearfix">
+                      <div class="left-side">
+                          <h2 class="name"><a href="{{pathFor 'Channel' groupId=_id}}">{{name}}</a></h2>
+                          <p class="description"> {{description}} </p>
+                      </div>
 
-                    <div class="right-side">
-                        <button class="subscribe-button" channel-id="{{_id}}">
-                          {{#if isPrivate}}
-                              <i class="icon icon-lock"></i>&nbsp;
-                          {{/if}}
-                          {{#if IsSubscribedTo _id}}
-                              Joined
-                          {{else}}
-                              Join
-                          {{/if}}
-                        </button>
-                    </div>
-                </li>
-            {{/each}}
-          </ul>
-      {{/HammerTouchArea}}
-    </div>
-      {{else}}
-        <div class="grid-small grid-block dialog no-rights center-text">You are not logged in.</div>
-      {{/if}}
+                      <div class="right-side">
+                          <button class="subscribe-button" channel-id="{{_id}}">
+                            {{#if isPrivate}}
+                                <i class="icon icon-lock"></i>&nbsp;
+                            {{/if}}
+                            {{#if IsSubscribedTo _id}}
+                                Joined
+                            {{else}}
+                                Join
+                            {{/if}}
+                          </button>
+                      </div>
+                  </li>
+              {{/each}}
+            </ul>
+        {{/HammerTouchArea}}
+      </div>
+  {{else}}
+      <div class="grid-small grid-block dialog no-rights center-text">You are not logged in.</div>
+  {{/if}}
 </template>

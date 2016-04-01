@@ -30,40 +30,6 @@ Template.layout.onCreated(function () {
       //reset query
       Session.set('searchQuery', '');
     });
-    if (Meteor.userId()) {
-      console.log('logged in');
-      switch (currentContext.route.path) {
-        case '/channels':
-          Session.set('customTitle', 'Channels');
-          break;
-        case '/notifications':
-          Session.set('customTitle', 'Notifications');
-          break;
-        case '/submit':
-          Session.set('customTitle', 'New Idea');
-          break;
-        case "/users/:_idOrSlug":
-          Session.set('customTitle', 'Profile');
-          break;
-        // case "/invite/:inviteId":
-        //   Session.set('verifyEmail', true);
-        //   break;
-        //case "/verify-email/:paramToken":
-        //  console.log('verifying and subscribing');
-        //  Meteor.call('subscribePrivateOnVerify');
-        //  break;
-        //case "/posts/:_id/:slug?":
-        //  Session.set('customTitle', "Snowball");
-        //  break;
-        case "/channels/add":
-          Session.set('customTitle', "New Group");
-          break;
-        default:
-          Session.set('customTitle', null);
-      }
-    } else {
-      Session.set('customTitle', 'Snowball');
-    }
   });
 });
 

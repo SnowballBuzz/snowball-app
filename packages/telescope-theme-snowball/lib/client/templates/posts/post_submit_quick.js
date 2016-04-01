@@ -2,8 +2,7 @@ Template.post_submit_quick.onCreated(function () {
 
 });
 
-Template.post_submit_quick.onRendered(function () {
-
+Template.post_submit_quick.onRendered(function (e) {
 });
 
 Template.post_submit_quick.helpers({

@@ -135,6 +135,12 @@ Package.onUse(function (api) {
     'lib/client/templates/utils/goBack.js',
     'lib/client/templates/utils/signin_title.html',
     'lib/client/templates/utils/signup_title.html',
+    'lib/client/templates/utils/user_points.html',
+    'lib/client/templates/utils/add_channel.html',
+    'lib/client/templates/utils/newPost.html',
+    'lib/client/templates/utils/newPost.js',
+    'lib/client/templates/utils/searchPosts.html',
+    'lib/client/templates/utils/searchPosts.js',
 
     //template
     ////search
@@ -198,10 +204,13 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/sb_main_posts_list.js',
     'lib/client/templates/posts/post_rationale.html',
     'lib/client/templates/posts/post_rationale.js',
+    'lib/client/templates/posts/post_submit_modal.html',
+    'lib/client/templates/posts/post_submit_modal.js',
 
     //user profile
     'lib/client/templates/user/sb_user_info.html',
     'lib/client/templates/user/sb_user_profile.html',
+    'lib/client/templates/user/sb_user_profile.js',
     'lib/client/templates/user/sb_user_posts.html',
     'lib/client/templates/user/sb_user_posts.js',
     'lib/client/templates/utils/log_out.html',

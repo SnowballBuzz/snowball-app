@@ -27,19 +27,32 @@ Telescope.modules.add('logoArea', {template: 'channel_title', order: 1, only: ['
 Telescope.modules.add('logoArea', {template: 'signin_title', order: 1, only: ['signIn']});
 Telescope.modules.add('logoArea', {template: 'signup_title', order: 1, only: ['signUp']});
 
-//title area for Session.set('customTitle', 'example'), controlled in logo.js
-Telescope.modules.add("titleArea", {template: "title", order: 10});
-//left nav
+//left mobile icon
+Telescope.modules.add('leftMobileNav', {template: 'user_points', order: 1,
+  except: ['postPage', 'EditChannels', 'Channels', 'AddChannels', 'userProfile', 'commentPage', 'commentEdit']
+});
+//Back button
+Telescope.modules.add('leftMobileNav', {template: 'goBack', order: 1, only: ['postPage', 'userProfile', 'commentPage', 'EditChannels', 'AddChannels', 'profileEdit']});
+// do we need a cancel button here? Telescope.modules.add('leftMobileNav', {template: '', order: 1, only: ['AddChannels']});
+Telescope.modules.add('leftMobileNav', {template: 'add_channel', order: 1, only: ['Channels']});
+//'add' button
+
+//right nav
+Telescope.modules.add('rightMobileNav', {template: 'newPost', order: 2, except: ['EditChannels', 'AddChannels', 'commentEdit', 'signIn', 'signUp']});
+Telescope.modules.add('rightMobileNav', {template: 'searchPosts', order: 1, except: ['EditChannels', 'AddChannels', 'commentEdit']});
+
+//left desktop nav
 Telescope.modules.add("primaryNav", [
   {template: 'navToChannels', order: 2},
   {template: 'nav_to_feed', order: 1}
 ]);
+Telescope.modules.add('primaryNav', {template: 'add_channel', order: 3, only: ['Channels']});
 //right nav
 //maybe I'll just keep the appearing search menu
 Telescope.modules.add('secondaryNav', [
   {template: 'notifications_menu', order: 10},
   {template: 'search', order: 15},
-  {template: 'submit_button', order: 30},
+  {template: 'newPost', order: 30, except: [ 'signIn', 'signUp']},
   {template: 'user_menu', order: 20}
 ]);
 Telescope.modules.add('postsListTop', [
@@ -75,5 +88,3 @@ Telescope.modules.add('footer', {template: 'mobile_menu', order: 1});
 
 //back button for user profile edit
 Telescope.modules.add('profileDisplay', {template: 'log_out', order: 6});
-
-Telescope.modules.add('profileEdit', {template: 'goBack', order: 1});

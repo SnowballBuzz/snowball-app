@@ -79,6 +79,11 @@ html {
     .post_submit_quick {
       margin-bottom: 12px;
     }
+    .modal-body{
+      .post_submit_quick{
+        margin-bottom: 0;
+      }
+    }
   }
   .content-wrapper {
     padding: 0 10px;
@@ -201,6 +206,9 @@ html {
     width: 100%;
     display: none;
     position: relative;
+    .closeSearch{
+      color: $grey;
+    }
     &:before {
       content: '';
       position: absolute;
@@ -655,6 +663,14 @@ span.glyphicon.glyphicon-plus:before {
 }
 
 //zones in header
+.left-mobile-nav, .right-mobile-nav{
+  line-height: 49px;
+  display: flex;
+  flex-direction: row;
+}
+.showPostsSearch{
+  padding-right: 10px;
+}
 .logoZoneLeft,
 .logoZoneRight {
   display: none;
@@ -679,7 +695,6 @@ span.glyphicon.glyphicon-plus:before {
     display: block;
   }
 }
-
 .logoZoneLeft {
   left: 0;
   a {
@@ -692,7 +707,6 @@ span.glyphicon.glyphicon-plus:before {
     padding-left: 10px;
   }
 }
-
 .logoZoneRight {
   right: 0;
   display: flex;
@@ -708,7 +722,6 @@ span.glyphicon.glyphicon-plus:before {
     padding-right: 10px;
   }
 }
-
 //icon with badge
 i.primary {
   font-size: 20px;
@@ -726,6 +739,17 @@ i.primary {
     font-weight: bold;
     line-height: 14px;
     text-align: center;
+  }
+}
+//hide signin when on signin
+.template-signIn{
+  .account-link.sign-in{
+    display: none;
+  }
+}
+.template-signUp{
+  .account-link.sign-up{
+    display: none;
   }
 }
 
@@ -819,37 +843,37 @@ i.primary {
 }
 
 .channels-view {
-  .channels-header {
-    margin-top: -10px;
-    display: block;
-    @include small {
-      display: none;
-      .search {
-        margin-top: 0;
-      }
-    }
-    padding: 10px 0;
-    position: relative;
-    &:before {
-      content: "";
-      display: block;
-      width: 200vw;
-      position: absolute;
-      top: 0;
-      left: -100vw;
-      right: 100vw;
-      height: 100%;
-      background: $grey;
-      z-index: -1;
-    }
-    .search {
-      margin-top: 8px;
-    }
-    .addChannel {
-      color: $white;
-      border-color: $white;
-    }
-  }
+  //.channels-header {
+  //  margin-top: -10px;
+  //  display: block;
+  //  @include small {
+  //    display: none;
+  //    .search {
+  //      margin-top: 0;
+  //    }
+  //  }
+  //  padding: 10px 0;
+  //  position: relative;
+  //  &:before {
+  //    content: "";
+  //    display: block;
+  //    width: 200vw;
+  //    position: absolute;
+  //    top: 0;
+  //    left: -100vw;
+  //    right: 100vw;
+  //    height: 100%;
+  //    background: $grey;
+  //    z-index: -1;
+  //  }
+  //  .search {
+  //    margin-top: 8px;
+  //  }
+  //  .addChannel {
+  //    color: $white;
+  //    border-color: $white;
+  //  }
+  //}
   @include small {
     .btn.addChannel {
 

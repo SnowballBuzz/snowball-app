@@ -1,12 +1,11 @@
 <template name="sb_user_profile">
-  {{> goBack}}
   {{#with user}}
     {{save}}
       {{#if isUser currentUser this}}
       <!--  <div class="center-text">Welcome to your own profile!
           <br>Your posts and votes are anonymous, but your comments are public.
         </div>
-      -->  
+      -->
       {{/if}}
     {{> modules zone="profileDisplay" moduleData=this}}
   {{/with}}
