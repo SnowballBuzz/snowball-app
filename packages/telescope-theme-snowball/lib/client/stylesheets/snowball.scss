@@ -131,8 +131,9 @@ html {
         line-height: 60px;
       }
       &:hover {
-        i {
           text-decoration: none;
+          border-bottom: 1px solid $grey;
+        i {
         }
       }
     }
