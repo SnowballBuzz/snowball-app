@@ -129,10 +129,11 @@ html {
       line-height: 60px;
       i {
         line-height: 60px;
+        text-decoration: none;
       }
       &:hover {
           text-decoration: none;
-          border-bottom: 1px solid $grey;
+          //border-bottom: 1px solid $grey;
         i {
         }
       }
