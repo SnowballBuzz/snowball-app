@@ -80,8 +80,8 @@ html {
     .post_submit_quick {
       margin-bottom: 12px;
     }
-    .modal-body{
-      .post_submit_quick{
+    .modal-body {
+      .post_submit_quick {
         margin-bottom: 0;
       }
     }
@@ -128,12 +128,16 @@ html {
     a {
       line-height: 60px;
       i {
-        line-height: 60px;
-        text-decoration: none;
+        &:before {
+          line-height: 60px;
+          text-decoration: none;
+          position: relative;
+          top: 0.2em;
+        }
       }
       &:hover {
-          text-decoration: none;
-          //border-bottom: 1px solid $grey;
+        text-decoration: none;
+        //border-bottom: 1px solid $grey;
         i {
         }
       }
@@ -162,9 +166,10 @@ html {
     }
   }
 }
+
 //login form
-.at-form{
-  .at-title{
+.at-form {
+  .at-title {
     display: none;
   }
 }
@@ -209,7 +214,7 @@ html {
     width: 100%;
     display: none;
     position: relative;
-    .closeSearch{
+    .closeSearch {
       color: $grey;
     }
     &:before {
@@ -666,14 +671,16 @@ span.glyphicon.glyphicon-plus:before {
 }
 
 //zones in header
-.left-mobile-nav, .right-mobile-nav{
+.left-mobile-nav, .right-mobile-nav {
   line-height: 49px;
   display: flex;
   flex-direction: row;
 }
-.showPostsSearch{
+
+.showPostsSearch {
   padding-right: 10px;
 }
+
 .logoZoneLeft,
 .logoZoneRight {
   display: none;
@@ -698,6 +705,7 @@ span.glyphicon.glyphicon-plus:before {
     display: block;
   }
 }
+
 .logoZoneLeft {
   left: 0;
   a {
@@ -710,6 +718,7 @@ span.glyphicon.glyphicon-plus:before {
     padding-left: 10px;
   }
 }
+
 .logoZoneRight {
   right: 0;
   display: flex;
@@ -725,10 +734,7 @@ span.glyphicon.glyphicon-plus:before {
     padding-right: 10px;
   }
 }
-i.icon:before {
-  position: relative;
-  top: 0.2em;
-}
+
 //icon with badge
 i.primary {
   font-size: 20px;
@@ -748,14 +754,16 @@ i.primary {
     text-align: center;
   }
 }
+
 //hide signin when on signin
-.template-signIn{
-  .account-link.sign-in{
+.template-signIn {
+  .account-link.sign-in {
     display: none;
   }
 }
-.template-signUp{
-  .account-link.sign-up{
+
+.template-signUp {
+  .account-link.sign-up {
     display: none;
   }
 }
