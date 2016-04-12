@@ -1,7 +1,8 @@
 <template name="navToChannels">
   {{#if currentUser}}
       <div class="nav-to-channel {{moduleClass}}">
-          <a href="{{pathFor 'Channels'}}"><i class="icon icon-users2 primary"></i>&nbsp;&nbsp;Groups</a>
+          <a href="{{pathFor 'Channels'}}"><i class="icon icon-users2 primary"></i><span
+                  class="header-link-description">Groups</span></a>
       </div>
   {{/if}}
 </template>

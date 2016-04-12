@@ -110,6 +110,7 @@ html {
     display: block !important;
     .logo-area {
       height: 100%;
+      align-self: center;
       h1.logo-text {
         margin: 0;
         height: 100%;
@@ -119,7 +120,8 @@ html {
           height: 100%;
           .snowball-header-logo {
             vertical-align: top;
-            height: 100%;
+            margin-top: 5%;
+            height: 90%;
             width: auto;
           }
         }
@@ -128,12 +130,15 @@ html {
     a {
       line-height: 60px;
       i {
-        &:before {
           line-height: 60px;
+        &:before {
           text-decoration: none;
           position: relative;
           top: 0.2em;
         }
+      }
+      span.header-link-description{
+        margin-left: 8px;
       }
       &:hover {
         text-decoration: none;
@@ -149,9 +154,9 @@ html {
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
+      justify-content: space-between;
       .header-module {
         order: initial !important;
-        flex-grow: 1;
         .secondary-nav {
           text-align: center;
         }
