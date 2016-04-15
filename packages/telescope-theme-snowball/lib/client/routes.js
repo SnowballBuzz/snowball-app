@@ -143,10 +143,14 @@ FlowRouter.triggers.enter([
 if (Meteor.settings.public.groupId) {
   FlowRouter.triggers.enter([
     function (context) {
-      console.log('rerouting from subdomain');
-      FlowRouter.go('Channel', {groupId: Meteor.settings.public.groupId});
+      console.log('rerouting from ' + context.route.name);
+      if(context.params.groupId !== Meteor.settings.public.groupId){
+        FlowRouter.go('Channel', {groupId: Meteor.settings.public.groupId});
+      }
     }
   ], {
-    except: ["Channel", "postPage"]
+    except: ["Channel", "postPage", "postEdit", "signIn", "signUp", "signOut", "changePwd",
+      "forgotPwd", "resetPwd", "enrollAccount", "verifyEmail", "userProfile", "userEdit",
+      "adminSettings", "adminUsers", "adminPages", "adminFeeds", "adminCategories"]
   });
 }
