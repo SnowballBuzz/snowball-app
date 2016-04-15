@@ -5,7 +5,23 @@ Categories.addField({
   fieldSchema: {
     label: 'Enter a URL for the category logo',
     type: String,
-    optional: true,
+    optional: true
+  }
+});
+Categories.addField({
+  fieldName: 'placeholder',
+  fieldSchema: {
+    label: 'Enter a custom placeholder for your group post field',
+    type: String,
+    optional: true
+  }
+});
+Categories.addField({
+  fieldName: 'disableShare',
+  fieldSchema: {
+    label: 'Disable sharing?',
+    type: Boolean,
+    optional: true
   }
 });
 Categories.addField({

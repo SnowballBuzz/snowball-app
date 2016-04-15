@@ -47,6 +47,10 @@ Template.post_tweet.helpers({
       cat = cat.slug.replace(/\-/g,'');
       return '%23' + cat + '%20';
     }
+  },
+  disableShare: function(){
+    var cat = Categories.findOne(this.categories[0]);
+    return cat.disableShare;
   }
 });
 

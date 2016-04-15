@@ -1,19 +1,20 @@
 <template name="mobile_menu">
   {{#unless isKeyboardVisible}}
-      <ul class="mobile-fixed-menu mobile-only">
-          <li class="mobile-menu-feed {{selected 'postsDefault'}}">
-              <a href="{{pathFor 'postsDefault'}}">
-                  <i class="icon icon-home6 primary"></i>
-                  <span class="small-text">Home</span>
-              </a>
-          </li>
-          <li class="mobile-menu-channels {{selected 'Channels'}}">
-              <a href="{{pathFor 'Channels'}}">
-                  <i class="icon icon-users2 primary"></i>
-                  <span class="small-text">Groups</span>
-              </a>
-          </li>
-<!--      <li class="mobile-menu-post {{selected 'postSubmit'}}">
+    {{#unless notSubdomain}}
+        <ul class="mobile-fixed-menu mobile-only">
+            <li class="mobile-menu-feed {{selected 'postsDefault'}}">
+                <a href="{{pathFor 'postsDefault'}}">
+                    <i class="icon icon-home6 primary"></i>
+                    <span class="small-text">Home</span>
+                </a>
+            </li>
+            <li class="mobile-menu-channels {{selected 'Channels'}}">
+                <a href="{{pathFor 'Channels'}}">
+                    <i class="icon icon-users2 primary"></i>
+                    <span class="small-text">Groups</span>
+                </a>
+            </li>
+            <!--      <li class="mobile-menu-post {{selected 'postSubmit'}}">
               <a href="{{pathFor 'postSubmit'}}">
                   <i class="fa fa-edit primary"></i><br>
                   <span class="small-text">Post Idea</span>
@@ -27,12 +28,13 @@
               </a>
           </li>
 -->
-          <li class="mobile-menu-profile {{selected 'userProfile' currentUser.telescope.slug}}">
-              <a href="{{pathFor 'userProfile' _idOrSlug=currentUser.telescope.slug}}">
-                  <i class="icon icon-user primary"></i>
-                  <span class="small-text">Me</span>
-              </a>
-          </li>
-      </ul>
+            <li class="mobile-menu-profile {{selected 'userProfile' currentUser.telescope.slug}}">
+                <a href="{{pathFor 'userProfile' _idOrSlug=currentUser.telescope.slug}}">
+                    <i class="icon icon-user primary"></i>
+                    <span class="small-text">Me</span>
+                </a>
+            </li>
+        </ul>
+    {{/unless}}
   {{/unless}}
 </template>

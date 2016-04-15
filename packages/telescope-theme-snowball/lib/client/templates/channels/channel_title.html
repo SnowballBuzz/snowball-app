@@ -1,5 +1,17 @@
 <template name="channel_title">
-    <div class="logo header-module channel-title">
-        <h1 class="logo-text">{{title}}</h1>
-    </div>
+  {{#with group}}
+    {{#if logoUrl}}
+        <div class="logo ">
+            <h1 class="logo-text">
+                <a class="logo-link" href="{{pathFor 'postsDefault'}}">
+                    <img class="snowball-header-logo" src="{{logoUrl}}" alt="{{name}}">
+                </a>
+            </h1>
+        </div>
+    {{else}}
+        <div class="logo header-module channel-title">
+            <h1 class="logo-text">{{name}}</h1>
+        </div>
+    {{/if}}
+  {{/with}}
 </template>

@@ -3,6 +3,9 @@ var getNotifications = function () {
 };
 
 Template.mobile_menu.helpers({
+  notSubdomain: function(){
+    return Meteor.settings.public.subdomain;
+  },
   notificationCount: function () {
     var notifications = getNotifications();
     //console.log(notifications);

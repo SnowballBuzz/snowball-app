@@ -117,9 +117,9 @@ AccountsTemplates.knownRoutes.push('signOut');
 // });
 
 FlowRouter.triggers.enter([
-  function(context){
+  function (context) {
     BlazeLayout.render("layout", {main: "main_posts_list"});
-    if(!Meteor.userId()){
+    if (!Meteor.userId()) {
       console.log('not logged in, redirecting');
       FlowRouter.go('signIn');
     }
@@ -139,3 +139,14 @@ FlowRouter.triggers.enter([
 ], {
   only: ["signUp"]
 });
+
+if (Meteor.settings.public.groupId) {
+  FlowRouter.triggers.enter([
+    function (context) {
+      console.log('rerouting from subdomain');
+      FlowRouter.go('Channel', {groupId: Meteor.settings.public.groupId});
+    }
+  ], {
+    except: ["Channel", "postPage"]
+  });
+}

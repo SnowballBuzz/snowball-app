@@ -109,6 +109,7 @@ html {
     box-shadow: none !important;
     display: block !important;
     .logo-area {
+      .logo{  padding: 0;  }
       height: 100%;
       align-self: center;
       h1.logo-text {
@@ -128,9 +129,9 @@ html {
       }
     }
     a {
-      line-height: 60px;
+      line-height: 50px;
       i {
-          line-height: 60px;
+          line-height: 50px;
         &:before {
           text-decoration: none;
           position: relative;
@@ -156,6 +157,7 @@ html {
       display: flex;
       justify-content: space-between;
       .header-module {
+        min-width: 50px;
         order: initial !important;
         .secondary-nav {
           text-align: center;
@@ -579,6 +581,20 @@ span.glyphicon.glyphicon-plus:before {
       border: none;
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
+    }
+  }
+  &.subdomain{
+    border: none;
+    textarea.idea{
+      border: 1px solid $lightgrey;
+      border-radius: 4px;
+    }
+    select.group{
+      display: none;
+    }
+    .btn[type="submit"] {
+      border-radius: 4px;
+      margin-top: 5px;
     }
   }
 }
