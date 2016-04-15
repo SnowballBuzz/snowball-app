@@ -11,8 +11,8 @@ Posts.after.update(function (userId, post, fieldNames, modifier, options) {
       if (_.contains([2, 5, 10, 50, 100, 200, 500], post.upvotes) && !group.isPrivate) {
         console.log('2,5,10,50,100,200, or 500', notifiedUserIds, notificationData);
         Herald.createNotification(notifiedUserIds, {courier: 'xPosts', data: notificationData});
-      } else if (post.upvotes === 5 && group.isPrivate) {
-        console.log('5 private upvotes', notifiedUserIds, notificationData);
+      } else if (post.upvotes === group.notifyUpvotes && group.isPrivate) {
+        console.log('X private upvotes', notifiedUserIds, notificationData);
         Herald.createNotification(notifiedUserIds, {courier: 'xPosts', data: notificationData});
       }
 

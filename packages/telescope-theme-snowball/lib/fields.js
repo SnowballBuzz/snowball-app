@@ -1,6 +1,14 @@
 //Channels
 Categories.removeField(['order', 'slug', 'image', 'parentId']);
 Categories.addField({
+  fieldName: 'logoUrl',
+  fieldSchema: {
+    label: 'Enter a URL for the category logo',
+    type: String,
+    optional: true,
+  }
+});
+Categories.addField({
   fieldName: 'isPrivate',
   fieldSchema: {
     label: 'Make this group private',
@@ -107,20 +115,13 @@ Categories.addField({
     }
   }
 });
-Posts.addField({
+Categories.addField({
   fieldName: 'notifyUpvotes',
   fieldSchema: {
     type: Number,
-    optional: true,
-    editableBy: ["member", "admin"],
-    //todo: why dosn't the label show up?
     label: 'Notify me after this many upvotes',
-    autoform: {
-      afFieldInput: {
-        type: 'number'
-        //placeholder: 'What do you want to achieve today?',
-      }
-    }
+    optional: true,
+    // editableBy: ["member", "admin"]
   }
 });
 Categories.addField({
@@ -130,7 +131,7 @@ Categories.addField({
     type: String,
     autoValue: function () {
       return Meteor.userId();
-    },
+    }
   }
 });
 
