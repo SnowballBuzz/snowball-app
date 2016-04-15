@@ -6,20 +6,17 @@ Template.post_submit_quick.onRendered(function (e) {
 });
 
 Template.post_submit_quick.helpers({
-  hasGroup: function () {
-    return FlowRouter.getQueryParam('cat').length;
-  },
-  prefillGroup: function () {
-    if (FlowRouter.getQueryParam('cat')) {
-      //console.log([Categories.findOne({slug: FlowRouter.getQueryParam('cat')[0]})._id]);
-      return Categories.findOne({slug: FlowRouter.getQueryParam('cat')[0]})._id;
-    }
-  },
   category: function () {
     if (FlowRouter.getQueryParam('cat')) {
-      return Categories.findOne({slug: FlowRouter.getQueryParam('cat')[0]});
+      return {'categories': Categories.findOne({slug: FlowRouter.getQueryParam('cat')[0]})._id};
+    } else if(FlowRouter.getParam('groupId')){
+      return {'categories': Categories.findOne(FlowRouter.getParam('groupId'))._id};
     }
   }
 });
 
-Template.post_submit_quick.events({});
+Template.post_submit_quick.events({
+  // 'submit #post_submit_quick': function(e){
+  //   e.preventDefault();
+  // }
+});

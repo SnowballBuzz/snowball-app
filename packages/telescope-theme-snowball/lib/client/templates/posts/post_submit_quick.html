@@ -1,10 +1,10 @@
 <template name="post_submit_quick">
     <div class="post_submit_quick">
       {{#if currentUser.subscribedChannelsIds}}
-        {{#autoForm id="post_submit_quick" collection="Posts" type="method" meteormethod="submitPost" doc=category}}
+        {{#autoForm id="post_submit_quick" collection="Posts" type="method" meteormethod="submitPost" doc=category autosave=true}}
           {{> afQuickField name="title" label=false class="idea"}}
             <div class="inline-fields">
-              {{> afQuickField name="categories" value=prefillGroup type="select" label=false class="group"}}
+              {{> afQuickField name="categories" type="select" label=false class="group"}}
                 <button type="submit" class="btn btn-primary">Post</button>
             </div>
         {{/autoForm}}
