@@ -25,5 +25,9 @@ Template.main_posts_list.events({
     e.preventDefault();
     $('.search.postsListTop-module').slideToggle(300)
       .find('.closeSearch').toggleClass('hidden');
+  },
+  'click .js-join-group': function(e){
+    var groupId = FlowRouter.getParam('groupId');
+    Meteor.call('joinGroup', groupId, Meteor.userId());
   }
 });
