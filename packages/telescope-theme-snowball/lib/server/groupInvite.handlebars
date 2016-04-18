@@ -1,0 +1,12 @@
+<!--todo: make this inline-->
+<span class="heading">
+<a href="{{profileUrl}}">{{invitedBy}}</a>
+invited you to join {{communityName}}
+</span><br><br>
+
+{{#if newUser}}
+    <a href="{{actionLink}}">Join {{communityName}}</a>
+{{else}}
+    <a href="{{groupLink}}">Sign in to {{communityName}}</a>
+{{/if}}
+<br><br>

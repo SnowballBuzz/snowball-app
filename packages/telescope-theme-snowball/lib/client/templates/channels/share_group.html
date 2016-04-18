@@ -10,9 +10,12 @@
                         <div class="form-group">
                             <label for="5mA2hqT7bNxeou25C" class="control-label">Type or paste comma-separated
                                 emails</label>
+                            <!--<div class="autoform-tags-field">-->
+                                <!--<input type="text" class="" name="bulkInvite" id="5mA2hqT7bNxeou25C"-->
+                                       <!--data-role="tagsinput">-->
+                            <!--</div>-->
                             <div class="autoform-tags-field">
-                                <input type="text" class="" name="bulkInvite" id="5mA2hqT7bNxeou25C"
-                                       data-role="tagsinput">
+                                <input type="text" class="" name="bulkInvite" id="5mA2hqT7bNxeou25C">
                             </div>
                             <span class="help-block"></span>
                         </div>
@@ -25,17 +28,16 @@
                         </div>
                         <div class="form-group">
                             <label for="emailSubject">Email subject:</label>
-                            <input id="emailSubject" name="emailSubject" type="text" value='{username} invited you to join the "{group}" group!'>
+                            <input id="emailSubject" name="emailSubject" type="text" value='{sender_name} invited you to join the "{group}" group!'>
                         </div>
                         <div class="form-group">
                             <label for="summernote">Email content:</label>
                             <br><br>
-                        <!--<textarea name="emailHtml" id="emailHtml" cols="30" rows="10"></textarea>-->
                             <div id="summernote">
-                                Hey!<br><br>
-                                {username} invited you to join the Snowball group {group}. <br>
+                                Hey {recipient_name}!<br><br>
+                                {sender_name} invited you to join the Snowball group "{group}". <br>
                                 Upvote your favorite ideas! <br><br>
-                                Sign up here: {link}
+                                {link}
                             </div>
                         </div>
                     </div>

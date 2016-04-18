@@ -24,21 +24,32 @@ Template.share_group.events({
     var html = $('#summernote').summernote('code');
     // console.log(html);
     if (pasted) {
-      data = pasted.split(',');
-      // console.log(data);
-      Meteor.call('bulkInvite', data, groupId, subject, html);
+      //"Example Name" <example@gmail.com>, "Example Name" <example@gmail.com>
+      var people = [];
+      pasted = pasted.split(',');
+      pasted.forEach(function (person) {
+        obj = {};
+        obj.name = person.match(/".*"/g)[0].trim().slice(1, -1);
+        obj.email = person.match(/<.*>/g)[0].trim().slice(1, -1);
+        people.push(obj);
+      });
+      // console.log(people);
+      Meteor.call('bulkInvite', people, groupId, subject, html);
     } else {
       Papa.parse(files[0], {
+        header: true,
         complete: function (results, file) {
-          data = [];
-          _.each(results.data, function (email) {
-            data.push(email[0]);
+          people = [];
+          _.each(results.data, function (person) {
+            if (person.Email) {
+              people.push({name: person.Name, email: person.Email});
+            }
           });
-          // console.log(data);
-          Meteor.call('bulkInvite', data, groupId, subject, html);
+          // console.log(people);
+          Meteor.call('bulkInvite', people, groupId, subject, html);
         }
       });
     }
-    Modal.hide('show_group');
+    Modal.hide('share_group');
   }
 });

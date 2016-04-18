@@ -91,6 +91,7 @@ Package.onUse(function (api) {
     'lib/server/notificationEvents.js',
     'lib/server/accountsConfig.js',
     'lib/server/sendInviteEmails.js',
+    'lib/server/groupInvite.handlebars',
   ], ['server']);
 
   api.addFiles([
