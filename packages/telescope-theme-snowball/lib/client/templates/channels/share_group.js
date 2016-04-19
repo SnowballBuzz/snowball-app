@@ -31,10 +31,10 @@ Template.share_group.events({
         obj = {};
         obj.name = person.match(/".*"/g)[0].trim().slice(1, -1);
         obj.email = person.match(/<.*>/g)[0].trim().slice(1, -1);
-        obj.combinedEmail = person[0].trim();
+        // console.log(person);
         people.push(obj);
       });
-      // console.log(people);
+      console.log(people);
       Meteor.call('bulkInvite', people, groupId, subject, html);
     } else {
       Papa.parse(files[0], {
@@ -43,7 +43,7 @@ Template.share_group.events({
           people = [];
           _.each(results.data, function (person) {
             if (person.Email) {
-              people.push({name: person.Name, email: person.Email, combinedEmail: person.Name + ' <' + person.Email + '>'});
+              people.push({name: person.Name, email: person.Email});
             }
           });
           // console.log(people);
