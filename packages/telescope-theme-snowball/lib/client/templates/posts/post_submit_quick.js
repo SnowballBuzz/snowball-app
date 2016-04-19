@@ -14,7 +14,9 @@ Template.post_submit_quick.helpers({
     }
   },
   postSubmitClass: function () {
-    return 'subdomain ' + Meteor.settings.public.subdomain;
+    if (Meteor.settings.public.subdomain || FlowRouter.getParam('groupId')) {
+      return 'subdomain ' + Meteor.settings.public.subdomain;
+    }
   },
   category: function () {
     if (FlowRouter.getQueryParam('cat')) {
@@ -26,7 +28,8 @@ Template.post_submit_quick.helpers({
 });
 
 Template.post_submit_quick.events({
-  // 'submit #post_submit_quick': function(e){
-  //   e.preventDefault();
-  // }
+  'submit #post_submit_quick': function(e){
+    // e.preventDefault();
+    Modal.hide('post_submit_modal');
+  }
 });
