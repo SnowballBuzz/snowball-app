@@ -60,7 +60,6 @@ Package.onUse(function (api) {
     'fonts/icomoon.woff',
     'images/Snowball200.png',
     'files/SnowballImport.csv'
-  //  'lib/Snowball200.png',
   ], ['client']);
 
   //functions & methods
