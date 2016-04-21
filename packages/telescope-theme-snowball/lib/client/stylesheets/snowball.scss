@@ -109,7 +109,9 @@ html {
     box-shadow: none !important;
     display: block !important;
     .logo-area {
-      .logo{  padding: 0;  }
+      .logo {
+        padding: 0;
+      }
       height: 100%;
       align-self: center;
       h1.logo-text {
@@ -131,14 +133,14 @@ html {
     a {
       line-height: 50px;
       i {
-          line-height: 50px;
+        line-height: 50px;
         &:before {
           text-decoration: none;
           position: relative;
           top: 0.2em;
         }
       }
-      span.header-link-description{
+      span.header-link-description {
         margin-left: 8px;
       }
       &:hover {
@@ -269,15 +271,16 @@ ul.notifications-wrapper {
 }
 
 //post styles
-.category-page{
-  .post-categories{
+.category-page {
+  .post-categories {
     display: none;
   }
-  .post-content .post-heading .post-info{
+  .post-content .post-heading .post-info {
     top: auto;
     bottom: 20px;
   }
 }
+
 .post-content {
   .post-heading {
     //position: relative;
@@ -592,13 +595,13 @@ span.glyphicon.glyphicon-plus:before {
       border-top-left-radius: 0;
     }
   }
-  &.subdomain{
+  &.subdomain {
     border: none;
-    textarea.idea{
+    textarea.idea {
       border: 1px solid $lightgrey;
       border-radius: 4px;
     }
-    select.group{
+    select.group {
       display: none;
     }
     .btn[type="submit"] {
@@ -865,7 +868,10 @@ i.primary {
   }
 }
 
-.nav-to-channel {
+.subdomain {
+  .nav-to-channel {
+    display: none !important;
+  }
 }
 
 .template-AddChannels {

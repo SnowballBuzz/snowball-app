@@ -28,6 +28,11 @@ Template.layout.helpers({
         Meteor.call('resetBadge', Meteor.userId());
       //}
     }
+  },
+  subdomain: function(){
+    if(Meteor.settings.public.subdomain){
+      return "subdomain subdomain-" + Meteor.settings.public.subdomain;
+    }
   }
 });
 
