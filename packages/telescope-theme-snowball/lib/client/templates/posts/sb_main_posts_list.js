@@ -17,6 +17,15 @@ Template.main_posts_list.helpers({
       category = false;
     }
     return category && !_.contains(Meteor.user().subscribedChannelsIds, category._id);
+  },
+  specialCategoryPageClass: function(){
+    var groupId = FlowRouter.getParam('groupId');
+    if(groupId){
+        return "category-page";
+      if(Categories.findOne(groupId).disableShare){
+        return "category-page share-disabled";
+      }
+    }
   }
 });
 
