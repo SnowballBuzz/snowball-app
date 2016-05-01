@@ -4,13 +4,20 @@ Template.layout.onRendered(function () {
 });
 
 Template.layout.helpers({
-  notLoggedOutCordova: function(){
-      //if on cordova
-    if(Meteor.isCordova){
+  redirectIfNoGroups: function () {
+    var user = Meteor.user();
+    if (user && !user.subscribedChannelsIds.length && FlowRouter.getRouteName() === 'postsDefault') {
+      Messages.flash('Join a group to see ideas on your home feed');
+      FlowRouter.go('Channels');
+    }
+  },
+  notLoggedOutCordova: function () {
+    //if on cordova
+    if (Meteor.isCordova) {
       //if not logged in, don't show content
-      if(!Meteor.userId()){
+      if (!Meteor.userId()) {
         return false;
-      //if logged in, do show content
+        //if logged in, do show content
       } else {
         return true;
       }
@@ -22,15 +29,15 @@ Template.layout.helpers({
     if (Meteor.userId()) {
       //todo: redirect if the user enters from a push notification
       //if (Meteor.user().telescope.pushBadge != null && Meteor.user().telescope.pushBadge.length > 0) {
-        //if (Meteor.isCordova) {
-        //  FlowRouter.go('/notifications');
-        //}
-        Meteor.call('resetBadge', Meteor.userId());
+      //if (Meteor.isCordova) {
+      //  FlowRouter.go('/notifications');
+      //}
+      Meteor.call('resetBadge', Meteor.userId());
       //}
     }
   },
-  subdomain: function(){
-    if(Meteor.settings.public.subdomain){
+  subdomain: function () {
+    if (Meteor.settings.public.subdomain) {
       return "subdomain subdomain-" + Meteor.settings.public.subdomain;
     }
   }

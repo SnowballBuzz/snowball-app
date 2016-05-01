@@ -53,14 +53,17 @@ Template.channels.helpers({
 
 Template.channels.events({
   'click button.subscribe-button': function (e) {
+    Messages.clearSeen();
     var channelId = $(e.target).attr("channel-id");
     Meteor.call('joinGroup', channelId, Meteor.userId());
   },
   'click .showChannelSearch': function () {
+    Messages.clearSeen();
     $('.channels-header').slideToggle(200);
     $('#search_channels').focus();
   },
   'keyup #search_channels': _.debounce(function (e, t) {
+    Messages.clearSeen();
     Session.set('searchQuery', e.target.value);
   }, 200)
 });

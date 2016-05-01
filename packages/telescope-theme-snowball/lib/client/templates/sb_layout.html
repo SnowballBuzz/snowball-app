@@ -2,6 +2,7 @@
   {{#if appIsReady}}
     {{> css}}
     {{resetPushBadges}}
+    {{redirectIfNoGroups}}
       <div class="outer-wrapper {{currentPage}} {{navLayout}} {{subdomain}}">
         {{> mobile_nav}}
           <div class="inner-wrapper template-{{pageName}}">
