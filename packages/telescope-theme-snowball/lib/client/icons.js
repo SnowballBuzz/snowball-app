@@ -24,7 +24,7 @@ Telescope.utils.icons = {
   more: "ellipsis", //updated
   menu: "icon-menu", //updated
   subscribe: "icon-register",
-  delete: "icon-eraser", //updated
+  delete: "icon-trash", //updated
   edit: "icon-pencil", //updated
   popularity: "icon-bullhorn", //updated
   time: "icon-clock3", //updated

@@ -1,28 +1,32 @@
 <template name="sb_postsLoadMore">
     <div class="posts-load-more">
       {{#if isLoggedIn}}
-          {{#if postsReady}}
-            {{#if hasPosts}}
-                {{#if showLoadMoreButton}}
-                    <a class="more-button" href="#"><span>{{_ "load_more"}}</span></a>
-                {{/if}}
-                {{#if showInfiniteScroll}}
-                    <div class="posts-loading">{{> loading}}</div>
-                {{/if}}
-            {{else}}
-                <div class="no-posts" text-align="center">
-                  {{_ "sorry_we_couldnt_find_any_posts"}}
-                  <br><br>
-                  <div class="center-text">
-                    <a href="{{pathFor 'Channels'}}" class="btn btn-default btn-block">
-                      Join a Group
-                    </a>
-                  </div>
-                </div>
+        {{#if postsReady}}
+          {{#if hasPosts}}
+            {{#if showLoadMoreButton}}
+                <a class="more-button" href="#"><span>{{_ "load_more"}}</span></a>
+            {{/if}}
+            {{#if showInfiniteScroll}}
+                <div class="posts-loading">{{> loading}}</div>
             {{/if}}
           {{else}}
-              <div class="posts-loading">{{> loading}}</div>
+              <div class="no-posts" text-align="center">
+                {{#if isChannel}}
+                    Please post the first idea in this group
+                {{else}}
+                  {{_ "sorry_we_couldnt_find_any_posts"}}
+                    <br><br>
+                    <div class="center-text">
+                        <a href="{{pathFor 'Channels'}}" class="btn btn-default btn-block">
+                            Join a Group
+                        </a>
+                    </div>
+                {{/if}}
+              </div>
           {{/if}}
+        {{else}}
+            <div class="posts-loading">{{> loading}}</div>
+        {{/if}}
       {{else}}
           <div class="center-text"><a href="{{pathFor 'signIn'}}">{{_ "please_sign_in_first"}}</a></div>
       {{/if}}

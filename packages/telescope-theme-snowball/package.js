@@ -199,6 +199,7 @@ Package.onUse(function (api) {
     'lib/client/templates/posts/sb_post_template.html',
     'lib/client/templates/posts/post_link_overlay.html',
     'lib/client/templates/posts/sb_postsLoadMore.html',
+    'lib/client/templates/posts/sb_postsLoadMore.js',
     'lib/client/templates/posts/sb_posts_list_compact.html',
     'lib/client/templates/posts/sb_posts_list_compact.js',
     'lib/client/templates/posts/sb_main_posts_list.html',

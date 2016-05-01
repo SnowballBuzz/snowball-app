@@ -151,6 +151,6 @@ if (Meteor.settings.public.groupId) {
   ], {
     except: ["Channel", "postPage", "postEdit", "signIn", "signUp", "signOut", "changePwd",
       "forgotPwd", 'atForgotPwd', "resetPwd", "enrollAccount", "verifyEmail", "userProfile", "userEdit",
-      "adminSettings", "adminUsers", "adminPages", "adminFeeds", "adminCategories"]
+      "adminSettings", "adminUsers", "adminPages", "adminFeeds", "adminCategories", "commentEdit"]
   });
 }
