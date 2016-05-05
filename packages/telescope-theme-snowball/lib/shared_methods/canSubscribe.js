@@ -41,5 +41,24 @@ Meteor.methods({
     }
 
     return match;
+  },
+  emailCanSubscribe: function (email, groupId) {
+    var group = Categories.findOne(groupId);
+    if (group.isPrivate) {
+      var result = false;
+      if (group.allowedEmails) {
+        var allowedEmails = group.allowedEmails.split('\n');
+        result = allowedEmails.indexOf(email) > -1;
+      }
+      if (group.allowedDomains && !result) {
+        var allowedDomains = group.allowedDomains.split('\n');
+        var emailDomain = email.match(/[^@]+$/, "")[0];
+        result = allowedDomains.indexOf(emailDomain) > -1;
+      }
+      return result;
+    } else (!group.isPrivate)
+    {
+      return true;
+    }
   }
 });

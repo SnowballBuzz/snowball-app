@@ -19,15 +19,30 @@ Template.private_channel_modal.helpers({
 });
 
 Template.private_channel_modal.events({
-  'submit #privateChannelEmail': function(e,t){
+  'submit #privateChannelEmail': function (e, t) {
     e.preventDefault();
     var email = e.target.email.value;
+    var group = this;
+    var groupId = group._id;
     Modal.hide('private_channel_modal');
-    Meteor.call('addAndVerifyEmail', Meteor.user(), email);
-    alert("Success! We've just sent you a validation email. Please check your inbox to join this private group.");
+    // console.log(e.target.email.value);
+    //todo: left off here
+    Meteor.call('addAndVerifyEmail', Meteor.user(), email, function (err, res) {
+      Meteor.call('emailCanSubscribe', email, groupId, function (err, res) {
+        if (err) {
+          alert('Error!');
+        } else if (!res) {
+          console.log(res);
+          alert("Sorry, it looks like you don't have the right email address to join this channel.");
+        } else if(res) {
+          console.log(res);
+          alert("Good news, this email address is valid to join " + group.name + "! Please check your mailbox to verify your email.");
+        }
+      });
+    });
   },
-  'click .resendVerification': function(e,t){
-    Meteor.call('verifyUnverifiedAccounts', function(){
+  'click .resendVerification': function (e, t) {
+    Meteor.call('verifyUnverifiedAccounts', function () {
       Modal.hide('private_channel_modal');
       alert('Success! We sent you a new verification link.');
     });

@@ -53,6 +53,7 @@ Template.channels.helpers({
 
 Template.channels.events({
   'click button.subscribe-button': function (e) {
+    console.log('event', e);
     Messages.clearSeen();
     var channelId = $(e.target).attr("channel-id");
     Meteor.call('joinGroup', channelId, Meteor.userId());
