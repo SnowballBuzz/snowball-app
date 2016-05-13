@@ -8,6 +8,23 @@ Meteor.methods({
     var groupLink = Settings.get('siteUrl', Meteor.absoluteUrl()).replace(/\/+$/, "") + FlowRouter.path('Channel', {groupId: groupId});
     subject = subject.replace('{group}', group.name).replace('{sender_name}', user.telescope.displayName);
     html = html.replace('{group}', '<a href="' + groupLink + '">' + group.name + '</a>').replace('{sender_name}', user.telescope.displayName);
+    var sendEmails = function (userId, newUser, person, groupId, subject, content) {
+      //userId, newUser, person, groupId, subject, content
+      var loginToken = LoginLinks.generateAccessToken(userId);
+      var url = newUser ?
+        Settings.get('siteUrl', Meteor.absoluteUrl()).replace(/\/+$/, "") +
+        FlowRouter.path('Channel', {groupId: groupId}, {email: person.email, token: loginToken})
+        : groupLink;
+      console.log(url);
+      var link = '<a href="' + url + '">Sign in to join the discussion</a>';
+      content = content.replace('{recipient_name}', person.name).replace('{link}', link);
+      subject = subject.replace('{recipient_name', person.name);
+      content = Telescope.email.buildTemplate(content);
+      // console.log(html, subject, content);
+      Meteor.setTimeout(function () {
+        Telescope.email.send(person.combinedEmail, subject, content);
+      }, 1);
+    }
     people.forEach(function (person) {
       var content = html;
       if (person.name) {
@@ -19,30 +36,28 @@ Meteor.methods({
       var user = Users.findOne({'telescope.email': person.email});
       var newUser = typeof user === 'undefined';
       if (newUser) {
-        //only add invites for new users
-        var invite = Invites.findOne({invitedUserEmail: person.email});
-        if (typeof invite === 'undefined') {
-          invite = Invites.insert({
-            invitedUserEmail: person.email,
-            groupId: groupId,
-            invitingUserId: Meteor.userId()
-          });
-          invite = Invites.findOne(invite);
-        }
+        console.log('new user, creating username');
+        Meteor.call('generateUniqueUsername', person.name, function (err, username) {
+          console.log('username: ', username);
+          var userId = Accounts.createUser({username: username, email: person.email, profile: {name: person.name}});
+          user = Users.findOne(userId);
+          Users.update({_id: userId}, {$set: {subscribedChannelsIds: [groupId]}});
+          sendEmails (userId, newUser, person, groupId, subject, content);
+          //only add invites for new users
+          // var invite = Invites.findOne({invitedUserEmail: person.email});
+          // if (typeof invite === 'undefined') {
+          //   invite = Invites.insert({
+          //     invitedUserEmail: person.email,
+          //     groupId: groupId,
+          //     invitingUserId: Meteor.userId()
+          //   });
+          //   invite = Invites.findOne(invite);
+          // }
+        });
+      } else {
+        var userId = user._id;
+        sendEmails (userId, newUser, person, groupId, subject, content);
       }
-      var url = newUser ? Settings.get('siteUrl', Meteor.absoluteUrl()).replace(/\/+$/, "") +
-      FlowRouter.path('signUp', {}, {
-        email: person.email,
-        inviteId: invite._id
-      }) : Settings.get('siteUrl', Meteor.absoluteUrl()).replace(/\/+$/, "") + FlowRouter.path('Channel', {id: groupId});
-      var link = '<a href="' + url + '">Sign in to join the discussion</a>';
-      content = content.replace('{recipient_name}', person.name).replace('{link}', link);
-      subject = subject.replace('{recipient_name', person.name);
-      content = Telescope.email.buildTemplate(content);
-      // console.log(html, subject, content);
-      Meteor.setTimeout(function () {
-        Telescope.email.send(person.combinedEmail, subject, content);
-      }, 1);
     });
     var cat = Categories.findOne(groupId);
     Categories.update({_id: groupId}, {$set: {allowedEmails: (cat.allowedEmails + '\n' + _.pluck(people, 'email').join('\n'))}});

@@ -118,6 +118,17 @@ AccountsTemplates.knownRoutes.push('signOut');
 
 FlowRouter.triggers.enter([
   function (context) {
+    if (context.queryParams.token) {
+      console.log('logging in with token: ' + context.queryParams.token);
+      LoginLinks.loginWithToken(context.queryParams.token, function(err){
+        console.log(err,this);
+      });
+    }
+  }
+]);
+
+FlowRouter.triggers.enter([
+  function (context) {
     BlazeLayout.render("layout", {main: "main_posts_list"});
     if (!Meteor.userId()) {
       console.log('not logged in, redirecting');
@@ -144,7 +155,7 @@ if (Meteor.settings.public.groupId) {
   FlowRouter.triggers.enter([
     function (context) {
       console.log('rerouting from ' + context.route.name);
-      if(context.params.groupId !== Meteor.settings.public.groupId){
+      if (context.params.groupId !== Meteor.settings.public.groupId) {
         FlowRouter.go('Channel', {groupId: Meteor.settings.public.groupId});
       }
     }

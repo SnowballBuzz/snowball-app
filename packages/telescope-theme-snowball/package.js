@@ -43,7 +43,8 @@ Package.onUse(function (api) {
     'telescope:messages@0.25.6',
     'babrahams:editable-list@0.4.10',
     'dburles:mongo-collection-instances@0.3.5',
-    'telescope:invites@0.25.6'
+    'telescope:invites@0.25.6',
+    'loren:login-links@0.1.1'
   ], ['client', 'server']);
   api.use([
     //'promise'
@@ -79,7 +80,8 @@ Package.onUse(function (api) {
     'lib/channelsSearchIndex.js',
     'lib/shared_methods/xPostsCourier.js',
     // 'lib/invitesCollection.js'
-    'lib/shared_methods/userHooks.js'
+    'lib/shared_methods/userHooks.js',
+    'lib/loginLinksConfig.js'
   ], ['client', 'server']);
   api.addFiles([
     'lib/server/pushCourier.js',
@@ -92,6 +94,7 @@ Package.onUse(function (api) {
     'lib/server/accountsConfig.js',
     'lib/server/sendInviteEmails.js',
     'lib/server/groupInvite.handlebars',
+    'lib/server/generateUniqueUsername.js'
   ], ['server']);
 
   api.addFiles([
