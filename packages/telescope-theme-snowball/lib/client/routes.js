@@ -118,7 +118,7 @@ AccountsTemplates.knownRoutes.push('signOut');
 
 FlowRouter.triggers.enter([
   function (context) {
-    if (context.queryParams.token) {
+    if (context.queryParams.token && !Meteor.userId()) {
       console.log('logging in with token: ' + context.queryParams.token);
       LoginLinks.loginWithToken(context.queryParams.token, function(err){
         console.log(err,this);
