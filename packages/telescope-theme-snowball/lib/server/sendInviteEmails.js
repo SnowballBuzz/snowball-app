@@ -5,19 +5,19 @@ Meteor.methods({
     console.log(people);
     var group = Categories.findOne(groupId);
     var user = Meteor.user();
-    var groupLink = Settings.get('siteUrl', Meteor.absoluteUrl()).replace(/\/+$/, "") + FlowRouter.path('Channel', {groupId: groupId});
     subject = subject.replace('{group}', group.name).replace('{sender_name}', user.telescope.displayName);
-    html = html.replace('{group}', '<a href="' + groupLink + '">' + group.name + '</a>').replace('{sender_name}', user.telescope.displayName);
     var sendEmails = function (userId, newUser, person, groupId, subject, content) {
       //userId, newUser, person, groupId, subject, content
       var loginToken = LoginLinks.generateAccessToken(userId);
+      var groupLink = Settings.get('siteUrl', Meteor.absoluteUrl()).replace(/\/+$/, "") + FlowRouter.path('Channel', {groupId: groupId}, {token: loginToken});
       var url = newUser ?
         Settings.get('siteUrl', Meteor.absoluteUrl()).replace(/\/+$/, "") +
         FlowRouter.path('Channel', {groupId: groupId}, {email: person.email, token: loginToken})
         : groupLink;
-      console.log(url);
+      // console.log(url);
       var link = '<a href="' + url + '">Sign in to join the discussion</a>';
       content = content.replace('{recipient_name}', person.name).replace('{link}', link);
+      content = content.replace('{group}', '<a href="' + groupLink + '">' + group.name + '</a>').replace('{sender_name}', user.telescope.displayName);
       subject = subject.replace('{recipient_name', person.name);
       content = Telescope.email.buildTemplate(content);
       // console.log(html, subject, content);

@@ -79,9 +79,9 @@ Package.onUse(function (api) {
     'lib/server/permissions.js',
     'lib/channelsSearchIndex.js',
     'lib/shared_methods/xPostsCourier.js',
-    // 'lib/invitesCollection.js'
     'lib/shared_methods/userHooks.js',
     'lib/loginLinksConfig.js'
+    // 'lib/invitesCollection.js'
   ], ['client', 'server']);
   api.addFiles([
     'lib/server/pushCourier.js',

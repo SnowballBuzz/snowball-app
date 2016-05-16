@@ -26,7 +26,6 @@ Template.private_channel_modal.events({
     var groupId = group._id;
     Modal.hide('private_channel_modal');
     // console.log(e.target.email.value);
-    //todo: left off here
     Meteor.call('addAndVerifyEmail', Meteor.user(), email, function (err, res) {
       Meteor.call('emailCanSubscribe', email, groupId, function (err, res) {
         if (err) {
