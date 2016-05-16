@@ -34,6 +34,9 @@ Template.layout.onCreated(function () {
 });
 
 Template.logo.helpers({
+  logoUrl: function(){
+    return Settings.get('logoUrl');
+  },
   title: function () {
     console.log('on ', FlowRouter.getRouteName());
     return FlowRouter.getRouteName();
