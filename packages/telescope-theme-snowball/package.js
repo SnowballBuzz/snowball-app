@@ -94,7 +94,8 @@ Package.onUse(function (api) {
     'lib/server/accountsConfig.js',
     'lib/server/sendInviteEmails.js',
     'lib/server/groupInvite.handlebars',
-    'lib/server/generateUniqueUsername.js'
+    'lib/server/generateUniqueUsername.js',
+    'lib/server/templates/sb_emailPostItem.handlebars'
   ], ['server']);
 
   api.addFiles([
