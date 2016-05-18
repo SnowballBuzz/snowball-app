@@ -50,15 +50,6 @@ FlowRouter.route('/submit', {
   }
 });
 
-//overriding logout hook to remove message
-//FlowRouter.route('/sign-out', {
-//  name: "signOut",
-//  triggersEnter: [function(context, redirect) {
-//    AccountsTemplates.logout();
-//Messages.flash(i18n.t("you_have_been_logged_out"));
-//  }]
-//});
-
 
 AccountsTemplates.configure({
   homeRoutePath: '/',
@@ -100,6 +91,14 @@ AccountsTemplates.configureRoute('verifyEmail', {
   contentRegion: 'main'
 });
 AccountsTemplates.knownRoutes.push('signOut');
+// overriding logout hook to attempt to fix latency
+FlowRouter.route('/sign-out', {
+  name: "signOut",
+  triggersEnter: [function(context, redirect) {
+    AccountsTemplates.logout();
+    Messages.flash(i18n.t("you_have_been_logged_out"));
+  }]
+});
 
 // FlowRouter.triggers.enter([
 //   function () {
