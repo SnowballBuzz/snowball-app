@@ -37,8 +37,14 @@ Meteor.methods({
           //if it returns false
         } else {
           console.log(err, res);
-          if (Meteor.isClient) {
-            Modal.show('private_channel_modal', channel);
+          //let the user unsubscribe even if he's not supposed to be in the group
+          if (Users.hasJoinedGroup(groupId, userId) === true) {
+            Meteor.call("unsubscribeToChannel", groupId);
+            console.log('unsubscribed');
+          } else {
+            if (Meteor.isClient) {
+              Modal.show('private_channel_modal', channel);
+            }
           }
         }
       });
