@@ -222,6 +222,10 @@ Package.onUse(function (api) {
     'lib/client/templates/utils/log_out.html',
     'lib/client/templates/sb_comments_list_compact.html',
 
+    //comments
+    'lib/client/templates/comments/sb_comment_item.html',
+    'lib/client/templates/comments/sb_comment_item.js',
+
     //textareaAdvanced
     'lib/client/autoform-textarea-advanced/afTextareaAdvanced.html',
     'lib/client/autoform-textarea-advanced/afTextareaAdvanced.js',

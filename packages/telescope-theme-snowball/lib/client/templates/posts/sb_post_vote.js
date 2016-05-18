@@ -42,6 +42,9 @@ Template.post_vote.events({
       if (Users.hasJoinedGroup(post.categories[0], Meteor.userId())) {
         Meteor.call('upvotePost', post._id, function () {
           Events.track("post upvoted", {'_id': post._id});
+          // Messages.flash(i18n.t("please_log_in_first"), "info");
+          Messages.flash('Awesome upvote! ' + '<a href="'+FlowRouter.path("postPage", {_id: post._id})+'">Post a comment?</a>', 'success');
+          setTimeout(function(){Messages.clearSeen();},5000);
         });
       } else {
         var join = confirm('Join the group to upvote this post');
@@ -51,6 +54,8 @@ Template.post_vote.events({
             if (res) {
               Meteor.call('upvotePost', post._id, function () {
                 Events.track("post upvoted", {'_id': post._id});
+                Messages.flash('Awesome upvote! ' + '<a href="'+FlowRouter.path("postPage", {_id: post._id})+'">Post a comment?</a>', 'success');
+                setTimeout(function(){Messages.clearSeen();},5000);
               });
             }
           });
@@ -82,6 +87,8 @@ Template.post_vote.events({
               console.log(res)
               Meteor.call('downvotePost', post._id, function () {
                 Events.track("post downvoted", {'_id': post._id});
+                Messages.flash('Not feeling this idea? ' + '<a href="'+FlowRouter.path("postPage", {_id: post._id})+'">Post a comment?</a>', 'success');
+                setTimeout(function(){Messages.clearSeen();},5000);
               });
             }
           });

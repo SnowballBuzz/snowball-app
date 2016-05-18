@@ -28,7 +28,10 @@
             <div class="posts-loading">{{> loading}}</div>
         {{/if}}
       {{else}}
-          <div class="center-text"><a href="{{pathFor 'signIn'}}">{{_ "please_sign_in_first"}}</a></div>
+          <div class="center-text">
+              <a href="{{pathFor 'signIn'}}">{{_ "please_sign_in_first"}}</a>
+              {{> atForm}}
+          </div>
       {{/if}}
     </div>
 </template>

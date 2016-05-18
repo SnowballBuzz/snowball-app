@@ -32,7 +32,7 @@ Telescope.modules.add('leftMobileNav', {template: 'user_points', order: 1,
   except: ['postPage', 'EditChannels', 'Channels', 'AddChannels', 'userProfile', 'commentPage', 'commentEdit']
 });
 //Back button
-Telescope.modules.add('leftMobileNav', {template: 'goBack', order: 1, only: ['postPage', 'userProfile', 'commentPage', 'EditChannels', 'AddChannels', 'profileEdit']});
+Telescope.modules.add('leftMobileNav', {template: 'goBack', order: 1, only: ['postPage', 'userProfile', 'commentPage', 'EditChannels', 'AddChannels', 'profileEdit', 'commentEdit']});
 // do we need a cancel button here? Telescope.modules.add('leftMobileNav', {template: '', order: 1, only: ['AddChannels']});
 Telescope.modules.add('leftMobileNav', {template: 'add_channel', order: 1, only: ['Channels']});
 //'add' button

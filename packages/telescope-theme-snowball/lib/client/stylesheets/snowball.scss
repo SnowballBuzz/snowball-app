@@ -176,6 +176,16 @@ html {
   }
 }
 
+.messages{
+  //position: fixed;
+  //z-index: 1;
+  //width: 95%;
+  //left: 2.5%;
+  a{
+    text-decoration: underline;
+  }
+}
+
 //login form
 .at-form {
   .at-title {
@@ -517,6 +527,7 @@ span.glyphicon.glyphicon-plus:before {
     }
     small {
       text-align: center;
+      display: block;
     }
     ul {
       color: $darkgrey;
@@ -623,22 +634,18 @@ span.glyphicon.glyphicon-plus:before {
     margin-left: 0;
     .comment-content {
       box-shadow: none;
-      //hide votes
-      .comment-actions {
-        display: none;
-      }
       .comment-meta {
         font-size: 0;
         border: none;
         * {
           font-size: initial;
         }
-        span.points, span.unit {
-          display: none;
-        }
-        .edit-link {
-          position: relative;
-          top: 5px;
+        //span.points, span.unit {
+        //  display: none;
+        //}
+        a, span{
+          vertical-align: middle;
+          margin-right: 6px;
         }
         //hide complex date
         > span:last-child {
