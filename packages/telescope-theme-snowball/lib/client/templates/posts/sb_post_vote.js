@@ -78,6 +78,8 @@ Template.post_vote.events({
       if (Users.hasJoinedGroup(post.categories[0], Meteor.userId())) {
         Meteor.call('downvotePost', post._id, function () {
           Events.track("post downvoted", {'_id': post._id});
+          Messages.flash('Not feeling this idea? ' + '<a href="'+FlowRouter.path("postPage", {_id: post._id})+'">Post a comment?</a>', 'success');
+          setTimeout(function(){Messages.clearSeen();},5000);
         });
       } else {
         var join = confirm('Join the group to downvote this post');

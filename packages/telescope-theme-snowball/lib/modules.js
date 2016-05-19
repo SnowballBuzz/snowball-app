@@ -20,9 +20,7 @@ Telescope.modules.remove('profileEdit','afArrayField_bootstrap3-horizontal');
 //add
 
 //header
-Telescope.modules.add('logoArea', {template: 'logo', order: 1,
-  except: ['Channel', 'signIn', 'signUp', 'postPage']
-});
+Telescope.modules.add('logoArea', {template: 'logo', order: 1, except: ['Channel', 'signIn', 'signUp', 'postPage']});
 Telescope.modules.add('logoArea', {template: 'channel_title', order: 1, only: ['Channel', 'postPage']});
 Telescope.modules.add('logoArea', {template: 'signin_title', order: 1, only: ['signIn']});
 Telescope.modules.add('logoArea', {template: 'signup_title', order: 1, only: ['signUp']});
